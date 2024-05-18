@@ -8,6 +8,8 @@ import Reviews from "./reviews";
 import ItemWish from "./ItemWish";
 import ShopCart from "./CartModel";
 import SideBarCus from "./SideBarCustomer";
+import SideBar from "./Sidebar";
+import TopBar from "./Topbar";
 export {
   Footer,
   Navbar,
@@ -19,4 +21,6 @@ export {
   ItemWish,
   ShopCart,
   SideBarCus,
+  SideBar,
+  TopBar,
 };

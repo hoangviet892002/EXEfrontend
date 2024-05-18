@@ -11,6 +11,10 @@ import Setting from "./Setting";
 import Address from "./address";
 import PaymentMethodPage from "./payment-method";
 import Checkout from "./Checkout";
+import Products from "./Admin/Products";
+import CreateProducts from "./Admin/CreateProducts";
+import DetailsProducts from "./Admin/DetailsProducts";
+import EditProducts from "./Admin/EditProducts";
 export {
   HomePage,
   ShopPage,
@@ -25,4 +29,8 @@ export {
   Address,
   PaymentMethodPage,
   Checkout,
+  Products,
+  CreateProducts,
+  DetailsProducts,
+  EditProducts,
 };

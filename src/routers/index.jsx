@@ -15,6 +15,10 @@ import {
   Address,
   PaymentMethodPage,
   Checkout,
+  Products,
+  CreateProducts,
+  DetailsProducts,
+  EditProducts,
 } from "../pages";
 
 const Router = () => {
@@ -39,6 +43,11 @@ const Router = () => {
         <Route path="/address" element={<Address />} />
         <Route path="/payment-method" element={<PaymentMethodPage />} />
         <Route path="/check-out" element={<Checkout />} />
+
+        <Route path="/admin/products" element={<Products />} />
+        <Route path="/admin/products/add" element={<CreateProducts />} />
+        <Route path="/admin/products/:id" element={<DetailsProducts />} />
+        <Route path="/admin/products/:id/edit" element={<EditProducts />} />
       </Routes>
     </div>
   );

@@ -10284,10 +10284,10 @@ progress {
   --bs-table-hover-bg: #132f3b;
   --bs-table-hover-color: #fff;
 }
-.table-responsive {
+/* .table-responsive {
   -webkit-overflow-scrolling: touch;
   overflow-x: auto;
-}
+} */
 @media (max-width: 575.98px) {
   .table-responsive-sm {
     -webkit-overflow-scrolling: touch;

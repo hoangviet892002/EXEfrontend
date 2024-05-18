@@ -18,13 +18,11 @@ const Footer = () => {
                     </li>
                     <li className="nav-item mb-2">
                       <a href="pages/shop-grid.html" className="nav-link">
-                        {" "}
                         Breakfast & instant food
                       </a>
                     </li>
                     <li className="nav-item mb-2">
                       <a href="pages/shop-grid.html" className="nav-link">
-                        {" "}
                         Bakery & Biscuits
                       </a>
                     </li>
@@ -45,7 +43,6 @@ const Footer = () => {
                     </li>
                     <li className="nav-item mb-2">
                       <a href="pages/shop-grid.html" className="nav-link">
-                        {" "}
                         Baby care
                       </a>
                     </li>
@@ -70,13 +67,11 @@ const Footer = () => {
                     </li>
                     <li className="nav-item mb-2">
                       <a href="pages/shop-grid.html" className="nav-link">
-                        {" "}
                         Cold drinks & juices
                       </a>
                     </li>
                     <li className="nav-item mb-2">
                       <a href="pages/shop-grid.html" className="nav-link">
-                        {" "}
                         Tea, coffee & drinks
                       </a>
                     </li>
@@ -97,7 +92,6 @@ const Footer = () => {
                     </li>
                     <li className="nav-item mb-2">
                       <a href="pages/shop-grid.html" className="nav-link">
-                        {" "}
                         Pharma & wellness
                       </a>
                     </li>
@@ -322,7 +316,6 @@ const Footer = () => {
                   <li className="list-inline-item text-muted">Follow us on</li>
                   <li className="list-inline-item me-1">
                     <a href="#!" className="icon-shape icon-sm social-links">
-                      {" "}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
@@ -337,7 +330,6 @@ const Footer = () => {
                   </li>
                   <li className="list-inline-item me-1">
                     <a href="#!" className="icon-shape icon-sm social-links">
-                      {" "}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
