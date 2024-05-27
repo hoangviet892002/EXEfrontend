@@ -1,17 +1,32 @@
+import { useState } from "react";
 import {
   Footer,
   Navbar,
   CardProductV1,
   ModelProduct,
   ShopCart,
+  Pagination,
+  MultiRangeSlider,
 } from "../../components";
 
 const ShopPage = () => {
+  const [min, setMin] = useState(0);
+  const [max, setMax] = useState(100);
+  const handleRangeChange = (minVal, maxVal) => {
+    setMin(minVal);
+    setMax(maxVal);
+  };
   const categories = [
     "Dairy, Bread & Eggs",
     "Snacks & Munchies",
     "Fruits & Vegetables",
   ];
+  const [selectedPage, setSelectedPage] = useState(1);
+
+  const handlePageChange = (page) => {
+    setSelectedPage(page);
+    console.log(`Selected page: ${page}`);
+  };
   return (
     <>
       <Navbar />
@@ -69,14 +84,11 @@ const ShopPage = () => {
                   <div class="col">
                     <div class="card mb-4 mb-lg-0">
                       <div class="card-body p-6">
-                        <div>
-                          <h5 class="mb-3">Price</h5>
-                          <div>
-                            <div id="priceRange" class="mb-3"></div>
-                            <small class="text-muted">Price:</small>{" "}
-                            <span id="priceRange-value" class="small"></span>
-                          </div>
-                        </div>
+                        <MultiRangeSlider
+                          min={0}
+                          max={100}
+                          onChange={handleRangeChange}
+                        />
                       </div>
                     </div>
                   </div>
@@ -207,52 +219,12 @@ const ShopPage = () => {
                 <CardProductV1 />
                 <CardProductV1 />
               </div>
-              <div class="row mt-8">
-                <div class="col">
-                  <nav>
-                    <ul class="pagination">
-                      <li class="page-item disabled">
-                        <a
-                          class="page-link  mx-1 rounded-3 "
-                          href="#"
-                          aria-label="Previous"
-                        >
-                          <i class="feather-icon icon-chevron-left"></i>
-                        </a>
-                      </li>
-                      <li class="page-item ">
-                        <a class="page-link  mx-1 rounded-3 active" href="#">
-                          1
-                        </a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link mx-1 rounded-3 text-body" href="#">
-                          2
-                        </a>
-                      </li>
-
-                      <li class="page-item">
-                        <a class="page-link mx-1 rounded-3 text-body" href="#">
-                          ...
-                        </a>
-                      </li>
-                      <li class="page-item">
-                        <a class="page-link mx-1 rounded-3 text-body" href="#">
-                          12
-                        </a>
-                      </li>
-                      <li class="page-item">
-                        <a
-                          class="page-link mx-1 rounded-3 text-body"
-                          href="#"
-                          aria-label="Next"
-                        >
-                          <i class="feather-icon icon-chevron-right"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
+              <div class="">
+                <Pagination
+                  total={10}
+                  selected={selectedPage}
+                  onChange={handlePageChange}
+                />
               </div>
             </div>
           </div>

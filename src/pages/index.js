@@ -15,6 +15,7 @@ import Products from "./Admin/Products";
 import CreateProducts from "./Admin/CreateProducts";
 import DetailsProducts from "./Admin/DetailsProducts";
 import EditProducts from "./Admin/EditProducts";
+import CategoriesPages from "./Admin/Categories";
 export {
   HomePage,
   ShopPage,
@@ -33,4 +34,5 @@ export {
   CreateProducts,
   DetailsProducts,
   EditProducts,
+  CategoriesPages,
 };

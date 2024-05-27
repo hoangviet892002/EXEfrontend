@@ -10,6 +10,8 @@ import ShopCart from "./CartModel";
 import SideBarCus from "./SideBarCustomer";
 import SideBar from "./Sidebar";
 import TopBar from "./Topbar";
+import Pagination from "./pagination";
+import MultiRangeSlider from "./MultiRangeSlider";
 export {
   Footer,
   Navbar,
@@ -23,4 +25,6 @@ export {
   SideBarCus,
   SideBar,
   TopBar,
+  Pagination,
+  MultiRangeSlider,
 };

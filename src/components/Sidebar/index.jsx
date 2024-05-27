@@ -1,27 +1,18 @@
 import React from "react";
 import logo from "../../../assets/images/logo/freshcart-logo.svg";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const SideBar = () => {
   return (
     <>
       <div class="leftside-menu">
-        <a href="index.html" class="logo text-center logo-light">
+        <Link to="/admin" class="logo text-center logo-light">
           <span class="logo-lg">
             <img src={logo} alt="" height="16" />
           </span>
           <span class="logo-sm">
             <img src="assets/images/logo_sm.png" alt="" height="16" />
           </span>
-        </a>
-
-        <a href="index.html" class="logo text-center logo-dark">
-          <span class="logo-lg">
-            <img src="assets/images/logo-dark.png" alt="" height="16" />
-          </span>
-          <span class="logo-sm">
-            <img src="assets/images/logo_sm_dark.png" alt="" height="16" />
-          </span>
-        </a>
+        </Link>
 
         <div class="h-100" id="leftside-menu-container" data-simplebar>
           <ul class="side-nav">
@@ -53,6 +44,23 @@ const SideBar = () => {
                   <a class="side-nav-link">
                     <i class="feather-icon icon-home"></i>
                     <span> Products </span>
+                  </a>
+                </div>
+              )}
+            </NavLink>
+
+            <NavLink class="side-nav-item" to="/admin/categories">
+              {({ isActive }) => (
+                <div
+                  style={{
+                    background: isActive ? "#336699" : "transparent",
+                    borderRadius: "10px",
+                    margin: "10px",
+                  }}
+                >
+                  <a class="side-nav-link">
+                    <i class="feather-icon icon-home"></i>
+                    <span> Category </span>
                   </a>
                 </div>
               )}

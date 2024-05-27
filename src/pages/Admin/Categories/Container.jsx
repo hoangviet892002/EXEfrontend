@@ -15,7 +15,7 @@ const Container = () => {
       <div class="row">
         <div class="col-12">
           <div class="page-title-box">
-            <h4 class="page-title">Orders</h4>
+            <h4 class="page-title">Categories</h4>
           </div>
         </div>
       </div>
@@ -26,9 +26,14 @@ const Container = () => {
             <div class="card-body">
               <div class="row mb-2">
                 <div class="col-xl-5">
-                  <Link to="add" class="btn btn-danger mb-2">
-                    <i class="mdi mdi-plus-circle me-2"></i> Add Products
-                  </Link>
+                  <a
+                    href="#"
+                    class="btn btn-outline-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addCategoryModal"
+                  >
+                    Add new a categories
+                  </a>
                 </div>
                 <div class="col-sm-7">
                   <div class="text-sm-end">
@@ -53,13 +58,9 @@ const Container = () => {
                 <table class="table table-centered table-nowrap mb-0">
                   <thead class="table-light">
                     <tr>
-                      <th class="all">Product</th>
-                      <th>Category</th>
-                      <th>Added Date</th>
-                      <th>Price</th>
-                      <th>Quantity</th>
-                      <th>Status</th>
-                      <th style={{ width: "85px" }}>Action</th>
+                      <th class="all">Category</th>
+
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>

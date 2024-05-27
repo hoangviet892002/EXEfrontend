@@ -87,17 +87,41 @@ const Container = () => {
                       Categories
                     </label>
 
-                    <select class="form-control select2" data-toggle="select2">
-                      <option>Select</option>
-                      <option value="AZ">Mary Scott</option>
-                      <option value="CO">Holly Campbell</option>
-                      <option value="ID">Beatrice Mills</option>
-                      <option value="MT">Melinda Gills</option>
-                      <option value="NE">Linda Garza</option>
-                      <option value="NM">Randy Ortez</option>
-                      <option value="ND">Lorene Block</option>
-                      <option value="UT">Mike Baker</option>
-                    </select>
+                    <div class="form-control select2" data-toggle="select2">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value="in-store"
+                          id="in-store"
+                        />
+                        <label class="form-check-label" for="in-store">
+                          In-store selling only
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value="online"
+                          id="online"
+                        />
+                        <label class="form-check-label" for="online">
+                          Online selling only
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value="both"
+                          id="both"
+                        />
+                        <label class="form-check-label" for="both">
+                          Available both in-store and online
+                        </label>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
