@@ -1,5 +1,7 @@
 import { ItemWish } from "../../components";
+import useHook from "./hooks/useHook";
 const WishContainer = () => {
+  const { wishList, clearWish } = useHook();
   return (
     <>
       <section class="my-14">
@@ -8,7 +10,16 @@ const WishContainer = () => {
             <div class="offset-lg-1 col-lg-10">
               <div class="mb-8">
                 <h1 class="mb-1">My Wishlist</h1>
-                <p>There are 5 products in this wishlist.</p>
+                <p>There are {wishList.length} products in this wishlist.</p>
+                <button
+                  className="btn btn-primary"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    clearWish();
+                  }}
+                >
+                  Clear
+                </button>
               </div>
               <div>
                 <div class="table-responsive">
@@ -18,16 +29,14 @@ const WishContainer = () => {
                         <th></th>
                         <th>Product</th>
                         <th>Amount</th>
-                        <th>Status</th>
                         <th>Actions</th>
                         <th>Remove</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <ItemWish />
-                      <ItemWish />
-                      <ItemWish />
-                      <ItemWish />
+                      {wishList.map((wish) => (
+                        <ItemWish product={wish} />
+                      ))}
                     </tbody>
                   </table>
                 </div>

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../redux/actions/userAction";
 import logo from "../../../assets/images/logo/freshcart-logo.svg";
+import useHook from "./hooks/useHook";
+import { pickType } from "../../redux/actions/megaMenuAction";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -12,6 +14,9 @@ const Navbar = () => {
     event.preventDefault();
     dispatch(logout());
   };
+
+  const { megaMenu, wishList, listCart } = useHook();
+  console.log(megaMenu);
   return (
     <div class="border-bottom pb-5">
       <nav class="navbar navbar-light py-lg-5 pt-3 px-0 pb-0">
@@ -93,34 +98,35 @@ const Navbar = () => {
                       <path d="M16 10a4 4 0 0 1-8 0"></path>
                     </svg>
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
-                      1<span class="visually-hidden">unread messages</span>
+                      {listCart.length}
+                      <span class="visually-hidden">unread messages</span>
                     </span>
                   </a>
                 </div>
+                <div class="list-inline-item">
+                  <Link to="/wishlist" class="text-muted position-relative">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-heart"
+                    >
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                      {wishList.length}
+                      <span class="visually-hidden">unread messages</span>
+                    </span>
+                  </Link>
+                </div>
                 {user.isLoggedIn ? (
                   <>
-                    <div class="list-inline-item">
-                      <Link to="/wishlist" class="text-muted position-relative">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="feather feather-heart"
-                        >
-                          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                        </svg>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
-                          5<span class="visually-hidden">unread messages</span>
-                        </span>
-                      </Link>
-                    </div>
-
                     <div className="list-inline-item">
                       <a
                         class="text-muted position-relative "
@@ -479,95 +485,24 @@ const Navbar = () => {
                   </a>
                   <div class=" dropdown-menu pb-0">
                     <div class="row p-2 p-lg-4">
-                      <div class="col-lg-3 col-6 mb-4 mb-lg-0">
-                        <h6 class="text-primary ps-3">Dairy, Bread & Eggs</h6>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Butter
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Milk Drinks
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Curd & Yogurt
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Eggs
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Buns & Bakery
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Cheese
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Condensed Milk
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Dairy Products
-                        </a>
-                      </div>
-                      <div class="col-lg-3 col-6 mb-4 mb-lg-0">
-                        <h6 class="text-primary ps-3">
-                          Breakfast & Instant Food
-                        </h6>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Breakfast Cereal
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          {" "}
-                          Noodles, Pasta & Soup
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Frozen Veg Snacks
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          {" "}
-                          Frozen Non-Veg Snacks
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          {" "}
-                          Vermicelli
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          {" "}
-                          Instant Mixes
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          {" "}
-                          Batter
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          {" "}
-                          Fruit and Juices
-                        </a>
-                      </div>
-                      <div class="col-lg-3 col-12 mb-4 mb-lg-0">
-                        <h6 class="text-primary ps-3">Cold Drinks & Juices</h6>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Soft Drinks
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Fruit Juices
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Coldpress
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Water & Ice Cubes
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Soda & Mixers
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Health Drinks
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Herbal Drinks
-                        </a>
-                        <a class="dropdown-item" href="pages/shop-grid.html">
-                          Milk Drinks
-                        </a>
-                      </div>
+                      {megaMenu.map((category) => (
+                        <div class="col-lg-3 col-6 mb-4 mb-lg-0">
+                          <h6 class="text-primary ps-3">{category.name}</h6>
+                          {category.categoryTypes.map((type) => (
+                            <div
+                              onClick={(e) => {
+                                e.preventDefault();
+                                dispatch(pickType(type.id));
+                              }}
+                            >
+                              <Link to="/shop" class="dropdown-item">
+                                {type.name}
+                              </Link>
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+
                       <div class="col-lg-3 col-12 mb-4 mb-lg-0">
                         <div class="card border-0">
                           <img

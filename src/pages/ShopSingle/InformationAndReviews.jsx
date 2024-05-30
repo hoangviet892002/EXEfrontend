@@ -1,5 +1,7 @@
 import { Reviews } from "../../components";
+import useHook from "./hooks/useHook";
 const InforScreens = () => {
+  const { product } = useHook();
   return (
     <>
       <section class="mt-lg-14 mt-8">
@@ -22,7 +24,7 @@ const InforScreens = () => {
                   </button>
                 </li>
 
-                <li class="nav-item" role="presentation">
+                {/* <li class="nav-item" role="presentation">
                   <button
                     class="nav-link"
                     id="details-tab"
@@ -35,7 +37,7 @@ const InforScreens = () => {
                   >
                     Information
                   </button>
-                </li>
+                </li> */}
 
                 <li class="nav-item" role="presentation">
                   <button
@@ -61,51 +63,10 @@ const InforScreens = () => {
                   aria-labelledby="product-tab"
                   tabindex="0"
                 >
-                  <div class="my-8">
-                    <div class="mb-5">
-                      <h4 class="mb-1">Nutrient Value & Benefits</h4>
-                      <p class="mb-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nisi, tellus iaculis urna bibendum in lacus, integer. Id
-                        imperdiet vitae varius sed magnis eu nisi nunc sit. Vel,
-                        varius habitant ornare ac rhoncus. Consequat risus
-                        facilisis ante ipsum netus risus adipiscing sagittis
-                        sed. Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit.
-                      </p>
-                    </div>
-                    <div class="mb-5">
-                      <h5 class="mb-1">Storage Tips</h5>
-                      <p class="mb-0">
-                        Nisi, tellus iaculis urna bibendum in lacus, integer. Id
-                        imperdiet vitae varius sed magnis eu nisi nunc sit. Vel,
-                        varius habitant ornare ac rhoncus. Consequat risus
-                        facilisis ante ipsum netus risus adipiscing sagittis
-                        sed.Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit.
-                      </p>
-                    </div>
-
-                    <div class="mb-5">
-                      <h5 class="mb-1">Unit</h5>
-                      <p class="mb-0">3 units</p>
-                    </div>
-                    <div class="mb-5">
-                      <h5 class="mb-1">Seller</h5>
-                      <p class="mb-0">DMart Pvt. LTD</p>
-                    </div>
-                    <div>
-                      <h5 class="mb-1">Disclaimer</h5>
-                      <p class="mb-0">
-                        Image shown is a representation and may slightly vary
-                        from the actual product. Every effort is made to
-                        maintain accuracy of all information displayed.
-                      </p>
-                    </div>
-                  </div>
+                  <div class="my-8">{product.product_detail}</div>
                 </div>
 
-                <div
+                {/* <div
                   class="tab-pane fade"
                   id="details-tab-pane"
                   role="tabpanel"
@@ -183,7 +144,7 @@ const InforScreens = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 <div
                   class="tab-pane fade"

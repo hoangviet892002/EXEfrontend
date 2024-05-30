@@ -1,5 +1,7 @@
 import { CardCategories } from "../../components";
+import useHook from "./hooks/useHook";
 const Categories = () => {
+  const { categories } = useHook();
   return (
     <>
       <section class="my-lg-14 my-8">
@@ -11,14 +13,9 @@ const Categories = () => {
               </div>
             </div>
             <div class="row">
-              <CardCategories />
-              <CardCategories />
-              <CardCategories />
-              <CardCategories />
-              <CardCategories />
-              <CardCategories />
-              <CardCategories />
-              <CardCategories />
+              {categories.map((category) => (
+                <CardCategories category={category} />
+              ))}
             </div>
           </div>
         </div>

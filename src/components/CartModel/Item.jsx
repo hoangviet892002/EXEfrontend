@@ -1,21 +1,23 @@
-const Item = () => {
+import useHook from "./hooks/useHook";
+
+const Item = ({ item }) => {
+  const { handleRemoveItem, UpdateQuantity } = useHook();
   return (
     <li class="list-group-item py-3 px-0 ">
       <div class="row align-items-center">
         <div class="col-2">
-          <img
-            src="../assets/images/products/product-img-1.jpg"
-            alt="Ecommerce"
-            class="img-fluid"
-          />
+          <img src={item.thumbnail} alt="Ecommerce" class="img-fluid" />
         </div>
         <div class="col-5">
-          <h6 class="mb-0">Organic Banana</h6>
-          <span>
-            <small class="text-muted">.98 / lb</small>
-          </span>
+          <h6 class="mb-0">{item.productName}</h6>
           <div class="mt-2 small">
-            <a href="#!" class="text-decoration-none">
+            <a
+              onClick={(e) => {
+                e.preventDefault();
+                handleRemoveItem(item.id);
+              }}
+              class="text-decoration-none"
+            >
               <span class="me-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -46,12 +48,16 @@ const Item = () => {
               value="-"
               class="button-minus form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
               data-field="quantity"
+              onClick={(e) => {
+                e.preventDefault();
+                if (item.number > 1) UpdateQuantity(item, -1);
+              }}
             />
             <input
               type="number"
               step="1"
               max="10"
-              value="1"
+              value={item.number}
               name="quantity"
               class="quantity-field form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
             />
@@ -60,11 +66,15 @@ const Item = () => {
               value="+"
               class="button-plus form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
               data-field="quantity"
+              onClick={(e) => {
+                e.preventDefault();
+                UpdateQuantity(item, 1);
+              }}
             />
           </div>
         </div>
         <div class="col-2 text-end">
-          <span class="fw-bold">$35.00</span>
+          <span class="fw-bold">${item.price}</span>
         </div>
       </div>
     </li>

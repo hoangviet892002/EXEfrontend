@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import Item from "./Item";
 import { Link } from "react-router-dom";
 import { Pagination } from "../../../components";
+import useHook from "./hooks/useHook";
 
 const Container = () => {
   const [selectedPage, setSelectedPage] = useState(1);
-
+  const { categories } = useHook();
   const handlePageChange = (page) => {
     setSelectedPage(page);
     console.log(`Selected page: ${page}`);
@@ -37,19 +38,7 @@ const Container = () => {
                 </div>
                 <div class="col-sm-7">
                   <div class="text-sm-end">
-                    <form class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
-                      <div class="col-auto">
-                        <label for="inputPassword2" class="visually-hidden">
-                          Search
-                        </label>
-                        <input
-                          type="search"
-                          class="form-control"
-                          id="inputPassword2"
-                          placeholder="Search..."
-                        />
-                      </div>
-                    </form>
+                    <form class="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between"></form>
                   </div>
                 </div>
               </div>
@@ -64,17 +53,11 @@ const Container = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <Item />
-                    <Item />
-                    <Item />
-                    <Item />
+                    {categories.map((category) => (
+                      <Item category={category} />
+                    ))}
                   </tbody>
                 </table>
-                <Pagination
-                  total={10}
-                  selected={selectedPage}
-                  onChange={handlePageChange}
-                />
               </div>
             </div>
           </div>

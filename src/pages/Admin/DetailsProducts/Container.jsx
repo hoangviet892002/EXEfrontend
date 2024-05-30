@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import imageproduct from "../../../../assets/images/products/product-img-6.jpg";
 import { Link } from "react-router-dom";
+import useHook from "./hooks/useHook";
+import "./style.css";
+import AddImage from "./AddImage";
 const Container = () => {
+  const { product, loading, deleteImage } = useHook();
+  const [selectPicture, setSelectPicture] = useState();
+  const handleDeleteImage = (e) => {
+    e.preventDefault();
+    deleteImage(selectPicture);
+  };
+
   return (
     <>
       <div class="row">
@@ -19,53 +29,75 @@ const Container = () => {
                 <div class="col-lg-5">
                   <a
                     href="javascript: void(0);"
-                    class="text-center d-block mb-4"
+                    class="text-center d-block mb-4 hover-image"
                   >
                     <img
-                      src={imageproduct}
-                      class="img-fluid"
+                      src={product.productImages[0].imageUrl}
+                      class="img-fluid image-hover"
                       style={{ maxWidth: "280px" }}
                       alt="Product-img"
                     />
+                    <div class="middle-hover">
+                      <div
+                        class="text-button-delete"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModalCenter"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setSelectPicture(product.productImages[0].id);
+                        }}
+                      >
+                        Delete
+                      </div>
+                    </div>
                   </a>
 
                   <div class="d-lg-flex d-none justify-content-center">
-                    <a href="javascript: void(0);">
-                      <img
-                        src={imageproduct}
-                        class="img-fluid img-thumbnail p-2"
-                        style={{ maxWidth: "75px" }}
-                        alt="Product-img"
-                      />
-                    </a>
-                    <a href="javascript: void(0);" class="ms-2">
-                      <img
-                        src={imageproduct}
-                        class="img-fluid img-thumbnail p-2"
-                        style={{ maxWidth: "75px" }}
-                        alt="Product-img"
-                      />
-                    </a>
-                    <a href="javascript: void(0);" class="ms-2">
-                      <img
-                        src={imageproduct}
-                        class="img-fluid img-thumbnail p-2"
-                        style={{ maxWidth: "75px" }}
-                        alt="Product-img"
-                      />
-                    </a>
+                    {product.productImages.slice(1).map((image) => (
+                      <a href="javascript: void(0);" class="hover-image ms-2">
+                        <img
+                          src={image.imageUrl}
+                          class="image-hover img-fluid img-thumbnail p-2"
+                          style={{ maxWidth: "75px" }}
+                          alt="Product-img"
+                        />
+                        <div class="middle-hover">
+                          <div
+                            class="text-button-delete"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModalCenter"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setSelectPicture(image.id);
+                            }}
+                          >
+                            Delete
+                          </div>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                  <div className="d-lg-flex d-none justify-content-center">
+                    <button
+                      type="button"
+                      class="btn btn-primary "
+                      data-bs-toggle="modal"
+                      data-bs-target="#addImage"
+                    >
+                      AddImage
+                    </button>
                   </div>
                 </div>
 
                 <div class="col-lg-7">
                   <form class="ps-lg-4">
                     <h3 class="mt-0">
-                      Amazing Modern Chair (Orange)
+                      {product.productName}
                       <Link to="edit" class="text-muted">
                         <i class="feather-icon icon-edit"></i>
                       </Link>
                     </h3>
-                    <p class="mb-1">Added Date: 09/12/2018</p>
+                    <p class="mb-1">Added Date: {product.createdAt}</p>
                     <p class="font-16">
                       <span class="text-warning mdi mdi-star"></span>
                       <span class="text-warning mdi mdi-star"></span>
@@ -82,19 +114,50 @@ const Container = () => {
 
                     <div class="mt-4">
                       <h6 class="font-14">Retail Price:</h6>
-                      <h3>$139.58</h3>
+                      <h3>${product.cost}</h3>
                     </div>
 
                     <div class="mt-4">
-                      <h6 class="font-14">Description:</h6>
-                      <p>
-                        It is a long established fact that a reader will be
-                        distracted by the readable content of a page when
-                        looking at its layout. The point of using Lorem Ipsum is
-                        that it has a more-or-less normal distribution of
-                        letters, as opposed to using 'Content here, content
-                        here', making it look like readable English.
-                      </p>
+                      <h6 class="font-14 ">Description:</h6>
+                      <p>{product.product_detail}</p>
+                    </div>
+                    <div class="mt-4">
+                      <h6 class="font-14 ">Dimensions:</h6>
+                      <p>{product.product_dimensions}</p>
+                    </div>
+                    {product.discount && (
+                      <div class="mt-4">
+                        <h6 class="font-14 ">Discount:</h6>
+                        <p>{product.discount}</p>
+                      </div>
+                    )}
+                    <div class="mt-4">
+                      <table class="table table-striped table-centered mb-0">
+                        <thead>
+                          <tr>
+                            <th>Type</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {product.category_type_id.map((type) => (
+                            <>
+                              {" "}
+                              <tr>
+                                <td>{type.name}</td>
+                                <td class="table-action">
+                                  <a
+                                    href="javascript: void(0);"
+                                    class="action-icon"
+                                  >
+                                    <i class="feather-icon icon-trash-2"></i>
+                                  </a>
+                                </td>
+                              </tr>
+                            </>
+                          ))}
+                        </tbody>
+                      </table>
                     </div>
 
                     <div class="mt-4">
@@ -215,6 +278,54 @@ const Container = () => {
           </div>
         </div>
       </div>
+      {/* Model */}
+      <div
+        class="modal fade"
+        id="exampleModalCenter"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">
+                Delete Image
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure delete this image? {selectPicture}
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                onClick={handleDeleteImage}
+                type="button"
+                class="btn btn-danger"
+                data-bs-dismiss="modal"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <AddImage />
     </>
   );
 };

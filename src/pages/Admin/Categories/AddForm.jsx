@@ -38,14 +38,14 @@ const AddForm = () => {
               </div>
             </div>
 
-            <div class="row g-3">
+            <form class="row g-3" onSubmit={handleSubmit}>
               <div class="col-12">
                 <input
                   type="text"
                   class="form-control"
                   placeholder="Category name"
                   aria-label="First name"
-                  required=""
+                  required
                   value={categoryName}
                   onChange={(e) => setCategoryName(e.target.value)}
                 />
@@ -59,6 +59,7 @@ const AddForm = () => {
                     id="inputGroupFile04"
                     aria-describedby="inputGroupFileAddon04"
                     aria-label="Upload"
+                    required
                   />
                 </div>
               </div>
@@ -81,16 +82,12 @@ const AddForm = () => {
                     Loading...
                   </button>
                 ) : (
-                  <button
-                    class="btn btn-primary"
-                    type="button"
-                    onClick={handleSubmit}
-                  >
+                  <button class="btn btn-primary" type="submit">
                     Save Category
                   </button>
                 )}
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>

@@ -1,6 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import useHook from "./hooks/useHook";
+import ReactSelect from "react-select";
 
 const Container = () => {
+  const { product, setProduct, loading, categoryTypes, submit } = useHook();
+  const [selectType, setSelectType] = useState([]);
+  const handleChangeOptions = (selectOption) => {
+    setSelectType(selectOption);
+  };
+  useEffect(() => {
+    const newOptions = categoryTypes.map((type) => ({
+      value: type.id,
+      label: type.name,
+    }));
+    setOptions(newOptions);
+    const type = product.category_type_id.map((type) => ({
+      value: type.id,
+      label: type.name,
+    }));
+    setSelectType(type);
+  }, [categoryTypes]);
+
+  const [options, setOptions] = useState([]);
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    submit(product, selectType);
+  };
   return (
     <>
       <div class="row">
@@ -15,7 +40,7 @@ const Container = () => {
           <div class="card">
             <div class="card-body">
               <div class="row">
-                <div class="col-xl-6">
+                <form class="col-xl-6" onSubmit={handleUpdate}>
                   <div class="mb-3">
                     <label for="projectname" class="form-label">
                       Name
@@ -23,8 +48,13 @@ const Container = () => {
                     <input
                       type="text"
                       id="projectname"
+                      value={product.productName}
+                      onChange={(e) =>
+                        setProduct({ ...product, productName: e.target.value })
+                      }
                       class="form-control"
                       placeholder="Enter project name"
+                      required
                     />
                   </div>
 
@@ -33,55 +63,99 @@ const Container = () => {
                       Overview
                     </label>
                     <textarea
+                      value={product.product_detail}
+                      onChange={(e) =>
+                        setProduct({
+                          ...product,
+                          product_detail: e.target.value,
+                        })
+                      }
                       class="form-control"
                       id="project-overview"
                       rows="5"
                       placeholder="Enter some brief about project.."
+                      required
                     ></textarea>
                   </div>
 
-                  <div class="mb-3 position-relative" id="datepicker1">
-                    <label class="form-label">Start Date</label>
+                  <div class="mb-3 position-relative">
+                    <label class="form-label">Dimension</label>
                     <input
                       type="text"
                       class="form-control"
-                      data-provide="datepicker"
-                      data-date-container="#datepicker1"
-                      data-date-format="d-M-yyyy"
-                      data-date-autoclose="true"
+                      value={product.product_dimensions}
+                      onChange={(e) =>
+                        setProduct({
+                          ...product,
+                          product_dimensions: e.target.value,
+                        })
+                      }
+                      required
                     />
                   </div>
 
                   <div class="mb-3">
                     <label for="project-budget" class="form-label">
-                      Budget
+                      Cost
                     </label>
                     <input
-                      type="text"
+                      type="number"
                       id="project-budget"
+                      value={product.cost}
+                      onChange={(e) =>
+                        setProduct({
+                          ...product,
+                          cost: e.target.value,
+                        })
+                      }
                       class="form-control"
-                      placeholder="Enter project budget"
+                      placeholder="Enter cost"
                     />
                   </div>
-
-                  <div class="mb-0">
+                  <div class="mb-3">
+                    <label for="project-budget" class="form-label">
+                      Discount
+                    </label>
+                    <input
+                      type="number"
+                      id="project-budget"
+                      value={product.discount}
+                      onChange={(e) =>
+                        setProduct({
+                          ...product,
+                          discount: e.target.value,
+                        })
+                      }
+                      class="form-control"
+                      placeholder="Enter cost"
+                    />
+                  </div>
+                  <div class="mb-3">
                     <label for="project-overview" class="form-label">
                       Categories
                     </label>
-
-                    <select class="form-control select2" data-toggle="select2">
-                      <option>Select</option>
-                      <option value="AZ">Mary Scott</option>
-                      <option value="CO">Holly Campbell</option>
-                      <option value="ID">Beatrice Mills</option>
-                      <option value="MT">Melinda Gills</option>
-                      <option value="NE">Linda Garza</option>
-                      <option value="NM">Randy Ortez</option>
-                      <option value="ND">Lorene Block</option>
-                      <option value="UT">Mike Baker</option>
-                    </select>
+                    <ReactSelect
+                      options={options}
+                      isMulti
+                      value={selectType}
+                      onChange={handleChangeOptions}
+                    />
                   </div>
-                </div>
+                  {loading ? (
+                    <button class="btn btn-primary" type="button" disabled>
+                      <span
+                        class="spinner-border spinner-border-sm"
+                        role="status"
+                        aria-hidden="true"
+                      ></span>
+                      Loading...
+                    </button>
+                  ) : (
+                    <button type="submit" className="btn btn-primary mt-3">
+                      Upload
+                    </button>
+                  )}
+                </form>
 
                 <div class="col-xl-6">
                   <div class="mb-3 mt-3 mt-xl-0">

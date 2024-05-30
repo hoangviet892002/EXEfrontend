@@ -1,14 +1,22 @@
 import { useState } from "react";
+import useHook from "./hooks/useHook";
 const HeadDetail = () => {
-  const [quantity, setQuantity] = useState(0);
   const handleAdd = (e) => {
     e.preventDefault();
     setQuantity(quantity + 1);
   };
   const handleSub = (e) => {
     e.preventDefault();
-    if (quantity > 0) setQuantity(quantity - 1);
+    if (quantity > 1) setQuantity(quantity - 1);
   };
+  const {
+    product,
+    isWish,
+    updateWish,
+    quantity,
+    setQuantity,
+    handleAddtoCart,
+  } = useHook();
   return (
     <>
       <section class="mt-8">
@@ -21,34 +29,19 @@ const HeadDetail = () => {
                 data-bs-ride="carousel"
               >
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img
-                      src="../assets/images/products/product-single-img-1.jpg"
-                      class="d-block w-100"
-                      alt="Product 1"
-                    />
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      src="../assets/images/products/product-single-img-2.jpg"
-                      class="d-block w-100"
-                      alt="Product 2"
-                    />
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      src="../assets/images/products/product-single-img-3.jpg"
-                      class="d-block w-100"
-                      alt="Product 3"
-                    />
-                  </div>
-                  <div class="carousel-item">
-                    <img
-                      src="../assets/images/products/product-single-img-4.jpg"
-                      class="d-block w-100"
-                      alt="Product 4"
-                    />
-                  </div>
+                  {product.productImages.map((image, index) => (
+                    <div
+                      className={`carousel-item ${index === 0 ? "active" : ""}`}
+                      key={index}
+                    >
+                      <img
+                        src={image.imageUrl}
+                        className="d-block w-100"
+                        style={{ height: "400px" }}
+                        alt={`Product ${index + 1}`}
+                      />
+                    </div>
+                  ))}
                 </div>
                 <button
                   class="carousel-control-prev"
@@ -78,56 +71,22 @@ const HeadDetail = () => {
 
               <div class="product-tools">
                 <div id="productThumbnails" class="thumbnails row g-3">
-                  <div class="col-3">
-                    <img
-                      src="../assets/images/products/product-single-img-1.jpg"
-                      class="thumbnails-img d-block w-100"
-                      alt="Product 1 Thumbnail"
-                      data-bs-target="#productCarousel"
-                      data-bs-slide-to="0"
-                      aria-label="Product 1"
-                    />
-                  </div>
-                  <div class="col-3">
-                    <img
-                      src="../assets/images/products/product-single-img-2.jpg"
-                      class="thumbnails-img d-block w-100"
-                      alt="Product 2 Thumbnail"
-                      data-bs-target="#productCarousel"
-                      data-bs-slide-to="1"
-                      aria-label="Product 2"
-                    />
-                  </div>
-                  <div class="col-3">
-                    <img
-                      src="../assets/images/products/product-single-img-3.jpg"
-                      class="thumbnails-img d-block w-100"
-                      alt="Product 3 Thumbnail"
-                      data-bs-target="#productCarousel"
-                      data-bs-slide-to="2"
-                      aria-label="Product 3"
-                    />
-                  </div>
-                  <div class="col-3">
-                    <img
-                      src="../assets/images/products/product-single-img-4.jpg"
-                      class="thumbnails-img d-block w-100"
-                      alt="Product 4 Thumbnail"
-                      data-bs-target="#productCarousel"
-                      data-bs-slide-to="3"
-                      aria-label="Product 4"
-                    />
-                  </div>
+                  {product.productImages.map((image, index) => (
+                    <div class="col-3">
+                      <img
+                        src={image.imageUrl}
+                        class="thumbnails-img d-block w-100"
+                        data-bs-target="#productCarousel"
+                        data-bs-slide-to={index}
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="ps-lg-10">
-                <a href="#!" class="mb-4 d-block">
-                  Bakery Biscuits
-                </a>
-
-                <h1 class="mb-1">Napolitanke Ljesnjak</h1>
+                <h1 class="mb-1">{product.productName}</h1>
                 <div class="mb-4">
                   <small class="text-warning">
                     <i class="bi bi-star-fill"></i>
@@ -141,17 +100,17 @@ const HeadDetail = () => {
                   </a>
                 </div>
                 <div class="fs-4">
-                  <span class="fw-bold text-dark">$32</span>
-                  <span class="text-decoration-line-through text-muted">
+                  <span class="fw-bold text-dark">${product.cost}</span>
+                  {/* <span class="text-decoration-line-through text-muted">
                     $35
                   </span>
                   <span>
                     <small class="fs-6 ms-2 text-danger">26% Off</small>
-                  </span>
+                  </span> */}
                 </div>
 
                 <hr class="my-6" />
-                <div>
+                {/* <div>
                   <button type="button" class="btn btn-outline-secondary">
                     250g
                   </button>
@@ -163,7 +122,7 @@ const HeadDetail = () => {
                   <button type="button" class="btn btn-outline-secondary">
                     1kg
                   </button>
-                </div>
+                </div> */}
                 <div class="mt-5 d-flex justify-content-start">
                   <div class="col-lg-2 col-3">
                     <div class="input-group flex-nowrap justify-content-center">
@@ -192,7 +151,14 @@ const HeadDetail = () => {
                     </div>
                   </div>
                   <div class="ms-2 col-lg-4 col-5 d-grid">
-                    <button type="button" class="btn btn-primary">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleAddtoCart();
+                      }}
+                    >
                       <i class="feather-icon icon-shopping-bag me-2"></i>Add to
                       cart
                     </button>
@@ -200,12 +166,19 @@ const HeadDetail = () => {
                   <div class="ms-2 col-4">
                     <a
                       class="btn btn-light"
-                      href="shop-wishlist.html"
                       data-bs-toggle="tooltip"
                       data-bs-html="true"
                       title="Wishlist"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        updateWish();
+                      }}
                     >
-                      <i class="feather-icon icon-heart"></i>
+                      <i
+                        className={`bi ${
+                          isWish ? "bi-heart-fill" : "bi-heart"
+                        }`}
+                      ></i>
                     </a>
                   </div>
                 </div>
@@ -216,17 +189,31 @@ const HeadDetail = () => {
                     <tbody>
                       <tr>
                         <td>Product Code:</td>
-                        <td>FBB00255</td>
+                        <td>{product.id}</td>
                       </tr>
                       <tr>
                         <td>Availability:</td>
                         <td>In Stock</td>
                       </tr>
                       <tr>
-                        <td>Type:</td>
-                        <td>Fruits</td>
+                        <table class="table table-striped table-centered mb-0">
+                          <thead>
+                            <tr>
+                              <th>Type</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {product.category_type_id.map((type) => (
+                              <>
+                                <tr>
+                                  <td>{type.name}</td>
+                                </tr>
+                              </>
+                            ))}
+                          </tbody>
+                        </table>
                       </tr>
-                      <tr>
+                      {/* <tr>
                         <td>Shipping:</td>
                         <td>
                           <small>
@@ -234,11 +221,11 @@ const HeadDetail = () => {
                             <span class="text-muted">( Free pickup today)</span>
                           </small>
                         </td>
-                      </tr>
+                      </tr> */}
                     </tbody>
                   </table>
                 </div>
-                <div class="mt-8">
+                {/* <div class="mt-8">
                   <div class="dropdown">
                     <a
                       class="btn btn-outline-secondary dropdown-toggle"
@@ -268,7 +255,7 @@ const HeadDetail = () => {
                       </li>
                     </ul>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

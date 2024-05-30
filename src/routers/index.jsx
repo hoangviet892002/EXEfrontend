@@ -20,6 +20,8 @@ import {
   DetailsProducts,
   EditProducts,
   CategoriesPages,
+  ShopV2,
+  CategoryType,
 } from "../pages";
 
 const Router = () => {
@@ -29,7 +31,7 @@ const Router = () => {
     <div>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/shop" element={<ShopV2 />} />
         <Route path="/shop/:id" element={<ShopSingle />} />
         <Route path="/*" element={<ErrorPage />} />
         <Route
@@ -50,6 +52,7 @@ const Router = () => {
         <Route path="/admin/products/:id" element={<DetailsProducts />} />
         <Route path="/admin/products/:id/edit" element={<EditProducts />} />
         <Route path="/admin/categories" element={<CategoriesPages />} />
+        <Route path="/admin/categories/:id" element={<CategoryType />} />
       </Routes>
     </div>
   );

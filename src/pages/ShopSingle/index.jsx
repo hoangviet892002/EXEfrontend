@@ -10,7 +10,7 @@ const ShopSingle = () => {
       <Navbar />
       <HeadDetail />
       <InforScreens />
-      <RelationItem />
+      {/* <RelationItem /> */}
       <ShopCart />
       <Footer />
     </div>

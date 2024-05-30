@@ -1,5 +1,7 @@
 import { CardProductV1 } from "../../components";
+import useHook from "./hooks/useHook";
 const NewProduct = () => {
+  const { newProduct } = useHook();
   const categories = [
     {
       id: "fruitsandveg",
@@ -39,34 +41,6 @@ const NewProduct = () => {
                 <h3 className="mb-0">New Products</h3>
                 <p className="mb-0">New products with updated stocks</p>
               </div>
-              <div>
-                <nav>
-                  <ul
-                    className="nav nav-pills nav-scroll border-bottom-0 gap-1"
-                    id="nav-tab"
-                    role="tablist"
-                  >
-                    {categories.map((category, index) => (
-                      <li className="nav-item" key={category.id}>
-                        <a
-                          href="#"
-                          className={
-                            index === 0 ? "nav-link active" : "nav-link"
-                          }
-                          id={`nav-${category.id}-tab`}
-                          data-bs-toggle="tab"
-                          data-bs-target={`#nav-${category.id}`}
-                          role="tab"
-                          aria-controls={`nav-${category.id}`}
-                          aria-selected={index === 0 ? "true" : "false"}
-                        >
-                          {category.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-              </div>
             </div>
           </div>
         </div>
@@ -74,24 +48,11 @@ const NewProduct = () => {
         <div className="row">
           <div className="col-12">
             <div className="tab-content" id="nav-tabContent">
-              {categories.map((category, index) => (
-                <div
-                  className={`tab-pane fade ${
-                    index === 0 ? "show active" : ""
-                  }`}
-                  id={`nav-${category.id}`}
-                  role="tabpanel"
-                  aria-labelledby={`nav-${category.id}-tab`}
-                  tabIndex="0"
-                  key={category.id}
-                >
-                  <div className="row row-cols-2 row-cols-xl-5 row-cols-md-3 g-4">
-                    {category.products.map((product) => (
-                      <CardProductV1 />
-                    ))}
-                  </div>
-                </div>
-              ))}
+              <div className="row row-cols-2 row-cols-xl-5 row-cols-md-3 g-4">
+                {newProduct.map((product) => (
+                  <CardProductV1 product={product} />
+                ))}
+              </div>
             </div>
           </div>
         </div>

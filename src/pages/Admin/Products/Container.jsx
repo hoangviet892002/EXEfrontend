@@ -2,20 +2,21 @@ import React, { useState } from "react";
 import Item from "./Item";
 import { Link } from "react-router-dom";
 import { Pagination } from "../../../components";
+import useHook from "./hooks/useHook";
 
 const Container = () => {
-  const [selectedPage, setSelectedPage] = useState(1);
+  const { products, totalPage, currentPage, setCurrentPage, query, setQuery } =
+    useHook();
 
   const handlePageChange = (page) => {
-    setSelectedPage(page);
-    console.log(`Selected page: ${page}`);
+    setCurrentPage(page);
   };
   return (
     <>
       <div class="row">
         <div class="col-12">
           <div class="page-title-box">
-            <h4 class="page-title">Orders</h4>
+            <h4 class="page-title">Products</h4>
           </div>
         </div>
       </div>
@@ -40,6 +41,8 @@ const Container = () => {
                         <input
                           type="search"
                           class="form-control"
+                          value={query}
+                          onChange={(e) => setQuery(e.target.value)}
                           id="inputPassword2"
                           placeholder="Search..."
                         />
@@ -54,24 +57,21 @@ const Container = () => {
                   <thead class="table-light">
                     <tr>
                       <th class="all">Product</th>
-                      <th>Category</th>
                       <th>Added Date</th>
                       <th>Price</th>
-                      <th>Quantity</th>
                       <th>Status</th>
                       <th style={{ width: "85px" }}>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <Item />
-                    <Item />
-                    <Item />
-                    <Item />
+                    {products.map((product) => (
+                      <Item product={product} />
+                    ))}
                   </tbody>
                 </table>
                 <Pagination
-                  total={10}
-                  selected={selectedPage}
+                  total={totalPage}
+                  selected={currentPage}
                   onChange={handlePageChange}
                 />
               </div>

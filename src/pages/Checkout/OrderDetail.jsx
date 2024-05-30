@@ -1,19 +1,19 @@
 import Product from "./Product";
+import useHook from "./hooks/useHook";
 
 const OrderDetail = () => {
+  const { listCart, totalAmount } = useHook();
   return (
     <div class="col-12 col-md-12 offset-lg-1 col-lg-4">
       <div class="mt-4 mt-lg-0">
         <div class="card shadow-sm">
           <h5 class="px-6 py-4 bg-transparent mb-0">Order Details</h5>
           <ul class="list-group list-group-flush">
-            <Product />
-            <Product />
+            {listCart.map((item) => (
+              <Product item={item} />
+            ))}
 
-            <Product />
-            <Product />
-
-            <li class="list-group-item px-4 py-3">
+            {/* <li class="list-group-item px-4 py-3">
               <div class="d-flex align-items-center justify-content-between mb-2">
                 <div>Item Subtotal</div>
                 <div class="fw-bold">$70.00</div>
@@ -29,12 +29,12 @@ const OrderDetail = () => {
                 </div>
                 <div class="fw-bold">$3.00</div>
               </div>
-            </li>
+            </li> */}
 
             <li class="list-group-item px-4 py-3">
               <div class="d-flex align-items-center justify-content-between fw-bold">
                 <div>Subtotal</div>
-                <div>$73.00</div>
+                <div>${totalAmount}</div>
               </div>
             </li>
           </ul>

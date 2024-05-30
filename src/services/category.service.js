@@ -19,5 +19,38 @@ class CategoryService {
       toast.error("ERROR!!");
     }
   }
+  static async getCategories() {
+    try {
+      const response = await axios.get(`${api_url}`);
+      if (response.data.statusCode === 200) {
+        return response.data.data;
+      }
+      return [];
+    } catch (error) {
+      return [];
+    }
+  }
+  static async deleteCategory(id) {
+    try {
+      const response = await axios.delete(`${api_url}/${id}`);
+      if (response.data.statusCode === 200) {
+        toast.success(response.data.message);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      // toast.error("ERROR!!");
+    }
+  }
+  static async getMegaMenu() {
+    try {
+      const response = await axios.get(`${api_url}/category_vs_category_type`);
+      if (response.data.statusCode === 200) {
+        return response.data.data;
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {}
+  }
 }
 export default CategoryService;

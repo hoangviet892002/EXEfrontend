@@ -1,24 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import imageproduct from "../../../../assets/images/products/product-img-6.jpg";
+import useHook from "./hooks/useHook";
+import Select from "react-select";
 
 const Container = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
-
+  const [selectType, setSelectType] = useState([]);
+  const handleChangeOptions = (selectOption) => {
+    setSelectType(selectOption);
+  };
   const handleFileChange = (event) => {
     const files = Array.from(event.target.files);
     setSelectedFiles((prevFiles) => [...prevFiles, ...files]);
   };
+  const [input, setInput] = useState({
+    name: "",
+    detail: "",
+    dimensions: "",
+    cost: "",
+  });
 
   const handleRemoveFile = (index) => {
     setSelectedFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
   };
 
+  const { categoryTypes, submit, loading } = useHook();
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle the file upload here
-    console.log(selectedFiles);
+    submit(selectedFiles, input, selectType);
   };
 
+  useEffect(() => {
+    const newOptions = categoryTypes.map((type) => ({
+      value: type.id,
+      label: type.name,
+    }));
+    setOptions(newOptions);
+  }, [categoryTypes]);
+  const [options, setOptions] = useState([]);
   return (
     <>
       <div class="row">
@@ -32,7 +51,7 @@ const Container = () => {
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-              <div class="row">
+              <form class="row" onSubmit={handleSubmit}>
                 <div class="col-xl-6">
                   <div class="mb-3">
                     <label for="projectname" class="form-label">
@@ -40,9 +59,14 @@ const Container = () => {
                     </label>
                     <input
                       type="text"
+                      value={input.name}
                       id="projectname"
                       class="form-control"
+                      onChange={(e) =>
+                        setInput({ ...input, name: e.target.value })
+                      }
                       placeholder="Enter project name"
+                      required
                     />
                   </div>
 
@@ -53,32 +77,43 @@ const Container = () => {
                     <textarea
                       class="form-control"
                       id="project-overview"
+                      value={input.detail}
+                      onChange={(e) =>
+                        setInput({ ...input, detail: e.target.value })
+                      }
                       rows="5"
-                      placeholder="Enter some brief about project.."
+                      placeholder="Enter some brief about product..."
+                      required
                     ></textarea>
                   </div>
-
-                  <div class="mb-3 position-relative" id="datepicker1">
-                    <label class="form-label">Start Date</label>
+                  <div class="mb-3">
+                    <label for="project-overview" class="form-label">
+                      Dimension
+                    </label>
                     <input
-                      type="text"
                       class="form-control"
-                      data-provide="datepicker"
-                      data-date-container="#datepicker1"
-                      data-date-format="d-M-yyyy"
-                      data-date-autoclose="true"
-                    />
+                      id="project-overview"
+                      value={input.dimensions}
+                      onChange={(e) =>
+                        setInput({ ...input, dimensions: e.target.value })
+                      }
+                      rows="5"
+                      placeholder="Enter dimensions"
+                      required
+                    ></input>
                   </div>
 
                   <div class="mb-3">
-                    <label for="project-budget" class="form-label">
-                      Budget
-                    </label>
+                    <label class="form-label">Cost</label>
                     <input
-                      type="text"
-                      id="project-budget"
+                      type="number"
+                      value={input.cost}
+                      onChange={(e) =>
+                        setInput({ ...input, cost: e.target.value })
+                      }
                       class="form-control"
-                      placeholder="Enter project budget"
+                      placeholder="Enter cost"
+                      required
                     />
                   </div>
 
@@ -86,42 +121,12 @@ const Container = () => {
                     <label for="project-overview" class="form-label">
                       Categories
                     </label>
-
-                    <div class="form-control select2" data-toggle="select2">
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          value="in-store"
-                          id="in-store"
-                        />
-                        <label class="form-check-label" for="in-store">
-                          In-store selling only
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          value="online"
-                          id="online"
-                        />
-                        <label class="form-check-label" for="online">
-                          Online selling only
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          value="both"
-                          id="both"
-                        />
-                        <label class="form-check-label" for="both">
-                          Available both in-store and online
-                        </label>
-                      </div>
-                    </div>
+                    <Select
+                      options={options}
+                      isMulti
+                      value={selectType}
+                      onChange={handleChangeOptions}
+                    />
                   </div>
                 </div>
 
@@ -218,21 +223,22 @@ const Container = () => {
                       </div>
                     </div>
                   </div>
-
-                  <div class="mb-3 position-relative" id="datepicker2">
-                    <label class="form-label">Due Date</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      data-provide="datepicker"
-                      data-date-container="#datepicker2"
-                      data-date-format="d-M-yyyy"
-                      data-date-autoclose="true"
-                    />
-                  </div>
-                  <button className="btn btn-primary mt-3">Upload</button>
+                  {loading ? (
+                    <button class="btn btn-primary" type="button" disabled>
+                      <span
+                        class="spinner-border spinner-border-sm"
+                        role="status"
+                        aria-hidden="true"
+                      ></span>
+                      Loading...
+                    </button>
+                  ) : (
+                    <button type="submit" className="btn btn-primary mt-3">
+                      Upload
+                    </button>
+                  )}
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>

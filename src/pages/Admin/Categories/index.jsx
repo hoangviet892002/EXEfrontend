@@ -2,6 +2,7 @@ import React from "react";
 import { SideBar, TopBar } from "../../../components";
 import Container from "./Container";
 import AddForm from "./AddForm";
+import EditForm from "./EditForm";
 
 const Categories = () => {
   return (
@@ -15,6 +16,7 @@ const Categories = () => {
         </div>
       </div>
       <AddForm />
+      <EditForm />
     </div>
   );
 };

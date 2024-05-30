@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
+import useHook from "./hooks/useHook";
 const ModelProduct = () => {
-  const [quantity, setQuantity] = useState(0);
   const handleAdd = (e) => {
     e.preventDefault();
     setQuantity(quantity + 1);
   };
   const handleSub = (e) => {
     e.preventDefault();
-    if (quantity > 0) setQuantity(quantity - 1);
+    if (quantity > 1) setQuantity(quantity - 1);
   };
 
+  const { product, quantity, setQuantity, handleAddtoCart } = useHook();
   return (
     <div
       class="modal fade"
@@ -36,34 +37,21 @@ const ModelProduct = () => {
                   data-bs-ride="carousel"
                 >
                   <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img
-                        src="../assets/images/products/product-single-img-1.jpg"
-                        class="d-block w-100"
-                        alt="Product 1"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="../assets/images/products/product-single-img-2.jpg"
-                        class="d-block w-100"
-                        alt="Product 2"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="../assets/images/products/product-single-img-3.jpg"
-                        class="d-block w-100"
-                        alt="Product 3"
-                      />
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        src="../assets/images/products/product-single-img-4.jpg"
-                        class="d-block w-100"
-                        alt="Product 4"
-                      />
-                    </div>
+                    {product.productImages.map((image, index) => (
+                      <div
+                        className={`carousel-item ${
+                          index === 0 ? "active" : ""
+                        }`}
+                        key={index}
+                      >
+                        <img
+                          src={image.imageUrl}
+                          className="d-block w-100"
+                          style={{ height: "400px" }}
+                          alt={`Product ${index + 1}`}
+                        />
+                      </div>
+                    ))}
                   </div>
                   <button
                     class="carousel-control-prev"
@@ -93,17 +81,18 @@ const ModelProduct = () => {
 
                 <div class="product-tools">
                   <div id="productThumbnails" class="thumbnails row g-3">
-                    <div class="col-3">
-                      <img
-                        src="../assets/images/products/product-single-img-1.jpg"
-                        class="thumbnails-img d-block w-100"
-                        alt="Product 1 Thumbnail"
-                        data-bs-target="#productCarousel"
-                        data-bs-slide-to="0"
-                        aria-label="Product 1"
-                      />
-                    </div>
-                    <div class="col-3">
+                    {product.productImages.map((image, index) => (
+                      <div class="col-3">
+                        <img
+                          src={image.imageUrl}
+                          class="thumbnails-img d-block w-100"
+                          data-bs-target="#productCarousel"
+                          data-bs-slide-to={index}
+                        />
+                      </div>
+                    ))}
+
+                    {/* <div class="col-3">
                       <img
                         src="../assets/images/products/product-single-img-2.jpg"
                         class="thumbnails-img d-block w-100"
@@ -112,36 +101,16 @@ const ModelProduct = () => {
                         data-bs-slide-to="1"
                         aria-label="Product 2"
                       />
-                    </div>
-                    <div class="col-3">
-                      <img
-                        src="../assets/images/products/product-single-img-3.jpg"
-                        class="thumbnails-img d-block w-100"
-                        alt="Product 3 Thumbnail"
-                        data-bs-target="#productCarousel"
-                        data-bs-slide-to="2"
-                        aria-label="Product 3"
-                      />
-                    </div>
-                    <div class="col-3">
-                      <img
-                        src="../assets/images/products/product-single-img-4.jpg"
-                        class="thumbnails-img d-block w-100"
-                        alt="Product 4 Thumbnail"
-                        data-bs-target="#productCarousel"
-                        data-bs-slide-to="3"
-                        aria-label="Product 4"
-                      />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="ps-md-8">
-                  <a href="#!" class="mb-4 d-block">
+                  {/* <a href="#!" class="mb-4 d-block">
                     Bakery Biscuits
-                  </a>
-                  <h2 class="mb-1 h1">Napolitanke Ljesnjak</h2>
+                  </a> */}
+                  <h2 class="mb-1 h1">{product.productName}</h2>
                   <div class="mb-4">
                     <small class="text-warning">
                       <i class="bi bi-star-fill"></i>
@@ -155,13 +124,13 @@ const ModelProduct = () => {
                     </a>
                   </div>
                   <div class="fs-4">
-                    <span class="fw-bold text-dark">$32</span>
-                    <span class="text-decoration-line-through text-muted">
+                    <span class="fw-bold text-dark">${product.price}</span>
+                    {/* <span class="text-decoration-line-through text-muted">
                       $35
                     </span>
                     <span>
                       <small class="fs-6 ms-2 text-danger">26% Off</small>
-                    </span>
+                    </span> */}
                   </div>
                   <hr class="my-6" />
                   <div>
@@ -203,7 +172,14 @@ const ModelProduct = () => {
                       </div>
                     </div>
                     <div class="ms-2 col-4 d-grid">
-                      <button type="button" class="btn btn-primary">
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleAddtoCart();
+                        }}
+                      >
                         <i class="feather-icon icon-shopping-bag me-2"></i>Add
                         to cart
                       </button>
@@ -215,26 +191,11 @@ const ModelProduct = () => {
                       <tbody>
                         <tr>
                           <td>Product Code:</td>
-                          <td>FBB00255</td>
+                          <td>{product.id}</td>
                         </tr>
                         <tr>
                           <td>Availability:</td>
                           <td>In Stock</td>
-                        </tr>
-                        <tr>
-                          <td>Type:</td>
-                          <td>Fruits</td>
-                        </tr>
-                        <tr>
-                          <td>Shipping:</td>
-                          <td>
-                            <small>
-                              01 day shipping.
-                              <span class="text-muted">
-                                ( Free pickup today)
-                              </span>
-                            </small>
-                          </td>
                         </tr>
                       </tbody>
                     </table>

@@ -16,6 +16,8 @@ import CreateProducts from "./Admin/CreateProducts";
 import DetailsProducts from "./Admin/DetailsProducts";
 import EditProducts from "./Admin/EditProducts";
 import CategoriesPages from "./Admin/Categories";
+import ShopV2 from "./shopV2";
+import CategoryType from "./Admin/CategoryTypePage";
 export {
   HomePage,
   ShopPage,
@@ -35,4 +37,6 @@ export {
   DetailsProducts,
   EditProducts,
   CategoriesPages,
+  ShopV2,
+  CategoryType,
 };
