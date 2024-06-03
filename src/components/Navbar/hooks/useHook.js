@@ -7,7 +7,7 @@ const useHook = () => {
   const wishList = useSelector((state) => state.wish.wishlist);
   const listCart = useSelector((state) => state.cart.items);
   const megaMenu = useSelector((state) => state.menu.categories);
-  console.log(wishList);
+
   const dispatch = useDispatch();
   const fetchMegaMenu = async () => {
     const response = await CategoryService.getMegaMenu();

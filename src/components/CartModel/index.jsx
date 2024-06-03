@@ -8,29 +8,29 @@ const ShopCart = () => {
   return (
     <>
       <div
-        class="offcanvas offcanvas-end"
-        tabindex="-1"
+        className="offcanvas offcanvas-end"
+        tabIndex="-1"
         id="offcanvasRight"
         aria-labelledby="offcanvasRightLabel"
       >
-        <div class="offcanvas-header border-bottom">
-          <div class="text-start">
-            <h5 class="mb-0 fs-4">Shop Cart</h5>
+        <div className="offcanvas-header border-bottom">
+          <div className="text-start">
+            <h5 className="mb-0 fs-4">Shop Cart</h5>
           </div>
           <button
             type="button"
-            class="btn-close text-reset"
+            className="btn-close text-reset"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           ></button>
         </div>
-        <div class="offcanvas-body">
-          <div class="alert alert-danger" role="alert">
+        <div className="offcanvas-body">
+          <div className="alert alert-danger" role="alert">
             You’ve got FREE delivery. Start checkout now!
           </div>
           <button
             type="button"
-            class="btn btn-primary mb-2"
+            className="btn btn-primary mb-2"
             onClick={(e) => {
               e.preventDefault();
               handleClearCart();
@@ -40,23 +40,23 @@ const ShopCart = () => {
           </button>
 
           <div>
-            <div class="py-3">
-              <ul class="list-group list-group-flush">
-                {listCart.map((item) => (
-                  <Item item={item} />
+            <div className="py-3">
+              <ul className="list-group list-group-flush">
+                {listCart.map((item, index) => (
+                  <Item item={item} key={index} />
                 ))}
               </ul>
             </div>
-            <div class="d-grid">
+            <div className="d-grid">
               <button
-                class="btn btn-primary btn-lg d-flex justify-content-between align-items-center"
+                className="btn btn-primary btn-lg d-flex justify-content-between align-items-center"
                 onClick={(e) => {
                   e.preventDefault();
                   navigate("/check-out");
                 }}
                 data-bs-dismiss="offcanvas"
               >
-                Go to Checkout <span class="fw-bold">${totalAmount}</span>
+                Go to Checkout <span className="fw-bold">${totalAmount}</span>
               </button>
             </div>
           </div>

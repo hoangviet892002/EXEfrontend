@@ -3,23 +3,23 @@ import ItemAddress from "./ItemAddress";
 
 const Address = () => {
   return (
-    <div class="accordion-item py-4">
-      <div class="d-flex justify-content-between align-items-center">
+    <div className="accordion-item py-4">
+      <div className="d-flex justify-content-between align-items-center">
         <a
           href="#"
-          class="fs-5 text-inherit collapsed h4"
+          className="fs-5 text-inherit collapsed h4"
           data-bs-toggle="collapse"
           data-bs-target="#flush-collapseOne"
           aria-expanded="true"
           aria-controls="flush-collapseOne"
         >
-          <i class="feather-icon icon-map-pin me-2 text-muted"></i>
+          <i className="feather-icon icon-map-pin me-2 text-muted"></i>
           Add delivery address
         </a>
 
         <a
           href="#"
-          class="btn btn-outline-primary btn-sm"
+          className="btn btn-outline-primary btn-sm"
           data-bs-toggle="modal"
           data-bs-target="#addAddressModal"
         >
@@ -28,21 +28,21 @@ const Address = () => {
       </div>
       <div
         id="flush-collapseOne"
-        class="accordion-collapse collapse show"
+        className="accordion-collapse collapse show"
         data-bs-parent="#accordionFlushExample"
       >
-        <div class="mt-5">
-          <div class="row">
+        <div className="mt-5">
+          <div className="row">
             <ItemAddress />
             <ItemAddress />
             <ItemAddress />
             <ItemAddress />
           </div>
         </div>
-        <div class="mt-5 d-flex justify-content-end">
+        <div className="mt-5 d-flex justify-content-end">
           <a
             href="#"
-            class="btn btn-primary ms-2"
+            className="btn btn-primary ms-2"
             data-bs-toggle="collapse"
             data-bs-target="#flush-collapseThree"
             aria-expanded="false"

@@ -20,30 +20,30 @@ const Item = ({ category }) => {
           src={category.imgUrl}
           alt="contact-img"
           title="contact-img"
-          class="rounded me-3 "
+          className="rounded me-3 "
           height="48"
         />
-        <p class="m-0 d-inline-block align-middle font-16">
-          <a href="apps-ecommerce-products-details.html" class="text-body">
+        <p className="m-0 d-inline-block align-middle font-16">
+          <a href="apps-ecommerce-products-details.html" className="text-body">
             {category.name}
           </a>
           <br />
         </p>
       </td>
-      <td class="table-action">
+      <td className="table-action">
         <a
           href="javascript:void(0);"
-          class="action-icon"
+          className="action-icon"
           onClick={() => {
             actionSelect();
             navigate(`${category.id}`);
           }}
         >
-          <i class="feather-icon icon-eye"></i>
+          <i className="feather-icon icon-eye"></i>
         </a>
         <a
           href="javascript:void(0);"
-          class="action-icon"
+          className="action-icon"
           onClick={() => {
             actionSelect();
           }}
@@ -51,15 +51,15 @@ const Item = ({ category }) => {
           <i
             data-bs-toggle="modal"
             data-bs-target="#editCategoryModal"
-            class="feather-icon icon-edit"
+            className="feather-icon icon-edit"
           ></i>
         </a>
         <a
           href="javascript:void(0);"
-          class="action-icon"
+          className="action-icon"
           onClick={actionDelete}
         >
-          <i class="feather-icon icon-trash-2"></i>
+          <i className="feather-icon icon-trash-2"></i>
         </a>
       </td>
     </tr>

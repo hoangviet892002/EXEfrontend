@@ -5,6 +5,7 @@ import productReducer from "./productReducers";
 import megaMenuReducer from "./megaMenuReducer";
 import wishReducer from "./wishReducer";
 import cartReducer from "./cartReducer";
+import languagesReducer from "./languagesReducer";
 
 export default combineReducers({
   user: userReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   menu: megaMenuReducer,
   wish: wishReducer,
   cart: cartReducer,
+  languages: languagesReducer,
 });

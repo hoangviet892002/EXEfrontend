@@ -1,43 +1,46 @@
 const AddForm = () => {
   return (
     <div
-      class="modal fade"
+      className="modal fade"
       id="paymentModal"
-      tabindex="-1"
+      tabIndex="-1"
       role="dialog"
       aria-labelledby="paymentModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header align-items-center d-flex">
-            <h5 class="modal-title" id="paymentModalLabel">
+      <div
+        className="modal-dialog modal-lg modal-dialog-centered"
+        role="document"
+      >
+        <div className="modal-content">
+          <div className="modal-header align-items-center d-flex">
+            <h5 className="modal-title" id="paymentModalLabel">
               Add New Payment Method
             </h5>
 
             <button
               type="button"
-              class="btn-close"
+              className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
           </div>
 
-          <div class="modal-body">
+          <div className="modal-body">
             <div>
-              <form class="row mb-4">
-                <div class="mb-3 col-12 col-md-12 mb-4">
-                  <h5 class="mb-3">Credit / Debit card</h5>
+              <form className="row mb-4">
+                <div className="mb-3 col-12 col-md-12 mb-4">
+                  <h5 className="mb-3">Credit / Debit card</h5>
 
-                  <div class="d-inline-flex">
-                    <div class="form-check me-2">
+                  <div className="d-inline-flex">
+                    <div className="form-check me-2">
                       <input
                         type="radio"
                         id="paymentRadioOne"
                         name="paymentRadioOne"
-                        class="form-check-input"
+                        className="form-check-input"
                       />
-                      <label class="form-check-label" for="paymentRadioOne">
+                      <label className="form-check-label" for="paymentRadioOne">
                         <img
                           src="../assets/images/payment/american-express.svg"
                           alt=""
@@ -45,14 +48,14 @@ const AddForm = () => {
                       </label>
                     </div>
 
-                    <div class="form-check me-2">
+                    <div className="form-check me-2">
                       <input
                         type="radio"
                         id="paymentRadioTwo"
                         name="paymentRadioOne"
-                        class="form-check-input"
+                        className="form-check-input"
                       />
-                      <label class="form-check-label" for="paymentRadioTwo">
+                      <label className="form-check-label" for="paymentRadioTwo">
                         <img
                           src="../assets/images/payment/mastercard.svg"
                           alt=""
@@ -60,37 +63,40 @@ const AddForm = () => {
                       </label>
                     </div>
 
-                    <div class="form-check">
+                    <div className="form-check">
                       <input
                         type="radio"
                         id="paymentRadioFour"
                         name="paymentRadioOne"
-                        class="form-check-input"
+                        className="form-check-input"
                       />
-                      <label class="form-check-label" for="paymentRadioFour">
+                      <label
+                        className="form-check-label"
+                        for="paymentRadioFour"
+                      >
                         <img src="../assets/images/payment/visa.svg" alt="" />
                       </label>
                     </div>
                   </div>
                 </div>
 
-                <div class="mb-3 col-12 col-md-4">
-                  <label for="nameoncard" class="form-label">
+                <div className="mb-3 col-12 col-md-4">
+                  <label for="nameoncard" className="form-label">
                     Name on card
                   </label>
                   <input
                     id="nameoncard"
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     name="nameoncard"
                     placeholder="Name"
                     required
                   />
                 </div>
 
-                <div class="mb-3 col-12 col-md-4">
-                  <label class="form-label">Month</label>
-                  <select class="form-select">
+                <div className="mb-3 col-12 col-md-4">
+                  <label className="form-label">Month</label>
+                  <select className="form-select">
                     <option value="">Month</option>
                     <option value="Jan">Jan</option>
                     <option value="Feb">Feb</option>
@@ -107,9 +113,9 @@ const AddForm = () => {
                   </select>
                 </div>
 
-                <div class="mb-3 col-12 col-md-4">
-                  <label class="form-label">Year</label>
-                  <select class="form-select">
+                <div className="mb-3 col-12 col-md-4">
+                  <label className="form-label">Year</label>
+                  <select className="form-select">
                     <option value="">Year</option>
                     <option value="June">2022</option>
                     <option value="July">2023</option>
@@ -119,25 +125,25 @@ const AddForm = () => {
                   </select>
                 </div>
 
-                <div class="mb-3 col-md-8 col-12">
-                  <label for="cc-mask" class="form-label">
+                <div className="mb-3 col-md-8 col-12">
+                  <label for="cc-mask" className="form-label">
                     Card Number
                   </label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="cc-mask"
                     placeholder="xxxx-xxxx-xxxx-xxxx"
                     required
                   />
                 </div>
 
-                <div class="mb-3 col-md-4 col-12">
-                  <div class="mb-3">
-                    <label for="cvv" class="form-label">
+                <div className="mb-3 col-md-4 col-12">
+                  <div className="mb-3">
+                    <label for="cvv" className="form-label">
                       CVV Code
                       <i
-                        class="feather-icon icon-help-circle ms-1"
+                        className="feather-icon icon-help-circle ms-1"
                         data-bs-toggle="tooltip"
                         data-placement="top"
                         title="A 3 - digit number, typically printed on the back of a card."
@@ -145,7 +151,7 @@ const AddForm = () => {
                     </label>
                     <input
                       type="password"
-                      class="form-control"
+                      className="form-control"
                       id="cvv"
                       placeholder="xxx"
                       required
@@ -153,12 +159,12 @@ const AddForm = () => {
                   </div>
                 </div>
 
-                <div class="col-md-6 col-12">
-                  <button class="btn btn-primary" type="submit">
+                <div className="col-md-6 col-12">
+                  <button className="btn btn-primary" type="submit">
                     Add New Card
                   </button>
                   <button
-                    class="btn btn-outline-gray-400 text-muted"
+                    className="btn btn-outline-gray-400 text-muted"
                     type="button"
                     data-bs-dismiss="modal"
                   >

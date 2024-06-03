@@ -25,17 +25,16 @@ const ShopPage = () => {
 
   const handlePageChange = (page) => {
     setSelectedPage(page);
-    console.log(`Selected page: ${page}`);
   };
   return (
     <>
       <Navbar />
-      <section class="mt-8 mb-lg-14 mb-8">
-        <div class="container">
-          <div class="row gx-10">
-            <div class="col-12">
+      <section className="mt-8 mb-lg-14 mb-8">
+        <div className="container">
+          <div className="row gx-10">
+            <div className="col-12">
               <a
-                class="btn btn-outline-gray-400 text-muted"
+                className="btn btn-outline-gray-400 text-muted"
                 data-bs-toggle="collapse"
                 href="#collapseFilter"
                 role="button"
@@ -49,28 +48,28 @@ const ShopPage = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="feather feather-filter me-2"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="feather feather-filter me-2"
                 >
                   <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
                 </svg>{" "}
                 Filters
               </a>
 
-              <div class="collapse mt-6 show" id="collapseFilter">
-                <div class="row row-cols-lg-4 row-cols-1 row-cols-md-2">
-                  <div class="col">
-                    <div class="card mb-4 mb-lg-0">
-                      <div class="card-body p-6">
-                        <h5 class="mb-3">Categories</h5>
+              <div className="collapse mt-6 show" id="collapseFilter">
+                <div className="row row-cols-lg-4 row-cols-1 row-cols-md-2">
+                  <div className="col">
+                    <div className="card mb-4 mb-lg-0">
+                      <div className="card-body p-6">
+                        <h5 className="mb-3">Categories</h5>
 
-                        <ul class="nav nav-category">
+                        <ul className="nav nav-category">
                           {categories.map((item) => {
                             return (
-                              <li class="nav-item border-bottom w-100">
-                                <a href="#" class="nav-link">
+                              <li className="nav-item border-bottom w-100">
+                                <a href="#" className="nav-link">
                                   {item}
                                 </a>
                               </li>
@@ -81,9 +80,9 @@ const ShopPage = () => {
                     </div>
                   </div>
 
-                  <div class="col">
-                    <div class="card mb-4 mb-lg-0">
-                      <div class="card-body p-6">
+                  <div className="col">
+                    <div className="card mb-4 mb-lg-0">
+                      <div className="card-body p-6">
                         <MultiRangeSlider
                           min={0}
                           max={100}
@@ -92,91 +91,106 @@ const ShopPage = () => {
                       </div>
                     </div>
                   </div>
-                  <div class="col">
-                    <div class="card mb-4 mb-lg-0">
-                      <div class="card-body p-6">
+                  <div className="col">
+                    <div className="card mb-4 mb-lg-0">
+                      <div className="card-body p-6">
                         <div>
-                          <h5 class="mb-3">Rating</h5>
+                          <h5 className="mb-3">Rating</h5>
                           <div>
-                            <div class="form-check mb-2">
+                            <div className="form-check mb-2">
                               <input
-                                class="form-check-input"
+                                className="form-check-input"
                                 type="checkbox"
                                 value=""
                                 id="ratingFive"
                               />
 
-                              <label class="form-check-label" for="ratingFive">
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning "></i>
-                                <i class="bi bi-star-fill text-warning "></i>
-                                <i class="bi bi-star-fill text-warning "></i>
-                                <i class="bi bi-star-fill text-warning "></i>
+                              <label
+                                className="form-check-label"
+                                for="ratingFive"
+                              >
+                                <i className="bi bi-star-fill text-warning"></i>
+                                <i className="bi bi-star-fill text-warning "></i>
+                                <i className="bi bi-star-fill text-warning "></i>
+                                <i className="bi bi-star-fill text-warning "></i>
+                                <i className="bi bi-star-fill text-warning "></i>
                               </label>
                             </div>
-                            <div class="form-check mb-2">
+                            <div className="form-check mb-2">
                               <input
-                                class="form-check-input"
+                                className="form-check-input"
                                 type="checkbox"
                                 value=""
                                 id="ratingFour"
                                 checked
                               />
 
-                              <label class="form-check-label" for="ratingFour">
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning "></i>
-                                <i class="bi bi-star-fill text-warning "></i>
-                                <i class="bi bi-star-fill text-warning "></i>
-                                <i class="bi bi-star text-warning"></i>
+                              <label
+                                className="form-check-label"
+                                for="ratingFour"
+                              >
+                                <i className="bi bi-star-fill text-warning"></i>
+                                <i className="bi bi-star-fill text-warning "></i>
+                                <i className="bi bi-star-fill text-warning "></i>
+                                <i className="bi bi-star-fill text-warning "></i>
+                                <i className="bi bi-star text-warning"></i>
                               </label>
                             </div>
-                            <div class="form-check mb-2">
+                            <div className="form-check mb-2">
                               <input
-                                class="form-check-input"
+                                className="form-check-input"
                                 type="checkbox"
                                 value=""
                                 id="ratingThree"
                               />
 
-                              <label class="form-check-label" for="ratingThree">
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning "></i>
-                                <i class="bi bi-star-fill text-warning "></i>
-                                <i class="bi bi-star text-warning"></i>
-                                <i class="bi bi-star text-warning"></i>
+                              <label
+                                className="form-check-label"
+                                for="ratingThree"
+                              >
+                                <i className="bi bi-star-fill text-warning"></i>
+                                <i className="bi bi-star-fill text-warning "></i>
+                                <i className="bi bi-star-fill text-warning "></i>
+                                <i className="bi bi-star text-warning"></i>
+                                <i className="bi bi-star text-warning"></i>
                               </label>
                             </div>
-                            <div class="form-check mb-2">
+                            <div className="form-check mb-2">
                               <input
-                                class="form-check-input"
+                                className="form-check-input"
                                 type="checkbox"
                                 value=""
                                 id="ratingTwo"
                               />
 
-                              <label class="form-check-label" for="ratingTwo">
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star text-warning"></i>
-                                <i class="bi bi-star text-warning"></i>
-                                <i class="bi bi-star text-warning"></i>
+                              <label
+                                className="form-check-label"
+                                for="ratingTwo"
+                              >
+                                <i className="bi bi-star-fill text-warning"></i>
+                                <i className="bi bi-star-fill text-warning"></i>
+                                <i className="bi bi-star text-warning"></i>
+                                <i className="bi bi-star text-warning"></i>
+                                <i className="bi bi-star text-warning"></i>
                               </label>
                             </div>
-                            <div class="form-check mb-2">
+                            <div className="form-check mb-2">
                               <input
-                                class="form-check-input"
+                                className="form-check-input"
                                 type="checkbox"
                                 value=""
                                 id="ratingOne"
                               />
 
-                              <label class="form-check-label" for="ratingOne">
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star text-warning"></i>
-                                <i class="bi bi-star text-warning"></i>
-                                <i class="bi bi-star text-warning"></i>
-                                <i class="bi bi-star text-warning"></i>
+                              <label
+                                className="form-check-label"
+                                for="ratingOne"
+                              >
+                                <i className="bi bi-star-fill text-warning"></i>
+                                <i className="bi bi-star text-warning"></i>
+                                <i className="bi bi-star text-warning"></i>
+                                <i className="bi bi-star text-warning"></i>
+                                <i className="bi bi-star text-warning"></i>
                               </label>
                             </div>
                           </div>
@@ -187,19 +201,19 @@ const ShopPage = () => {
                 </div>
               </div>
             </div>
-            <div class="col-12 mt-10">
-              <div class="d-md-flex justify-content-between align-items-center">
+            <div className="col-12 mt-10">
+              <div className="d-md-flex justify-content-between align-items-center">
                 <div>
-                  <p class="mb-3 mb-md-0">
+                  <p className="mb-3 mb-md-0">
                     {" "}
-                    <span class="text-dark">24 </span> Products found{" "}
+                    <span className="text-dark">24 </span> Products found{" "}
                   </p>
                 </div>
 
-                <div class="d-flex justify-content-between align-items-center">
+                <div className="d-flex justify-content-between align-items-center">
                   <div>
                     <select
-                      class="form-select"
+                      className="form-select"
                       aria-label="Default select example"
                     >
                       <option selected>Sort by: Featured</option>
@@ -212,14 +226,14 @@ const ShopPage = () => {
                 </div>
               </div>
 
-              <div class="row g-4 row-cols-xl-5 row-cols-lg-3 row-cols-2 row-cols-md-2 mt-2">
+              <div className="row g-4 row-cols-xl-5 row-cols-lg-3 row-cols-2 row-cols-md-2 mt-2">
                 <CardProductV1 />
                 <CardProductV1 />
                 <CardProductV1 />
                 <CardProductV1 />
                 <CardProductV1 />
               </div>
-              <div class="">
+              <div className="">
                 <Pagination
                   total={10}
                   selected={selectedPage}

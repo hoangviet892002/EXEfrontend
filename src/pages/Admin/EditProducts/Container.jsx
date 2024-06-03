@@ -28,21 +28,21 @@ const Container = () => {
   };
   return (
     <>
-      <div class="row">
-        <div class="col-12">
-          <div class="page-title-box">
-            <h4 class="page-title">Edit Product</h4>
+      <div className="row">
+        <div className="col-12">
+          <div className="page-title-box">
+            <h4 className="page-title">Edit Product</h4>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-body">
-              <div class="row">
-                <form class="col-xl-6" onSubmit={handleUpdate}>
-                  <div class="mb-3">
-                    <label for="projectname" class="form-label">
+      <div className="row">
+        <div className="col-12">
+          <div className="card">
+            <div className="card-body">
+              <div className="row">
+                <form className="col-xl-6" onSubmit={handleUpdate}>
+                  <div className="mb-3">
+                    <label for="projectname" className="form-label">
                       Name
                     </label>
                     <input
@@ -52,14 +52,14 @@ const Container = () => {
                       onChange={(e) =>
                         setProduct({ ...product, productName: e.target.value })
                       }
-                      class="form-control"
+                      className="form-control"
                       placeholder="Enter project name"
                       required
                     />
                   </div>
 
-                  <div class="mb-3">
-                    <label for="project-overview" class="form-label">
+                  <div className="mb-3">
+                    <label for="project-overview" className="form-label">
                       Overview
                     </label>
                     <textarea
@@ -70,7 +70,7 @@ const Container = () => {
                           product_detail: e.target.value,
                         })
                       }
-                      class="form-control"
+                      className="form-control"
                       id="project-overview"
                       rows="5"
                       placeholder="Enter some brief about project.."
@@ -78,11 +78,11 @@ const Container = () => {
                     ></textarea>
                   </div>
 
-                  <div class="mb-3 position-relative">
-                    <label class="form-label">Dimension</label>
+                  <div className="mb-3 position-relative">
+                    <label className="form-label">Dimension</label>
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       value={product.product_dimensions}
                       onChange={(e) =>
                         setProduct({
@@ -94,8 +94,8 @@ const Container = () => {
                     />
                   </div>
 
-                  <div class="mb-3">
-                    <label for="project-budget" class="form-label">
+                  <div className="mb-3">
+                    <label for="project-budget" className="form-label">
                       Cost
                     </label>
                     <input
@@ -108,12 +108,12 @@ const Container = () => {
                           cost: e.target.value,
                         })
                       }
-                      class="form-control"
+                      className="form-control"
                       placeholder="Enter cost"
                     />
                   </div>
-                  <div class="mb-3">
-                    <label for="project-budget" class="form-label">
+                  <div className="mb-3">
+                    <label for="project-budget" className="form-label">
                       Discount
                     </label>
                     <input
@@ -126,12 +126,12 @@ const Container = () => {
                           discount: e.target.value,
                         })
                       }
-                      class="form-control"
+                      className="form-control"
                       placeholder="Enter cost"
                     />
                   </div>
-                  <div class="mb-3">
-                    <label for="project-overview" class="form-label">
+                  <div className="mb-3">
+                    <label for="project-overview" className="form-label">
                       Categories
                     </label>
                     <ReactSelect
@@ -142,9 +142,9 @@ const Container = () => {
                     />
                   </div>
                   {loading ? (
-                    <button class="btn btn-primary" type="button" disabled>
+                    <button className="btn btn-primary" type="button" disabled>
                       <span
-                        class="spinner-border spinner-border-sm"
+                        className="spinner-border spinner-border-sm"
                         role="status"
                         aria-hidden="true"
                       ></span>
@@ -157,66 +157,66 @@ const Container = () => {
                   )}
                 </form>
 
-                <div class="col-xl-6">
-                  <div class="mb-3 mt-3 mt-xl-0">
-                    <label for="projectname" class="mb-0">
+                <div className="col-xl-6">
+                  <div className="mb-3 mt-3 mt-xl-0">
+                    <label for="projectname" className="mb-0">
                       Avatar
                     </label>
-                    <p class="text-muted font-14">
+                    <p className="text-muted font-14">
                       Recommended thumbnail size 800x400 (px).
                     </p>
 
                     <form
                       action="https://coderthemes.com/"
                       method="post"
-                      class="dropzone"
+                      className="dropzone"
                       id="myAwesomeDropzone"
                       data-plugin="dropzone"
                       data-previews-container="#file-previews"
                       data-upload-preview-template="#uploadPreviewTemplate"
                     >
-                      <div class="fallback">
+                      <div className="fallback">
                         <input name="file" type="file" />
                       </div>
 
-                      <div class="dz-message needsclick">
-                        <i class="h3 text-muted dripicons-cloud-upload"></i>
+                      <div className="dz-message needsclick">
+                        <i className="h3 text-muted dripicons-cloud-upload"></i>
                         <h4>Drop files here or click to upload.</h4>
                       </div>
                     </form>
 
                     <div
-                      class="dropzone-previews mt-3"
+                      className="dropzone-previews mt-3"
                       id="file-previews"
                     ></div>
 
-                    <div class="d-none" id="uploadPreviewTemplate">
-                      <div class="card mt-1 mb-0 shadow-none border">
-                        <div class="p-2">
-                          <div class="row align-items-center">
-                            <div class="col-auto">
+                    <div className="d-none" id="uploadPreviewTemplate">
+                      <div className="card mt-1 mb-0 shadow-none border">
+                        <div className="p-2">
+                          <div className="row align-items-center">
+                            <div className="col-auto">
                               <img
                                 data-dz-thumbnail
                                 src="#"
-                                class="avatar-sm rounded bg-light"
+                                className="avatar-sm rounded bg-light"
                                 alt=""
                               />
                             </div>
-                            <div class="col ps-0">
+                            <div className="col ps-0">
                               <a
                                 href="javascript:void(0);"
-                                class="text-muted fw-bold"
+                                className="text-muted fw-bold"
                                 data-dz-name
                               ></a>
-                              <p class="mb-0" data-dz-size></p>
+                              <p className="mb-0" data-dz-size></p>
                             </div>
-                            <div class="col-auto">
+                            <div className="col-auto">
                               <a
                                 href="#"
-                                class="btn btn-link btn-lg text-muted"
+                                className="btn btn-link btn-lg text-muted"
                                 data-dz-remove
                               >
-                                <i class="dripicons-cross"></i>
+                                <i className="dripicons-cross"></i>
                               </a>
                             </div>
                           </div>
@@ -225,11 +225,11 @@ const Container = () => {
                     </div>
                   </div>
 
-                  <div class="mb-3 position-relative" id="datepicker2">
-                    <label class="form-label">Due Date</label>
+                  <div className="mb-3 position-relative" id="datepicker2">
+                    <label className="form-label">Due Date</label>
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       data-provide="datepicker"
                       data-date-container="#datepicker2"
                       data-date-format="d-M-yyyy"

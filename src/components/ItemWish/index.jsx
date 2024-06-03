@@ -6,33 +6,33 @@ const ItemWish = ({ product }) => {
   return (
     <>
       <tr>
-        <td class="align-middle">
+        <td className="align-middle">
           <a href="#">
             <img
               src={product.thumbnail}
-              class="img-fluid icon-shape icon-xxl"
+              className="img-fluid icon-shape icon-xxl"
               alt=""
             />
           </a>
         </td>
-        <td class="align-middle">
+        <td className="align-middle">
           <div>
-            <h5 class="fs-6 mb-0">
-              <a href="#" class="text-inherit">
+            <h5 className="fs-6 mb-0">
+              <a href="#" className="text-inherit">
                 {product.productName}
               </a>
             </h5>
           </div>
         </td>
-        <td class="align-middle">${product.price}</td>
+        <td className="align-middle">${product.price}</td>
 
-        <td class="align-middle">
-          <div class="btn btn-primary btn-sm">Add to Cart</div>
+        <td className="align-middle">
+          <div className="btn btn-primary btn-sm">Add to Cart</div>
         </td>
-        <td class="align-middle text-center">
+        <td className="align-middle text-center">
           <a
             href="#"
-            class="text-muted"
+            className="text-muted"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             title="Delete"
@@ -41,7 +41,7 @@ const ItemWish = ({ product }) => {
               dispatch(removeWish(product.id));
             }}
           >
-            <i class="feather-icon icon-trash-2"></i>
+            <i className="feather-icon icon-trash-2"></i>
           </a>
         </td>
       </tr>

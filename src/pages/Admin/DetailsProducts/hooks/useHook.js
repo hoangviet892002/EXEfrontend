@@ -36,7 +36,6 @@ const useHook = () => {
   }, [id]);
   useEffect(() => {
     if (productRedux !== null) setProduct(productRedux);
-    console.log(productRedux);
   }, [productRedux]);
   const deleteImage = async (id) => {
     setLoading(true);

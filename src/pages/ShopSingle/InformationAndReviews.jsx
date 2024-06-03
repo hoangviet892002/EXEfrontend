@@ -4,14 +4,18 @@ const InforScreens = () => {
   const { product } = useHook();
   return (
     <>
-      <section class="mt-lg-14 mt-8">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <ul class="nav nav-pills nav-lb-tab" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
+      <section className="mt-lg-14 mt-8">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <ul
+                className="nav nav-pills nav-lb-tab"
+                id="myTab"
+                role="tablist"
+              >
+                <li className="nav-item" role="presentation">
                   <button
-                    class="nav-link active"
+                    className="nav-link active"
                     id="product-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#product-tab-pane"
@@ -24,9 +28,9 @@ const InforScreens = () => {
                   </button>
                 </li>
 
-                {/* <li class="nav-item" role="presentation">
+                {/* <li className="nav-item" role="presentation">
                   <button
-                    class="nav-link"
+                    className="nav-link"
                     id="details-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#details-tab-pane"
@@ -39,9 +43,9 @@ const InforScreens = () => {
                   </button>
                 </li> */}
 
-                <li class="nav-item" role="presentation">
+                <li className="nav-item" role="presentation">
                   <button
-                    class="nav-link"
+                    className="nav-link"
                     id="reviews-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#reviews-tab-pane"
@@ -55,31 +59,31 @@ const InforScreens = () => {
                 </li>
               </ul>
 
-              <div class="tab-content" id="myTabContent">
+              <div className="tab-content" id="myTabContent">
                 <div
-                  class="tab-pane fade show active"
+                  className="tab-pane fade show active"
                   id="product-tab-pane"
                   role="tabpanel"
                   aria-labelledby="product-tab"
-                  tabindex="0"
+                  tabIndex="0"
                 >
-                  <div class="my-8">{product.product_detail}</div>
+                  <div className="my-8">{product.product_detail}</div>
                 </div>
 
                 {/* <div
-                  class="tab-pane fade"
+                  className="tab-pane fade"
                   id="details-tab-pane"
                   role="tabpanel"
                   aria-labelledby="details-tab"
-                  tabindex="0"
+                  tabIndex="0"
                 >
-                  <div class="my-8">
-                    <div class="row">
-                      <div class="col-12">
-                        <h4 class="mb-4">Details</h4>
+                  <div className="my-8">
+                    <div className="row">
+                      <div className="col-12">
+                        <h4 className="mb-4">Details</h4>
                       </div>
-                      <div class="col-12 col-lg-6">
-                        <table class="table table-striped">
+                      <div className="col-12 col-lg-6">
+                        <table className="table table-striped">
                           <tbody>
                             <tr>
                               <th>Weight</th>
@@ -116,8 +120,8 @@ const InforScreens = () => {
                           </tbody>
                         </table>
                       </div>
-                      <div class="col-12 col-lg-6">
-                        <table class="table table-striped">
+                      <div className="col-12 col-lg-6">
+                        <table className="table table-striped">
                           <tbody>
                             <tr>
                               <th>ASIN</th>
@@ -147,47 +151,49 @@ const InforScreens = () => {
                 </div> */}
 
                 <div
-                  class="tab-pane fade"
+                  className="tab-pane fade"
                   id="reviews-tab-pane"
                   role="tabpanel"
                   aria-labelledby="reviews-tab"
-                  tabindex="0"
+                  tabIndex="0"
                 >
-                  <div class="my-8">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="me-lg-12 mb-6 mb-md-0">
-                          <div class="mb-5">
-                            <h4 class="mb-3">Customer reviews</h4>
+                  <div className="my-8">
+                    <div className="row">
+                      <div className="col-md-4">
+                        <div className="me-lg-12 mb-6 mb-md-0">
+                          <div className="mb-5">
+                            <h4 className="mb-3">Customer reviews</h4>
                             <span>
-                              <small class="text-warning">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-half"></i>
+                              <small className="text-warning">
+                                <i className="bi bi-star-fill"></i>
+                                <i className="bi bi-star-fill"></i>
+                                <i className="bi bi-star-fill"></i>
+                                <i className="bi bi-star-fill"></i>
+                                <i className="bi bi-star-half"></i>
                               </small>
-                              <span class="ms-3">4.1 out of 5</span>
-                              <small class="ms-3">11,130 global ratings</small>
+                              <span className="ms-3">4.1 out of 5</span>
+                              <small className="ms-3">
+                                11,130 global ratings
+                              </small>
                             </span>
                           </div>
-                          <div class="mb-8">
-                            <div class="d-flex align-items-center mb-2">
-                              <div class="text-nowrap me-3 text-muted">
-                                <span class="d-inline-block align-middle text-muted">
+                          <div className="mb-8">
+                            <div className="d-flex align-items-center mb-2">
+                              <div className="text-nowrap me-3 text-muted">
+                                <span className="d-inline-block align-middle text-muted">
                                   5
                                 </span>
-                                <i class="bi bi-star-fill ms-1 small text-warning"></i>
+                                <i className="bi bi-star-fill ms-1 small text-warning"></i>
                               </div>
-                              <div class="w-100">
+                              <div className="w-100">
                                 <div
-                                  class="progress"
+                                  className="progress"
                                   style={{
                                     height: "6px",
                                   }}
                                 >
                                   <div
-                                    class="progress-bar bg-warning"
+                                    className="progress-bar bg-warning"
                                     role="progressbar"
                                     style={{
                                       width: "60%",
@@ -198,25 +204,25 @@ const InforScreens = () => {
                                   ></div>
                                 </div>
                               </div>
-                              <span class="text-muted ms-3">53%</span>
+                              <span className="text-muted ms-3">53%</span>
                             </div>
 
-                            <div class="d-flex align-items-center mb-2">
-                              <div class="text-nowrap me-3 text-muted">
-                                <span class="d-inline-block align-middle text-muted">
+                            <div className="d-flex align-items-center mb-2">
+                              <div className="text-nowrap me-3 text-muted">
+                                <span className="d-inline-block align-middle text-muted">
                                   4
                                 </span>
-                                <i class="bi bi-star-fill ms-1 small text-warning"></i>
+                                <i className="bi bi-star-fill ms-1 small text-warning"></i>
                               </div>
-                              <div class="w-100">
+                              <div className="w-100">
                                 <div
-                                  class="progress"
+                                  className="progress"
                                   style={{
                                     height: "6px",
                                   }}
                                 >
                                   <div
-                                    class="progress-bar bg-warning"
+                                    className="progress-bar bg-warning"
                                     role="progressbar"
                                     style={{
                                       width: "50%",
@@ -227,25 +233,25 @@ const InforScreens = () => {
                                   ></div>
                                 </div>
                               </div>
-                              <span class="text-muted ms-3">22%</span>
+                              <span className="text-muted ms-3">22%</span>
                             </div>
 
-                            <div class="d-flex align-items-center mb-2">
-                              <div class="text-nowrap me-3 text-muted">
-                                <span class="d-inline-block align-middle text-muted">
+                            <div className="d-flex align-items-center mb-2">
+                              <div className="text-nowrap me-3 text-muted">
+                                <span className="d-inline-block align-middle text-muted">
                                   3
                                 </span>
-                                <i class="bi bi-star-fill ms-1 small text-warning"></i>
+                                <i className="bi bi-star-fill ms-1 small text-warning"></i>
                               </div>
-                              <div class="w-100">
+                              <div className="w-100">
                                 <div
-                                  class="progress"
+                                  className="progress"
                                   style={{
                                     height: "6px",
                                   }}
                                 >
                                   <div
-                                    class="progress-bar bg-warning"
+                                    className="progress-bar bg-warning"
                                     role="progressbar"
                                     style={{
                                       width: "35%",
@@ -256,25 +262,25 @@ const InforScreens = () => {
                                   ></div>
                                 </div>
                               </div>
-                              <span class="text-muted ms-3">14%</span>
+                              <span className="text-muted ms-3">14%</span>
                             </div>
 
-                            <div class="d-flex align-items-center mb-2">
-                              <div class="text-nowrap me-3 text-muted">
-                                <span class="d-inline-block align-middle text-muted">
+                            <div className="d-flex align-items-center mb-2">
+                              <div className="text-nowrap me-3 text-muted">
+                                <span className="d-inline-block align-middle text-muted">
                                   2
                                 </span>
-                                <i class="bi bi-star-fill ms-1 small text-warning"></i>
+                                <i className="bi bi-star-fill ms-1 small text-warning"></i>
                               </div>
-                              <div class="w-100">
+                              <div className="w-100">
                                 <div
-                                  class="progress"
+                                  className="progress"
                                   style={{
                                     height: "6px",
                                   }}
                                 >
                                   <div
-                                    class="progress-bar bg-warning"
+                                    className="progress-bar bg-warning"
                                     role="progressbar"
                                     style={{
                                       width: "22%",
@@ -285,25 +291,25 @@ const InforScreens = () => {
                                   ></div>
                                 </div>
                               </div>
-                              <span class="text-muted ms-3">5%</span>
+                              <span className="text-muted ms-3">5%</span>
                             </div>
 
-                            <div class="d-flex align-items-center mb-2">
-                              <div class="text-nowrap me-3 text-muted">
-                                <span class="d-inline-block align-middle text-muted">
+                            <div className="d-flex align-items-center mb-2">
+                              <div className="text-nowrap me-3 text-muted">
+                                <span className="d-inline-block align-middle text-muted">
                                   1
                                 </span>
-                                <i class="bi bi-star-fill ms-1 small text-warning"></i>
+                                <i className="bi bi-star-fill ms-1 small text-warning"></i>
                               </div>
-                              <div class="w-100">
+                              <div className="w-100">
                                 <div
-                                  class="progress"
+                                  className="progress"
                                   style={{
                                     height: "6px",
                                   }}
                                 >
                                   <div
-                                    class="progress-bar bg-warning"
+                                    className="progress-bar bg-warning"
                                     role="progressbar"
                                     style={{
                                       width: "14%",
@@ -314,17 +320,17 @@ const InforScreens = () => {
                                   ></div>
                                 </div>
                               </div>
-                              <span class="text-muted ms-3">7%</span>
+                              <span className="text-muted ms-3">7%</span>
                             </div>
                           </div>
-                          <div class="d-grid">
+                          <div className="d-grid">
                             <h4>Review this product</h4>
-                            <p class="mb-0">
+                            <p className="mb-0">
                               Share your thoughts with other customers.
                             </p>
                             <a
                               href="#"
-                              class="btn btn-outline-gray-400 mt-4 text-muted"
+                              className="btn btn-outline-gray-400 mt-4 text-muted"
                             >
                               Write the Review
                             </a>
@@ -332,9 +338,9 @@ const InforScreens = () => {
                         </div>
                       </div>
 
-                      <div class="col-md-8">
-                        <div class="mb-10">
-                          <div class="d-flex justify-content-between align-items-center mb-8">
+                      <div className="col-md-8">
+                        <div className="mb-10">
+                          <div className="d-flex justify-content-between align-items-center mb-8">
                             <div>
                               <h4>Reviews</h4>
                             </div>
@@ -346,66 +352,69 @@ const InforScreens = () => {
                           <div>
                             <a
                               href="#"
-                              class="btn btn-outline-gray-400 text-muted"
+                              className="btn btn-outline-gray-400 text-muted"
                             >
                               Read More Reviews
                             </a>
                           </div>
                         </div>
                         <div>
-                          <h3 class="mb-5">Create Review</h3>
-                          <div class="border-bottom py-4 mb-4">
-                            <h4 class="mb-3">Overall rating</h4>
+                          <h3 className="mb-5">Create Review</h3>
+                          <div className="border-bottom py-4 mb-4">
+                            <h4 className="mb-3">Overall rating</h4>
                             <div id="rater"></div>
                           </div>
-                          <div class="border-bottom py-4 mb-4">
-                            <h4 class="mb-0">Rate Features</h4>
-                            <div class="my-5">
+                          <div className="border-bottom py-4 mb-4">
+                            <h4 className="mb-0">Rate Features</h4>
+                            <div className="my-5">
                               <h5>Flavor</h5>
                               <div id="rate-2"></div>
                             </div>
-                            <div class="my-5">
+                            <div className="my-5">
                               <h5>Value for money</h5>
                               <div id="rate-3"></div>
                             </div>
-                            <div class="my-5">
+                            <div className="my-5">
                               <h5>Scent</h5>
                               <div id="rate-4"></div>
                             </div>
                           </div>
 
-                          <div class="border-bottom py-4 mb-4">
+                          <div className="border-bottom py-4 mb-4">
                             <h5>Add a headline</h5>
                             <input
                               type="text"
-                              class="form-control"
+                              className="form-control"
                               placeholder="What’s most important to know"
                             />
                           </div>
-                          <div class="border-bottom py-4 mb-4">
+                          <div className="border-bottom py-4 mb-4">
                             <h5>Add a photo or video</h5>
                             <p>
                               Shoppers find images and videos more helpful than
                               text alone.
                             </p>
 
-                            <form action="#" class="dropzone profile-dropzone">
-                              <div class="fallback">
+                            <form
+                              action="#"
+                              className="dropzone profile-dropzone"
+                            >
+                              <div className="fallback">
                                 <input name="file" type="file" multiple />
                               </div>
                             </form>
                           </div>
-                          <div class="py-4 mb-4">
+                          <div className="py-4 mb-4">
                             <h5>Add a written review</h5>
                             <textarea
-                              class="form-control"
+                              className="form-control"
                               rows="3"
                               placeholder="What did you like or dislike? What did you use this product for?"
                             ></textarea>
                           </div>
 
-                          <div class="d-flex justify-content-end">
-                            <a href="#" class="btn btn-primary">
+                          <div className="d-flex justify-content-end">
+                            <a href="#" className="btn btn-primary">
                               Submit Review
                             </a>
                           </div>
@@ -416,11 +425,11 @@ const InforScreens = () => {
                 </div>
 
                 <div
-                  class="tab-pane fade"
+                  className="tab-pane fade"
                   id="sellerInfo-tab-pane"
                   role="tabpanel"
                   aria-labelledby="sellerInfo-tab"
-                  tabindex="0"
+                  tabIndex="0"
                 >
                   ...
                 </div>

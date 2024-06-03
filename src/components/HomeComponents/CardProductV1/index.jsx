@@ -14,10 +14,10 @@ const CardProduct = ({ product }) => {
   const navigate = useNavigate();
 
   return (
-    <div class="col">
-      <div class="card card-product-v2 h-100">
-        <div class="card-body position-relative">
-          <div class="text-center position-relative">
+    <div className="col">
+      <div className="card card-product-v2 h-100">
+        <div className="card-body position-relative">
+          <div className="text-center position-relative">
             <a
               onClick={() => {
                 navigate(`/shop/${product.id}`);
@@ -26,14 +26,14 @@ const CardProduct = ({ product }) => {
               <img
                 src={product.thumbnail}
                 alt="Grocery Ecommerce Template"
-                class="mb-3 img-fluid"
+                className="mb-3 img-fluid"
               />
             </a>
 
-            <div class="product-action-btn">
+            <div className="product-action-btn">
               <a
                 href="#!"
-                class="btn-action mb-1"
+                className="btn-action mb-1"
                 data-bs-toggle="modal"
                 data-bs-target="#quickViewModal"
                 onClick={(e) => {
@@ -41,11 +41,11 @@ const CardProduct = ({ product }) => {
                   dispatch(pickProduct(product));
                 }}
               >
-                <i class="bi bi-eye"></i>
+                <i className="bi bi-eye"></i>
               </a>
               <a
                 href="#!"
-                class="btn-action mb-1"
+                className="btn-action mb-1"
                 data-bs-toggle="tooltip"
                 data-bs-html="true"
                 title="Wishlist"
@@ -64,45 +64,47 @@ const CardProduct = ({ product }) => {
               </a>
               <a
                 href="#!"
-                class="btn-action"
+                className="btn-action"
                 data-bs-toggle="tooltip"
                 data-bs-html="true"
                 title="Compare"
               >
-                <i class="bi bi-arrow-left-right"></i>
+                <i className="bi bi-arrow-left-right"></i>
               </a>
             </div>
           </div>
 
-          <h2 class="fs-6">
-            <a href="#!" class="text-inherit text-decoration-none">
+          <h2 className="fs-6">
+            <a href="#!" className="text-inherit text-decoration-none">
               {product.productName}
             </a>
           </h2>
           <div>
-            <small class="text-warning">
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
+            <small className="text-warning">
+              <i className="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
+              <i className="bi bi-star-half"></i>
             </small>
-            <span class="text-muted small">4.4(694)</span>
+            <span className="text-muted small">4.4(694)</span>
           </div>
 
-          <div class="d-flex justify-content-between align-items-center mt-3">
+          <div className="d-flex justify-content-between align-items-center mt-3">
             <div>
-              <span class="text-dark">${product.price}</span>
+              <span className="text-dark">${product.price}</span>
             </div>
             <div>
-              <span class="text-uppercase small text-primary">In Stock</span>
+              <span className="text-uppercase small text-primary">
+                In Stock
+              </span>
             </div>
           </div>
 
-          <div class="product-fade-block">
-            <div class="d-grid mt-4">
+          <div className="product-fade-block">
+            <div className="d-grid mt-4">
               <a
-                class="btn btn-primary rounded-pill"
+                className="btn btn-primary rounded-pill"
                 onClick={(e) => {
                   e.preventDefault();
                   dispatch(addToCart(product, 1));
@@ -115,7 +117,7 @@ const CardProduct = ({ product }) => {
         </div>
 
         <div
-          class="product-content-fade border-info"
+          className="product-content-fade border-info"
           style={{ marginBottom: "-60px" }}
         ></div>
       </div>

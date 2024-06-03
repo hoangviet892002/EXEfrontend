@@ -1,26 +1,26 @@
 const reviews = () => {
   return (
-    <div class="d-flex border-bottom pb-6 mb-6">
+    <div className="d-flex border-bottom pb-6 mb-6">
       <img
         src="../assets/images/avatar/avatar-10.jpg"
         alt=""
-        class="rounded-circle avatar-lg"
+        className="rounded-circle avatar-lg"
       />
-      <div class="ms-5">
-        <h6 class="mb-1">Shankar Subbaraman</h6>
+      <div className="ms-5">
+        <h6 className="mb-1">Shankar Subbaraman</h6>
 
-        <p class="small">
-          <span class="text-muted">30 December 2022</span>
-          <span class="text-primary ms-3 fw-bold">Verified Purchase</span>
+        <p className="small">
+          <span className="text-muted">30 December 2022</span>
+          <span className="text-primary ms-3 fw-bold">Verified Purchase</span>
         </p>
 
-        <div class="mb-2">
-          <i class="bi bi-star-fill text-warning"></i>
-          <i class="bi bi-star-fill text-warning"></i>
-          <i class="bi bi-star-fill text-warning"></i>
-          <i class="bi bi-star-fill text-warning"></i>
-          <i class="bi bi-star-fill text-warning"></i>
-          <span class="ms-3 text-dark fw-bold">
+        <div className="mb-2">
+          <i className="bi bi-star-fill text-warning"></i>
+          <i className="bi bi-star-fill text-warning"></i>
+          <i className="bi bi-star-fill text-warning"></i>
+          <i className="bi bi-star-fill text-warning"></i>
+          <i className="bi bi-star-fill text-warning"></i>
+          <span className="ms-3 text-dark fw-bold">
             Need to recheck the weight at delivery point
           </span>
         </div>
@@ -32,25 +32,25 @@ const reviews = () => {
           covers and Barcode on the weight etc. .
         </p>
         <div>
-          <div class="border rounded-3 icon-shape icon-lg border-2">
+          <div className="border rounded-3 icon-shape icon-lg border-2">
             <img
               src="../assets/images/products/product-img-1.jpg"
               alt=""
-              class="img-fluid rounded-3"
+              className="img-fluid rounded-3"
             />
           </div>
-          <div class="border rounded-3 icon-shape icon-lg border-2 ms-1">
+          <div className="border rounded-3 icon-shape icon-lg border-2 ms-1">
             <img
               src="../assets/images/products/product-img-2.jpg"
               alt=""
-              class="img-fluid rounded-3"
+              className="img-fluid rounded-3"
             />
           </div>
-          <div class="border rounded-3 icon-shape icon-lg border-2 ms-1">
+          <div className="border rounded-3 icon-shape icon-lg border-2 ms-1">
             <img
               src="../assets/images/products/product-img-3.jpg"
               alt=""
-              class="img-fluid rounded-3"
+              className="img-fluid rounded-3"
             />
           </div>
         </div>

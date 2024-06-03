@@ -40,28 +40,28 @@ const Container = () => {
   const [options, setOptions] = useState([]);
   return (
     <>
-      <div class="row">
-        <div class="col-12">
-          <div class="page-title-box">
-            <h4 class="page-title">Create Product</h4>
+      <div className="row">
+        <div className="col-12">
+          <div className="page-title-box">
+            <h4 className="page-title">Create Product</h4>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-body">
-              <form class="row" onSubmit={handleSubmit}>
-                <div class="col-xl-6">
-                  <div class="mb-3">
-                    <label for="projectname" class="form-label">
+      <div className="row">
+        <div className="col-12">
+          <div className="card">
+            <div className="card-body">
+              <form className="row" onSubmit={handleSubmit}>
+                <div className="col-xl-6">
+                  <div className="mb-3">
+                    <label for="projectname" className="form-label">
                       Name
                     </label>
                     <input
                       type="text"
                       value={input.name}
                       id="projectname"
-                      class="form-control"
+                      className="form-control"
                       onChange={(e) =>
                         setInput({ ...input, name: e.target.value })
                       }
@@ -70,12 +70,12 @@ const Container = () => {
                     />
                   </div>
 
-                  <div class="mb-3">
-                    <label for="project-overview" class="form-label">
+                  <div className="mb-3">
+                    <label for="project-overview" className="form-label">
                       Overview
                     </label>
                     <textarea
-                      class="form-control"
+                      className="form-control"
                       id="project-overview"
                       value={input.detail}
                       onChange={(e) =>
@@ -86,12 +86,12 @@ const Container = () => {
                       required
                     ></textarea>
                   </div>
-                  <div class="mb-3">
-                    <label for="project-overview" class="form-label">
+                  <div className="mb-3">
+                    <label for="project-overview" className="form-label">
                       Dimension
                     </label>
                     <input
-                      class="form-control"
+                      className="form-control"
                       id="project-overview"
                       value={input.dimensions}
                       onChange={(e) =>
@@ -103,22 +103,22 @@ const Container = () => {
                     ></input>
                   </div>
 
-                  <div class="mb-3">
-                    <label class="form-label">Cost</label>
+                  <div className="mb-3">
+                    <label className="form-label">Cost</label>
                     <input
                       type="number"
                       value={input.cost}
                       onChange={(e) =>
                         setInput({ ...input, cost: e.target.value })
                       }
-                      class="form-control"
+                      className="form-control"
                       placeholder="Enter cost"
                       required
                     />
                   </div>
 
-                  <div class="mb-0">
-                    <label for="project-overview" class="form-label">
+                  <div className="mb-0">
+                    <label for="project-overview" className="form-label">
                       Categories
                     </label>
                     <Select
@@ -130,12 +130,12 @@ const Container = () => {
                   </div>
                 </div>
 
-                <div class="col-xl-6">
-                  <div class="mb-3 mt-3 mt-xl-0">
-                    <label for="projectname" class="mb-0">
+                <div className="col-xl-6">
+                  <div className="mb-3 mt-3 mt-xl-0">
+                    <label for="projectname" className="mb-0">
                       Avatar
                     </label>
-                    <p class="text-muted font-14">
+                    <p className="text-muted font-14">
                       Recommended thumbnail size 800x400 (px).
                     </p>
 
@@ -185,37 +185,37 @@ const Container = () => {
                     </form>
 
                     <div
-                      class="dropzone-previews mt-3"
+                      className="dropzone-previews mt-3"
                       id="file-previews"
                     ></div>
 
-                    <div class="d-none" id="uploadPreviewTemplate">
-                      <div class="card mt-1 mb-0 shadow-none border">
-                        <div class="p-2">
-                          <div class="row align-items-center">
-                            <div class="col-auto">
+                    <div className="d-none" id="uploadPreviewTemplate">
+                      <div className="card mt-1 mb-0 shadow-none border">
+                        <div className="p-2">
+                          <div className="row align-items-center">
+                            <div className="col-auto">
                               <img
                                 data-dz-thumbnail
                                 src="#"
-                                class="avatar-sm rounded bg-light"
+                                className="avatar-sm rounded bg-light"
                                 alt=""
                               />
                             </div>
-                            <div class="col ps-0">
+                            <div className="col ps-0">
                               <a
                                 href="javascript:void(0);"
-                                class="text-muted fw-bold"
+                                className="text-muted fw-bold"
                                 data-dz-name
                               ></a>
-                              <p class="mb-0" data-dz-size></p>
+                              <p className="mb-0" data-dz-size></p>
                             </div>
-                            <div class="col-auto">
+                            <div className="col-auto">
                               <a
                                 href="#"
-                                class="btn btn-link btn-lg text-muted"
+                                className="btn btn-link btn-lg text-muted"
                                 data-dz-remove
                               >
-                                <i class="dripicons-cross"></i>
+                                <i className="dripicons-cross"></i>
                               </a>
                             </div>
                           </div>
@@ -224,9 +224,9 @@ const Container = () => {
                     </div>
                   </div>
                   {loading ? (
-                    <button class="btn btn-primary" type="button" disabled>
+                    <button className="btn btn-primary" type="button" disabled>
                       <span
-                        class="spinner-border spinner-border-sm"
+                        className="spinner-border spinner-border-sm"
                         role="status"
                         aria-hidden="true"
                       ></span>

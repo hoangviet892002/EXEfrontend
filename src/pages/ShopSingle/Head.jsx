@@ -19,16 +19,16 @@ const HeadDetail = () => {
   } = useHook();
   return (
     <>
-      <section class="mt-8">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
+      <section className="mt-8">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
               <div
                 id="productCarousel"
-                class="carousel slide"
+                className="carousel slide"
                 data-bs-ride="carousel"
               >
-                <div class="carousel-inner">
+                <div className="carousel-inner">
                   {product.productImages.map((image, index) => (
                     <div
                       className={`carousel-item ${index === 0 ? "active" : ""}`}
@@ -44,38 +44,38 @@ const HeadDetail = () => {
                   ))}
                 </div>
                 <button
-                  class="carousel-control-prev"
+                  className="carousel-control-prev"
                   type="button"
                   data-bs-target="#productCarousel"
                   data-bs-slide="prev"
                 >
                   <span
-                    class="carousel-control-prev-icon"
+                    className="carousel-control-prev-icon"
                     aria-hidden="true"
                   ></span>
-                  <span class="visually-hidden">Previous</span>
+                  <span className="visually-hidden">Previous</span>
                 </button>
                 <button
-                  class="carousel-control-next"
+                  className="carousel-control-next"
                   type="button"
                   data-bs-target="#productCarousel"
                   data-bs-slide="next"
                 >
                   <span
-                    class="carousel-control-next-icon"
+                    className="carousel-control-next-icon"
                     aria-hidden="true"
                   ></span>
-                  <span class="visually-hidden">Next</span>
+                  <span className="visually-hidden">Next</span>
                 </button>
               </div>
 
-              <div class="product-tools">
-                <div id="productThumbnails" class="thumbnails row g-3">
+              <div className="product-tools">
+                <div id="productThumbnails" className="thumbnails row g-3">
                   {product.productImages.map((image, index) => (
-                    <div class="col-3">
+                    <div className="col-3" key={index}>
                       <img
                         src={image.imageUrl}
-                        class="thumbnails-img d-block w-100"
+                        className="thumbnails-img d-block w-100"
                         data-bs-target="#productCarousel"
                         data-bs-slide-to={index}
                       />
@@ -84,88 +84,88 @@ const HeadDetail = () => {
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="ps-lg-10">
-                <h1 class="mb-1">{product.productName}</h1>
-                <div class="mb-4">
-                  <small class="text-warning">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
+            <div className="col-md-6">
+              <div className="ps-lg-10">
+                <h1 className="mb-1">{product.productName}</h1>
+                <div className="mb-4">
+                  <small className="text-warning">
+                    <i className="bi bi-star-fill"></i>
+                    <i className="bi bi-star-fill"></i>
+                    <i className="bi bi-star-fill"></i>
+                    <i className="bi bi-star-fill"></i>
+                    <i className="bi bi-star-half"></i>
                   </small>
-                  <a href="#" class="ms-2">
+                  <a href="#" className="ms-2">
                     (30 reviews)
                   </a>
                 </div>
-                <div class="fs-4">
-                  <span class="fw-bold text-dark">${product.cost}</span>
-                  {/* <span class="text-decoration-line-through text-muted">
+                <div className="fs-4">
+                  <span className="fw-bold text-dark">${product.cost}</span>
+                  {/* <span className="text-decoration-line-through text-muted">
                     $35
                   </span>
                   <span>
-                    <small class="fs-6 ms-2 text-danger">26% Off</small>
+                    <small className="fs-6 ms-2 text-danger">26% Off</small>
                   </span> */}
                 </div>
 
-                <hr class="my-6" />
+                <hr className="my-6" />
                 {/* <div>
-                  <button type="button" class="btn btn-outline-secondary">
+                  <button type="button" className="btn btn-outline-secondary">
                     250g
                   </button>
 
-                  <button type="button" class="btn btn-outline-secondary">
+                  <button type="button" className="btn btn-outline-secondary">
                     500g
                   </button>
 
-                  <button type="button" class="btn btn-outline-secondary">
+                  <button type="button" className="btn btn-outline-secondary">
                     1kg
                   </button>
                 </div> */}
-                <div class="mt-5 d-flex justify-content-start">
-                  <div class="col-lg-2 col-3">
-                    <div class="input-group flex-nowrap justify-content-center">
+                <div className="mt-5 d-flex justify-content-start">
+                  <div className="col-lg-2 col-3">
+                    <div className="input-group flex-nowrap justify-content-center">
                       <input
                         onClick={handleSub}
                         type="button"
-                        value="-"
-                        class="button-minus form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
+                        defaultValue="-"
+                        className="button-minus form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
                         data-field="quantity"
                       />
                       <input
                         type="number"
                         step="1"
                         max="10"
-                        value={quantity}
+                        defaultValue={quantity}
                         name="quantity"
-                        class="quantity-field form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
+                        className="quantity-field form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
                       />
                       <input
                         onClick={handleAdd}
                         type="button"
-                        value="+"
-                        class="button-plus form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
+                        defaultValue="+"
+                        className="button-plus form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
                         data-field="quantity"
                       />
                     </div>
                   </div>
-                  <div class="ms-2 col-lg-4 col-5 d-grid">
+                  <div className="ms-2 col-lg-4 col-5 d-grid">
                     <button
                       type="button"
-                      class="btn btn-primary"
+                      className="btn btn-primary"
                       onClick={(e) => {
                         e.preventDefault();
                         handleAddtoCart();
                       }}
                     >
-                      <i class="feather-icon icon-shopping-bag me-2"></i>Add to
-                      cart
+                      <i className="feather-icon icon-shopping-bag me-2"></i>Add
+                      to cart
                     </button>
                   </div>
-                  <div class="ms-2 col-4">
+                  <div className="ms-2 col-4">
                     <a
-                      class="btn btn-light"
+                      className="btn btn-light"
                       data-bs-toggle="tooltip"
                       data-bs-html="true"
                       title="Wishlist"
@@ -183,9 +183,9 @@ const HeadDetail = () => {
                   </div>
                 </div>
 
-                <hr class="my-6" />
+                <hr className="my-6" />
                 <div>
-                  <table class="table table-borderless">
+                  <table className="table table-borderless">
                     <tbody>
                       <tr>
                         <td>Product Code:</td>
@@ -195,40 +195,29 @@ const HeadDetail = () => {
                         <td>Availability:</td>
                         <td>In Stock</td>
                       </tr>
+                    </tbody>
+                  </table>
+
+                  <table className="table table-striped table-centered mb-0">
+                    <thead>
                       <tr>
-                        <table class="table table-striped table-centered mb-0">
-                          <thead>
-                            <tr>
-                              <th>Type</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {product.category_type_id.map((type) => (
-                              <>
-                                <tr>
-                                  <td>{type.name}</td>
-                                </tr>
-                              </>
-                            ))}
-                          </tbody>
-                        </table>
+                        <th>Type</th>
                       </tr>
-                      {/* <tr>
-                        <td>Shipping:</td>
-                        <td>
-                          <small>
-                            01 day shipping.
-                            <span class="text-muted">( Free pickup today)</span>
-                          </small>
-                        </td>
-                      </tr> */}
+                    </thead>
+                    <tbody>
+                      {product.category_type_id.map((type, index) => (
+                        <tr key={index}>
+                          <td>{type.name}</td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>
-                {/* <div class="mt-8">
-                  <div class="dropdown">
+
+                {/* <div className="mt-8">
+                  <div className="dropdown">
                     <a
-                      class="btn btn-outline-secondary dropdown-toggle"
+                      className="btn btn-outline-secondary dropdown-toggle"
                       href="#"
                       role="button"
                       data-bs-toggle="dropdown"
@@ -237,20 +226,20 @@ const HeadDetail = () => {
                       Share
                     </a>
 
-                    <ul class="dropdown-menu">
+                    <ul className="dropdown-menu">
                       <li>
-                        <a class="dropdown-item" href="#">
-                          <i class="bi bi-facebook me-2"></i>Facebook
+                        <a className="dropdown-item" href="#">
+                          <i className="bi bi-facebook me-2"></i>Facebook
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="#">
-                          <i class="bi bi-twitter me-2"></i>Twitter
+                        <a className="dropdown-item" href="#">
+                          <i className="bi bi-twitter me-2"></i>Twitter
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="#">
-                          <i class="bi bi-instagram me-2"></i>Instagram
+                        <a className="dropdown-item" href="#">
+                          <i className="bi bi-instagram me-2"></i>Instagram
                         </a>
                       </li>
                     </ul>

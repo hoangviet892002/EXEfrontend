@@ -5,12 +5,15 @@ import Payment from "./Payment";
 
 const Container = () => {
   return (
-    <section class="mb-lg-14 mb-8 mt-8">
-      <div class="container">
+    <section className="mb-lg-14 mb-8 mt-8">
+      <div className="container">
         <div>
-          <div class="row">
-            <div class="col-lg-7 col-md-12">
-              <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div className="row">
+            <div className="col-lg-7 col-md-12">
+              <div
+                className="accordion accordion-flush"
+                id="accordionFlushExample"
+              >
                 <Address />
 
                 <Instructions />

@@ -6,10 +6,10 @@ const OrdersPage = () => {
     <>
       <Navbar />
       <section>
-        <div class="container">
-          <div class="row">
+        <div className="container">
+          <div className="row">
             <SideBarCus />
-            <div class="col-lg-9 col-md-8 col-12">
+            <div className="col-lg-9 col-md-8 col-12">
               <Container />
             </div>
           </div>

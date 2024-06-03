@@ -1,77 +1,81 @@
 const ModelEdit = () => {
   return (
     <div
-      class="modal fade"
+      className="modal fade"
       id="editModal"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="addAddressModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body p-6">
-            <div class="d-flex justify-content-between mb-5">
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-body p-6">
+            <div className="d-flex justify-content-between mb-5">
               <div>
-                <h5 class="h6 mb-1" id="addAddressModalLabel">
+                <h5 className="h6 mb-1" id="addAddressModalLabel">
                   Edit Shipping Address
                 </h5>
-                <p class="small mb-0">
+                <p className="small mb-0">
                   Edit shipping address for your order delivery.
                 </p>
               </div>
               <div>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
               </div>
             </div>
 
-            <div class="row g-3">
-              <div class="col-12">
+            <div className="row g-3">
+              <div className="col-12">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="First name"
                   aria-label="First name"
                   required=""
                 />
               </div>
 
-              <div class="col-12">
+              <div className="col-12">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Last name"
                   aria-label="Last name"
                   required=""
                 />
               </div>
 
-              <div class="col-12">
+              <div className="col-12">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Address Line 1"
                 />
               </div>
 
-              <div class="col-12">
+              <div className="col-12">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Address Line 2"
                 />
               </div>
 
-              <div class="col-12">
-                <input type="text" class="form-control" placeholder="City" />
+              <div className="col-12">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="City"
+                />
               </div>
 
-              <div class="col-12">
-                <select class="form-select">
+              <div className="col-12">
+                <select className="form-select">
                   <option selected="">India</option>
                   <option value="1">UK</option>
                   <option value="2">USA</option>
@@ -79,8 +83,11 @@ const ModelEdit = () => {
                 </select>
               </div>
 
-              <div class="col-12">
-                <select class="form-select" aria-label="Default select example">
+              <div className="col-12">
+                <select
+                  className="form-select"
+                  aria-label="Default select example"
+                >
                   <option selected="">Gujarat</option>
                   <option value="1">Northern Ireland</option>
                   <option value="2">Alaska</option>
@@ -88,31 +95,31 @@ const ModelEdit = () => {
                 </select>
               </div>
 
-              <div class="col-12">
+              <div className="col-12">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Zip Code"
                 />
               </div>
 
-              <div class="col-12">
+              <div className="col-12">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Business Name"
                 />
               </div>
 
-              <div class="col-12 text-end">
+              <div className="col-12 text-end">
                 <button
                   type="button"
-                  class="btn btn-outline-primary"
+                  className="btn btn-outline-primary"
                   data-bs-dismiss="modal"
                 >
                   Cancel
                 </button>
-                <button class="btn btn-primary" type="button">
+                <button className="btn btn-primary" type="button">
                   Save Address
                 </button>
               </div>

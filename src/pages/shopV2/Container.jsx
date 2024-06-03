@@ -35,7 +35,7 @@ const Container = () => {
               <h5 className="mb-3">Categories</h5>
               <button
                 type="button"
-                class="btn btn-primary mb-2"
+                className="btn btn-primary mb-2"
                 onClick={(e) => {
                   e.preventDefault();
                   dispatch(pickType(""));
@@ -44,8 +44,9 @@ const Container = () => {
                 All
               </button>
               <ul className="nav nav-category" id="categoryCollapseMenu">
-                {megaMenu.map((category) => (
+                {megaMenu.map((category, index) => (
                   <Categories
+                    key={index}
                     index={"x" + category.id + "x"}
                     category={category}
                   />
@@ -171,17 +172,20 @@ const Container = () => {
               />
             </div>
             <div className="py-4">
-              <div class="input-group">
+              <div className="input-group">
                 <input
                   type="text"
-                  class="form-control border-end-0"
+                  className="form-control border-end-0"
                   placeholder="Search for products.."
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   aria-label="Search for products.."
                   aria-describedby="basic-addon2"
                 />
-                <span class="input-group-text bg-transparent" id="basic-addon2">
+                <span
+                  className="input-group-text bg-transparent"
+                  id="basic-addon2"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -189,10 +193,10 @@ const Container = () => {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="feather feather-search"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="feather feather-search"
                   >
                     <circle cx="11" cy="11" r="8"></circle>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -304,8 +308,8 @@ const Container = () => {
           </div>
           <div className="col-lg-9 col-md-8">
             <div className="row g-4 row-cols-xl-4 row-cols-lg-3 row-cols-2 row-cols-md-2 mt-2">
-              {products.map((product) => (
-                <CardProductV1 product={product} />
+              {products.map((product, index) => (
+                <CardProductV1 product={product} key={index} />
               ))}
             </div>
             <div className="row mt-8">

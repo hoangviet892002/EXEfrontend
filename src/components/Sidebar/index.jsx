@@ -4,19 +4,19 @@ import { Link, NavLink } from "react-router-dom";
 const SideBar = () => {
   return (
     <>
-      <div class="leftside-menu">
-        <Link to="/admin" class="logo text-center logo-light">
-          <span class="logo-lg">
+      <div className="leftside-menu">
+        <Link to="/admin" className="logo text-center logo-light">
+          <span className="logo-lg">
             <img src={logo} alt="" height="16" />
           </span>
-          <span class="logo-sm">
+          <span className="logo-sm">
             <img src="assets/images/logo_sm.png" alt="" height="16" />
           </span>
         </Link>
 
-        <div class="h-100" id="leftside-menu-container" data-simplebar>
-          <ul class="side-nav">
-            <NavLink class="side-nav-item" to="/admin/" end>
+        <div className="h-100" id="leftside-menu-container" data-simplebar>
+          <ul className="side-nav">
+            <NavLink className="side-nav-item" to="/admin/" end>
               {({ isActive }) => (
                 <div
                   style={{
@@ -25,14 +25,14 @@ const SideBar = () => {
                     margin: "10px",
                   }}
                 >
-                  <a class="side-nav-link">
-                    <i class="feather-icon icon-home"></i>
+                  <a className="side-nav-link">
+                    <i className="feather-icon icon-home"></i>
                     <span> Home </span>
                   </a>
                 </div>
               )}
             </NavLink>
-            <NavLink class="side-nav-item" to="/admin/products">
+            <NavLink className="side-nav-item" to="/admin/products">
               {({ isActive }) => (
                 <div
                   style={{
@@ -41,15 +41,15 @@ const SideBar = () => {
                     margin: "10px",
                   }}
                 >
-                  <a class="side-nav-link">
-                    <i class="feather-icon icon-home"></i>
+                  <a className="side-nav-link">
+                    <i className="feather-icon icon-home"></i>
                     <span> Products </span>
                   </a>
                 </div>
               )}
             </NavLink>
 
-            <NavLink class="side-nav-item" to="/admin/categories">
+            <NavLink className="side-nav-item" to="/admin/categories">
               {({ isActive }) => (
                 <div
                   style={{
@@ -58,14 +58,14 @@ const SideBar = () => {
                     margin: "10px",
                   }}
                 >
-                  <a class="side-nav-link">
-                    <i class="feather-icon icon-home"></i>
+                  <a className="side-nav-link">
+                    <i className="feather-icon icon-home"></i>
                     <span> Category </span>
                   </a>
                 </div>
               )}
             </NavLink>
-            <NavLink class="side-nav-item" to="/admin/orders">
+            <NavLink className="side-nav-item" to="/admin/orders">
               {({ isActive }) => (
                 <div
                   style={{
@@ -74,8 +74,8 @@ const SideBar = () => {
                     margin: "10px",
                   }}
                 >
-                  <a class="side-nav-link">
-                    <i class="feather-icon icon-home"></i>
+                  <a className="side-nav-link">
+                    <i className="feather-icon icon-home"></i>
                     <span> Orders </span>
                   </a>
                 </div>
@@ -83,28 +83,28 @@ const SideBar = () => {
             </NavLink>
           </ul>
 
-          <div class="help-box text-white text-center">
+          <div className="help-box text-white text-center">
             <a
               href="javascript: void(0);"
-              class="float-end close-btn text-white"
+              className="float-end close-btn text-white"
             >
-              <i class="mdi mdi-close"></i>
+              <i className="mdi mdi-close"></i>
             </a>
             <img
               src="assets/images/help-icon.svg"
               height="90"
               alt="Helper Icon Image"
             />
-            <h5 class="mt-3">Unlimited Access</h5>
-            <p class="mb-3">
+            <h5 className="mt-3">Unlimited Access</h5>
+            <p className="mb-3">
               Upgrade to plan to get access to unlimited reports
             </p>
-            <a href="javascript: void(0);" class="btn btn-secondary btn-sm">
+            <a href="javascript: void(0);" className="btn btn-secondary btn-sm">
               Upgrade
             </a>
           </div>
 
-          <div class="clearfix"></div>
+          <div className="clearfix"></div>
         </div>
       </div>
     </>

@@ -1,16 +1,16 @@
 const ItemAddress = () => {
   return (
-    <div class="col-lg-6 col-12 mb-4">
-      <div class="border p-6 rounded-3">
-        <div class="form-check mb-4">
+    <div className="col-lg-6 col-12 mb-4">
+      <div className="border p-6 rounded-3">
+        <div className="form-check mb-4">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="radio"
             name="flexRadioDefault"
             id="homeRadio"
             checked
           />
-          <label class="form-check-label text-dark" for="homeRadio">
+          <label className="form-check-label text-dark" for="homeRadio">
             Home
           </label>
         </div>
@@ -22,7 +22,7 @@ const ItemAddress = () => {
           <br />
           <abbr title="Phone">P: 402-776-1106</abbr>
         </address>
-        <span class="text-danger">Default address </span>
+        <span className="text-danger">Default address </span>
       </div>
     </div>
   );

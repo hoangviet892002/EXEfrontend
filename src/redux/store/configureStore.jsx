@@ -24,18 +24,16 @@ function saveState(state) {
   }
 }
 
-export default function configureStore() {
-  const initialState = loadState();
-  const store = createStore(
-    rootReducer,
-    initialState
-    // Add any middleware here
-  );
+const initialState = loadState();
+const store = createStore(
+  rootReducer,
+  initialState
+  // Add any middleware here
+);
 
-  // Subscribe to store changes and save state to local storage
-  store.subscribe(() => {
-    saveState(store.getState());
-  });
+// Subscribe to store changes and save state to local storage
+store.subscribe(() => {
+  saveState(store.getState());
+});
 
-  return store;
-}
+export default store;

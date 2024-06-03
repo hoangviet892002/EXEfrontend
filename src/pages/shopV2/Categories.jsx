@@ -22,8 +22,8 @@ const Categories = ({ index, category }) => {
       >
         <div>
           <ul className="nav flex-column ms-3">
-            {category.categoryTypes.map((type) => (
-              <Category type={type} />
+            {category.categoryTypes.map((type, index) => (
+              <Category type={type} key={index} />
             ))}
           </ul>
         </div>

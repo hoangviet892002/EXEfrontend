@@ -3,22 +3,22 @@ import useHook from "./hooks/useHook";
 const Item = ({ item }) => {
   const { handleRemoveItem, UpdateQuantity } = useHook();
   return (
-    <li class="list-group-item py-3 px-0 ">
-      <div class="row align-items-center">
-        <div class="col-2">
-          <img src={item.thumbnail} alt="Ecommerce" class="img-fluid" />
+    <li className="list-group-item py-3 px-0 ">
+      <div className="row align-items-center">
+        <div className="col-2">
+          <img src={item.thumbnail} alt="Ecommerce" className="img-fluid" />
         </div>
-        <div class="col-5">
-          <h6 class="mb-0">{item.productName}</h6>
-          <div class="mt-2 small">
+        <div className="col-5">
+          <h6 className="mb-0">{item.productName}</h6>
+          <div className="mt-2 small">
             <a
               onClick={(e) => {
                 e.preventDefault();
                 handleRemoveItem(item.id);
               }}
-              class="text-decoration-none"
+              className="text-decoration-none"
             >
-              <span class="me-1">
+              <span className="me-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -26,10 +26,10 @@ const Item = ({ item }) => {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="feather feather-trash-2"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="feather feather-trash-2"
                 >
                   <polyline points="3 6 5 6 21 6"></polyline>
                   <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
@@ -41,12 +41,12 @@ const Item = ({ item }) => {
             </a>
           </div>
         </div>
-        <div class="col-3">
-          <div class="input-group flex-nowrap justify-content-center">
+        <div className="col-3">
+          <div className="input-group flex-nowrap justify-content-center">
             <input
               type="button"
-              value="-"
-              class="button-minus form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
+              defaultValue="-"
+              className="button-minus form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
               data-field="quantity"
               onClick={(e) => {
                 e.preventDefault();
@@ -57,14 +57,14 @@ const Item = ({ item }) => {
               type="number"
               step="1"
               max="10"
-              value={item.number}
+              defaultValue={item.number}
               name="quantity"
-              class="quantity-field form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
+              className="quantity-field form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
             />
             <input
               type="button"
-              value="+"
-              class="button-plus form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
+              defaultValue="+"
+              className="button-plus form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
               data-field="quantity"
               onClick={(e) => {
                 e.preventDefault();
@@ -73,8 +73,8 @@ const Item = ({ item }) => {
             />
           </div>
         </div>
-        <div class="col-2 text-end">
-          <span class="fw-bold">${item.price}</span>
+        <div className="col-2 text-end">
+          <span className="fw-bold">${item.price}</span>
         </div>
       </div>
     </li>

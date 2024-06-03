@@ -4,12 +4,12 @@ const WishContainer = () => {
   const { wishList, clearWish } = useHook();
   return (
     <>
-      <section class="my-14">
-        <div class="container">
-          <div class="row">
-            <div class="offset-lg-1 col-lg-10">
-              <div class="mb-8">
-                <h1 class="mb-1">My Wishlist</h1>
+      <section className="my-14">
+        <div className="container">
+          <div className="row">
+            <div className="offset-lg-1 col-lg-10">
+              <div className="mb-8">
+                <h1 className="mb-1">My Wishlist</h1>
                 <p>There are {wishList.length} products in this wishlist.</p>
                 <button
                   className="btn btn-primary"
@@ -22,9 +22,9 @@ const WishContainer = () => {
                 </button>
               </div>
               <div>
-                <div class="table-responsive">
-                  <table class="table text-nowrap">
-                    <thead class="table-light">
+                <div className="table-responsive">
+                  <table className="table text-nowrap">
+                    <thead className="table-light">
                       <tr>
                         <th></th>
                         <th>Product</th>
@@ -34,8 +34,8 @@ const WishContainer = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {wishList.map((wish) => (
-                        <ItemWish product={wish} />
+                      {wishList.map((wish, index) => (
+                        <ItemWish product={wish} key={index} />
                       ))}
                     </tbody>
                   </table>

@@ -11,11 +11,11 @@ const Item = ({ product }) => {
           src={product.productImages[0].imageUrl}
           alt="contact-img"
           title="contact-img"
-          class="rounded me-3"
+          className="rounded me-3"
           height="48"
         />
-        <p class="m-0 d-inline-block align-middle font-16">
-          <a href="apps-ecommerce-products-details.html" class="text-body">
+        <p className="m-0 d-inline-block align-middle font-16">
+          <a href="apps-ecommerce-products-details.html" className="text-body">
             {product.productName}
           </a>
           <br />
@@ -26,26 +26,26 @@ const Item = ({ product }) => {
 
       <td>
         {product.status ? (
-          <span class="badge bg-success">Active</span>
+          <span className="badge bg-success">Active</span>
         ) : (
-          <span class="badge bg-danger">Deactive</span>
+          <span className="badge bg-danger">Deactive</span>
         )}
       </td>
 
-      <td class="table-action">
-        <Link to={`${product.id}`} class="action-icon">
-          <i class="feather-icon icon-eye"></i>
+      <td className="table-action">
+        <Link to={`${product.id}`} className="action-icon">
+          <i className="feather-icon icon-eye"></i>
         </Link>
 
         <a
           href="javascript:void(0);"
-          class="action-icon"
+          className="action-icon"
           onClick={(e) => {
             e.preventDefault();
             deleteProduct(product.id);
           }}
         >
-          <i class="feather-icon icon-trash-2"></i>
+          <i className="feather-icon icon-trash-2"></i>
         </a>
       </td>
     </tr>

@@ -15,31 +15,31 @@ const Item = ({ type }) => {
   return (
     <tr>
       <td className="">
-        <p class="m-0 d-inline-block align-middle font-16">
-          <a href="apps-ecommerce-products-details.html" class="text-body">
+        <p className="m-0 d-inline-block align-middle font-16">
+          <a href="apps-ecommerce-products-details.html" className="text-body">
             {type.name}
           </a>
           <br />
         </p>
       </td>
-      <td class="table-action">
+      <td className="table-action">
         <a
           href="javascript:void(0);"
-          class="action-icon"
+          className="action-icon"
           onClick={actionSelect}
         >
           <i
             data-bs-toggle="modal"
             data-bs-target="#editCategoryModal"
-            class="feather-icon icon-edit"
+            className="feather-icon icon-edit"
           ></i>
         </a>
         <a
           href="javascript:void(0);"
-          class="action-icon"
+          className="action-icon"
           onClick={actionDelete}
         >
-          <i class="feather-icon icon-trash-2"></i>
+          <i className="feather-icon icon-trash-2"></i>
         </a>
       </td>
     </tr>

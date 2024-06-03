@@ -5,9 +5,9 @@ const CreateProducts = () => {
   return (
     <div>
       <SideBar />
-      <div class="content-page">
-        <div class="content">
-          <div class="container-fluid">
+      <div className="content-page">
+        <div className="content">
+          <div className="container-fluid">
             <Container />
           </div>
         </div>

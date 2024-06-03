@@ -13,36 +13,36 @@ const AddForm = () => {
   };
   return (
     <div
-      class="modal fade"
+      className="modal fade"
       id="addCategoryModal"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="addCategoryModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body p-6">
-            <div class="d-flex justify-content-between mb-5">
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-body p-6">
+            <div className="d-flex justify-content-between mb-5">
               <div>
-                <h5 class="h6 mb-1" id="addAddressModalLabel">
+                <h5 className="h6 mb-1" id="addAddressModalLabel">
                   New Categories
                 </h5>
               </div>
               <div>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
               </div>
             </div>
 
-            <form class="row g-3" onSubmit={handleSubmit}>
-              <div class="col-12">
+            <form className="row g-3" onSubmit={handleSubmit}>
+              <div className="col-12">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Category type name"
                   aria-label="First name"
                   required
@@ -51,25 +51,25 @@ const AddForm = () => {
                 />
               </div>
 
-              <div class="col-12 text-end">
+              <div className="col-12 text-end">
                 <button
                   type="button"
-                  class="btn btn-outline-primary"
+                  className="btn btn-outline-primary"
                   data-bs-dismiss="modal"
                 >
                   Cancel
                 </button>
                 {loading ? (
-                  <button class="btn btn-primary" type="button" disabled>
+                  <button className="btn btn-primary" type="button" disabled>
                     <span
-                      class="spinner-border spinner-border-sm"
+                      className="spinner-border spinner-border-sm"
                       role="status"
                       aria-hidden="true"
                     ></span>
                     Loading...
                   </button>
                 ) : (
-                  <button class="btn btn-primary" type="submit">
+                  <button className="btn btn-primary" type="submit">
                     Save Type
                   </button>
                 )}

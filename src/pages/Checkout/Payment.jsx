@@ -1,39 +1,42 @@
 const Payment = () => {
   return (
-    <div class="accordion-item py-4">
+    <div className="accordion-item py-4">
       <a
         href="#"
-        class="text-inherit h5"
+        className="text-inherit h5"
         data-bs-toggle="collapse"
         data-bs-target="#flush-collapseFour"
         aria-expanded="false"
         aria-controls="flush-collapseFour"
       >
-        <i class="feather-icon icon-credit-card me-2 text-muted"></i>
+        <i className="feather-icon icon-credit-card me-2 text-muted"></i>
         Payment Method
       </a>
       <div
         id="flush-collapseFour"
-        class="accordion-collapse collapse"
+        className="accordion-collapse collapse"
         data-bs-parent="#accordionFlushExample"
       >
-        <div class="mt-5">
+        <div className="mt-5">
           <div>
-            <div class="card card-bordered shadow-none mb-2">
-              <div class="card-body p-6">
-                <div class="d-flex">
-                  <div class="form-check">
+            <div className="card card-bordered shadow-none mb-2">
+              <div className="card-body p-6">
+                <div className="d-flex">
+                  <div className="form-check">
                     <input
-                      class="form-check-input"
+                      className="form-check-input"
                       type="radio"
                       name="flexRadioDefault"
                       id="paypal"
                     />
-                    <label class="form-check-label ms-2" for="paypal"></label>
+                    <label
+                      className="form-check-label ms-2"
+                      for="paypal"
+                    ></label>
                   </div>
                   <div>
-                    <h5 class="mb-1 h6">Payment with Paypal</h5>
-                    <p class="mb-0 small">
+                    <h5 className="mb-1 h6">Payment with Paypal</h5>
+                    <p className="mb-0 small">
                       You will be redirected to PayPal website to complete your
                       purchase securely.
                     </p>
@@ -42,69 +45,69 @@ const Payment = () => {
               </div>
             </div>
 
-            <div class="card card-bordered shadow-none mb-2">
-              <div class="card-body p-6">
-                <div class="d-flex mb-4">
-                  <div class="form-check">
+            <div className="card card-bordered shadow-none mb-2">
+              <div className="card-body p-6">
+                <div className="d-flex mb-4">
+                  <div className="form-check">
                     <input
-                      class="form-check-input"
+                      className="form-check-input"
                       type="radio"
                       name="flexRadioDefault"
                       id="creditdebitcard"
                     />
                     <label
-                      class="form-check-label ms-2"
+                      className="form-check-label ms-2"
                       for="creditdebitcard"
                     ></label>
                   </div>
                   <div>
-                    <h5 class="mb-1 h6">Credit / Debit Card</h5>
-                    <p class="mb-0 small">
+                    <h5 className="mb-1 h6">Credit / Debit Card</h5>
+                    <p className="mb-0 small">
                       Safe money transfer using your bank accou k account. We
                       support Mastercard tercard, Visa, Discover and Stripe.
                     </p>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-12">
-                    <div class="mb-3">
-                      <label class="form-label">Card Number</label>
+                <div className="row">
+                  <div className="col-12">
+                    <div className="mb-3">
+                      <label className="form-label">Card Number</label>
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="1234 4567 6789 4321"
                       />
                     </div>
                   </div>
-                  <div class="col-md-6 col-12">
-                    <div class="mb-3 mb-lg-0">
-                      <label class="form-label">Name on card</label>
+                  <div className="col-md-6 col-12">
+                    <div className="mb-3 mb-lg-0">
+                      <label className="form-label">Name on card</label>
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Enter your first name"
                       />
                     </div>
                   </div>
-                  <div class="col-md-3 col-12">
-                    <div class="mb-3 mb-lg-0 position-relative">
-                      <label class="form-label">Expiry date </label>
+                  <div className="col-md-3 col-12">
+                    <div className="mb-3 mb-lg-0 position-relative">
+                      <label className="form-label">Expiry date </label>
                       <input
-                        class="form-control flatpickr"
+                        className="form-control flatpickr"
                         type="text"
                         placeholder="Select Date"
                       />
-                      <div class="position-absolute bottom-0 end-0 p-3 lh-1">
-                        <i class="bi bi-calendar text-muted"></i>
+                      <div className="position-absolute bottom-0 end-0 p-3 lh-1">
+                        <i className="bi bi-calendar text-muted"></i>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-3 col-12">
-                    <div class="mb-3 mb-lg-0">
-                      <label class="form-label">CVV code </label>
+                  <div className="col-md-3 col-12">
+                    <div className="mb-3 mb-lg-0">
+                      <label className="form-label">CVV code </label>
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="312"
                       />
                     </div>
@@ -113,21 +116,24 @@ const Payment = () => {
               </div>
             </div>
 
-            <div class="card card-bordered shadow-none mb-2">
-              <div class="card-body p-6">
-                <div class="d-flex">
-                  <div class="form-check">
+            <div className="card card-bordered shadow-none mb-2">
+              <div className="card-body p-6">
+                <div className="d-flex">
+                  <div className="form-check">
                     <input
-                      class="form-check-input"
+                      className="form-check-input"
                       type="radio"
                       name="flexRadioDefault"
                       id="payoneer"
                     />
-                    <label class="form-check-label ms-2" for="payoneer"></label>
+                    <label
+                      className="form-check-label ms-2"
+                      for="payoneer"
+                    ></label>
                   </div>
                   <div>
-                    <h5 class="mb-1 h6">Pay with Payoneer</h5>
-                    <p class="mb-0 small">
+                    <h5 className="mb-1 h6">Pay with Payoneer</h5>
+                    <p className="mb-0 small">
                       You will be redirected to Payoneer website to complete
                       your purchase securely.
                     </p>
@@ -136,24 +142,24 @@ const Payment = () => {
               </div>
             </div>
 
-            <div class="card card-bordered shadow-none">
-              <div class="card-body p-6">
-                <div class="d-flex">
-                  <div class="form-check">
+            <div className="card card-bordered shadow-none">
+              <div className="card-body p-6">
+                <div className="d-flex">
+                  <div className="form-check">
                     <input
-                      class="form-check-input"
+                      className="form-check-input"
                       type="radio"
                       name="flexRadioDefault"
                       id="cashonDelivery"
                     />
                     <label
-                      class="form-check-label ms-2"
+                      className="form-check-label ms-2"
                       for="cashonDelivery"
                     ></label>
                   </div>
                   <div>
-                    <h5 class="mb-1 h6">Cash on Delivery</h5>
-                    <p class="mb-0 small">
+                    <h5 className="mb-1 h6">Cash on Delivery</h5>
+                    <p className="mb-0 small">
                       Pay with cash when your order is delivered.
                     </p>
                   </div>
@@ -161,10 +167,10 @@ const Payment = () => {
               </div>
             </div>
 
-            <div class="mt-5 d-flex justify-content-end">
+            <div className="mt-5 d-flex justify-content-end">
               <a
                 href="#"
-                class="btn btn-outline-gray-400 text-muted"
+                className="btn btn-outline-gray-400 text-muted"
                 data-bs-toggle="collapse"
                 data-bs-target="#flush-collapseThree"
                 aria-expanded="false"
@@ -172,7 +178,7 @@ const Payment = () => {
               >
                 Prev
               </a>
-              <a href="#" class="btn btn-primary ms-2">
+              <a href="#" className="btn btn-primary ms-2">
                 Place Order
               </a>
             </div>

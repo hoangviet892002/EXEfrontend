@@ -6,7 +6,6 @@ const api_url = api + "/products";
 class ProductService {
   static async CreateProduct(productImages, type, input) {
     type = type.map((type) => type.value);
-    console.log(type);
 
     const data = {
       productImages: productImages,

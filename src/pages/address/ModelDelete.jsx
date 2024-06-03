@@ -1,29 +1,29 @@
 const ModelDelete = () => {
   return (
     <div
-      class="modal fade"
+      className="modal fade"
       id="deleteModal"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="deleteModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="deleteModalLabel">
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title" id="deleteModalLabel">
               Delete address
             </h5>
             <button
               type="button"
-              class="btn-close"
+              className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
           </div>
 
-          <div class="modal-body">
+          <div className="modal-body">
             <h6>Are you sure you want to delete this address?</h6>
-            <p class="mb-6">
+            <p className="mb-6">
               Jitu Chauhan
               <br />
               4450 North Avenue Oakland, <br />
@@ -33,15 +33,15 @@ const ModelDelete = () => {
             </p>
           </div>
 
-          <div class="modal-footer">
+          <div className="modal-footer">
             <button
               type="button"
-              class="btn btn-outline-gray-400"
+              className="btn btn-outline-gray-400"
               data-bs-dismiss="modal"
             >
               Cancel
             </button>
-            <button type="button" class="btn btn-danger">
+            <button type="button" className="btn btn-danger">
               Delete
             </button>
           </div>
