@@ -1,7 +1,12 @@
 import React from "react";
 import logo from "../../../assets/images/logo/freshcart-logo.svg";
 import { Link, NavLink } from "react-router-dom";
+import { changeLanguage } from "../../redux/actions/languagesAction";
+import { useDispatch, useSelector } from "react-redux";
 const SideBar = () => {
+  const options = ["en", "vi"];
+  const language = useSelector((state) => state.languages.languages);
+  const dispatch = useDispatch();
   return (
     <>
       <div className="leftside-menu">
@@ -65,22 +70,20 @@ const SideBar = () => {
                 </div>
               )}
             </NavLink>
-            <NavLink className="side-nav-item" to="/admin/orders">
-              {({ isActive }) => (
-                <div
-                  style={{
-                    background: isActive ? "#336699" : "transparent",
-                    borderRadius: "10px",
-                    margin: "10px",
-                  }}
-                >
-                  <a className="side-nav-link">
-                    <i className="feather-icon icon-home"></i>
-                    <span> Orders </span>
-                  </a>
-                </div>
-              )}
-            </NavLink>
+            <div className="side-nav-item items-center">
+              <button
+                type="button"
+                class="  btn btn-primary mb-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const newLanguage =
+                    language === options[0] ? options[1] : options[0];
+                  dispatch(changeLanguage(newLanguage));
+                }}
+              >
+                {language}
+              </button>
+            </div>
           </ul>
 
           <div className="help-box text-white text-center">
