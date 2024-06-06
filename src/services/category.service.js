@@ -5,6 +5,9 @@ import { toast } from "react-toastify";
 const api_url = api + "/category";
 class CategoryService {
   static async CreateCategory(file, name) {
+    axios.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${localStorage.getItem("token")}`;
     try {
       const response = await axios.post(`${api_url}`, {
         name: name,
@@ -31,6 +34,9 @@ class CategoryService {
     }
   }
   static async deleteCategory(id) {
+    axios.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${localStorage.getItem("token")}`;
     try {
       const response = await axios.delete(`${api_url}/${id}`);
       if (response.data.statusCode === 200) {

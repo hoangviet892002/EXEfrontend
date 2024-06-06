@@ -1,7 +1,13 @@
+import { useState } from "react";
 import ModelDelete from "./ModelDelete";
-import ModelEdit from "./ModelEdit";
 
-const Item = () => {
+import useHook from "./hooks/useHook";
+import { useDispatch, useSelector } from "react-redux";
+import { pickAddress } from "../../redux/actions/addressAction";
+
+const Item = ({ address }) => {
+  const dispatch = useDispatch();
+  const { setDefaultAddress } = useHook();
   return (
     <>
       <div className="col-lg-5 col-xxl-4 col-12 mb-4">
@@ -9,36 +15,43 @@ const Item = () => {
           <div className="form-check mb-4">
             <label
               className="form-check-label text-dark fw-semi-bold"
-              for="homeRadio"
+              htmlFor="homeRadio"
             >
               Home
             </label>
           </div>
 
           <p className="mb-6">
-            Jitu Chauhan
+            {address.firstName} {address.lastName}
             <br />
-            4450 North Avenue Oakland, <br />
-            Nebraska, United States,
+            {address.streetAddress}, {address.wardName} <br />
+            {address.districtName},{address.provinceName},
             <br />
-            402-776-1106
+            {address.phoneNumber}
           </p>
+          {address.defaultAddress ? (
+            <a className="btn btn-info btn-sm">Default address</a>
+          ) : (
+            <a
+              href="javascript:void(0);"
+              class="link-primary"
+              onClick={(e) => {
+                e.preventDefault();
+                setDefaultAddress(address.id);
+              }}
+            >
+              Set as Default
+            </a>
+          )}
 
-          <a href="#" className="btn btn-info btn-sm">
-            Default address
-          </a>
           <div className="mt-4">
             <a
               href="#"
-              className="text-inherit"
-              data-bs-toggle="modal"
-              data-bs-target="#editModal"
-            >
-              Edit
-            </a>
-            <a
-              href="#"
               className="text-danger ms-3"
+              onClick={(e) => {
+                e.preventDefault();
+                dispatch(pickAddress(address));
+              }}
               data-bs-toggle="modal"
               data-bs-target="#deleteModal"
             >
@@ -47,8 +60,6 @@ const Item = () => {
           </div>
         </div>
       </div>
-      <ModelDelete />
-      <ModelEdit />
     </>
   );
 };

@@ -1,7 +1,10 @@
+import { useSelector } from "react-redux";
 import AddForm from "../address/AddForm";
 import ItemAddress from "./ItemAddress";
 
 const Address = () => {
+  const address = useSelector((state) => state.address.addresses);
+  const pickAddres = useSelector((state) => state.checkout.address);
   return (
     <div className="accordion-item py-4">
       <div className="d-flex justify-content-between align-items-center">
@@ -33,24 +36,25 @@ const Address = () => {
       >
         <div className="mt-5">
           <div className="row">
-            <ItemAddress />
-            <ItemAddress />
-            <ItemAddress />
-            <ItemAddress />
+            {address.map((item, index) => (
+              <ItemAddress key={index} address={item} />
+            ))}
           </div>
         </div>
-        <div className="mt-5 d-flex justify-content-end">
-          <a
-            href="#"
-            className="btn btn-primary ms-2"
-            data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseThree"
-            aria-expanded="false"
-            aria-controls="flush-collapseThree"
-          >
-            Next
-          </a>
-        </div>
+        {pickAddres && (
+          <div className="mt-5 d-flex justify-content-end">
+            <a
+              href="#"
+              className="btn btn-primary ms-2"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseThree"
+              aria-expanded="false"
+              aria-controls="flush-collapseThree"
+            >
+              Next
+            </a>
+          </div>
+        )}
       </div>
       <AddForm />
     </div>

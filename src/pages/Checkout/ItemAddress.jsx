@@ -1,4 +1,12 @@
-const ItemAddress = () => {
+import { useDispatch, useSelector } from "react-redux";
+import { pickAddress } from "../../redux/actions/checkoutAction";
+
+const ItemAddress = ({ address }) => {
+  console.log(address);
+  const dispatch = useDispatch();
+  const isDefault = address.defaultAddress;
+  const pickAddres = useSelector((state) => state.checkout.address);
+  let isPick = pickAddres?.id === address.id;
   return (
     <div className="col-lg-6 col-12 mb-4">
       <div className="border p-6 rounded-3">
@@ -8,21 +16,23 @@ const ItemAddress = () => {
             type="radio"
             name="flexRadioDefault"
             id="homeRadio"
-            checked
+            checked={isPick}
+            onChange={() => dispatch(pickAddress(address))}
           />
-          <label className="form-check-label text-dark" for="homeRadio">
-            Home
-          </label>
         </div>
 
         <address>
-          <strong>Jitu Chauhan</strong> <br />
-          4450 North Avenue Oakland, <br />
-          Nebraska, United States,
+          <strong>
+            {address.firstName} {address.lastName}
+          </strong>{" "}
           <br />
+          {address.streetAddress}, {address.wardName} <br />
+          {address.districtName},{address.provinceName},
+          <br />
+          {address.phoneNumber}
           <abbr title="Phone">P: 402-776-1106</abbr>
         </address>
-        <span className="text-danger">Default address </span>
+        {isDefault && <span className="text-danger">Default address </span>}
       </div>
     </div>
   );
