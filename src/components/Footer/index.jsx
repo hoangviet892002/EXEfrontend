@@ -1,13 +1,15 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const {t} = useTranslation()
   return (
     <>
       <div className="footer">
         <div className="container">
           <footer className="row g-4 py-4">
             <div className="col-12 col-md-12 col-lg-4">
-              <h6 className="mb-4">Categories</h6>
+              <h6 className="mb-4">{t("Categories")}</h6>
               <div className="row">
                 <div className="col-6">
                   <ul className="nav flex-column">
@@ -112,16 +114,16 @@ const Footer = () => {
             <div className="col-12 col-md-12 col-lg-8">
               <div className="row g-4">
                 <div className="col-6 col-sm-6 col-md-3">
-                  <h6 className="mb-4">Get to know us</h6>
+                  <h6 className="mb-4">{t("Get to know us")}</h6>
                   <ul className="nav flex-column">
                     <li className="nav-item mb-2">
                       <a href="pages/about.html" className="nav-link">
-                        Company
+                        {t("Company")}
                       </a>
                     </li>
                     <li className="nav-item mb-2">
                       <a href="pages/about.html" className="nav-link">
-                        About
+                        {t("About us")}
                       </a>
                     </li>
                     <li className="nav-item mb-2">
@@ -131,33 +133,33 @@ const Footer = () => {
                     </li>
                     <li className="nav-item mb-2">
                       <a href="#!" className="nav-link">
-                        Help Center
+                        {t("Help Center")}
                       </a>
                     </li>
                     <li className="nav-item mb-2">
                       <a href="#!" className="nav-link">
-                        Our Value
+                        {t("Our Value")}
                       </a>
                     </li>
                   </ul>
                 </div>
 
                 <div className="col-6 col-sm-6 col-md-3">
-                  <h6 className="mb-4">For Consumers</h6>
+                  <h6 className="mb-4">{t("For Consumers")}</h6>
                   <ul className="nav flex-column">
                     <li className="nav-item mb-2">
                       <a href="#!" className="nav-link">
-                        Payments
+                        {t("Payments")}
                       </a>
                     </li>
                     <li className="nav-item mb-2">
                       <a href="#!" className="nav-link">
-                        Shipping
+                        {t("Shipping")}
                       </a>
                     </li>
                     <li className="nav-item mb-2">
                       <a href="#!" className="nav-link">
-                        Product Returns
+                        {t("Product Returns")}
                       </a>
                     </li>
                     <li className="nav-item mb-2">
@@ -170,13 +172,13 @@ const Footer = () => {
                         href="pages/shop-shop-checkout.html"
                         className="nav-link"
                       >
-                        Shop Checkout
+                        {t("Shop Checkout")}
                       </a>
                     </li>
                   </ul>
                 </div>
 
-                <div className="col-6 col-sm-6 col-md-3">
+                {/* <div className="col-6 col-sm-6 col-md-3">
                   <h6 className="mb-4">Become a Shopper</h6>
                   <ul className="nav flex-column">
                     <li className="nav-item mb-2">
@@ -205,33 +207,13 @@ const Footer = () => {
                       </a>
                     </li>
                   </ul>
-                </div>
+                </div> */}
                 <div className="col-6 col-sm-6 col-md-3">
-                  <h6 className="mb-4">Freshcart programs</h6>
+                  <h6 className="mb-4">{t("Programs")}</h6>
                   <ul className="nav flex-column">
                     <li className="nav-item mb-2">
                       <a href="#!" className="nav-link">
-                        Freshcart programs
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="#!" className="nav-link">
-                        Gift Cards
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="#!" className="nav-link">
-                        Promos & Coupons
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="#!" className="nav-link">
-                        Freshcart Ads
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="#!" className="nav-link">
-                        Careers
+                        {t("Promos")}
                       </a>
                     </li>
                   </ul>
@@ -244,7 +226,7 @@ const Footer = () => {
               <div className="col-lg-5 text-lg-start text-center mb-2 mb-lg-0">
                 <ul className="list-inline mb-0">
                   <li className="list-inline-item text-dark">
-                    Payment Partners
+                    {t("Payment Partners")}
                   </li>
                   <li className="list-inline-item">
                     <a href="#!">
@@ -276,7 +258,7 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div className="col-lg-7 mt-4 mt-md-0">
+              {/* <div className="col-lg-7 mt-4 mt-md-0">
                 <ul className="list-inline mb-0 text-lg-end text-center">
                   <li className="list-inline-item mb-2 mb-md-0 text-dark">
                     Get deliveries with FreshCart
@@ -300,22 +282,22 @@ const Footer = () => {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="border-top py-4">
             <div className="row align-items-center">
-              <div className="col-md-6">
+              {/* <div className="col-md-6">
                 <span className="small text-muted">
-                  Copyright 2023 © FreshCart eCommerce HTML Template. All rights
+                  Copyright 2024 © FreshCart eCommerce HTML Template. All rights
                   reserved. Powered by Codescandy.
                 </span>
-              </div>
+              </div> */}
               <div className="col-md-6">
                 <ul className="list-inline text-md-end mb-0 small mt-3 mt-md-0">
-                  <li className="list-inline-item text-muted">Follow us on</li>
+                  <li className="list-inline-item text-muted">{t("Follow us on")}</li>
                   <li className="list-inline-item me-1">
-                    <a href="#!" className="icon-shape icon-sm social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61559804273177" className="icon-shape icon-sm social-links">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
@@ -328,7 +310,7 @@ const Footer = () => {
                       </svg>
                     </a>
                   </li>
-                  <li className="list-inline-item me-1">
+                  {/* <li className="list-inline-item me-1">
                     <a href="#!" className="icon-shape icon-sm social-links">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -341,9 +323,9 @@ const Footer = () => {
                         <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
                       </svg>
                     </a>
-                  </li>
+                  </li> */}
                   <li className="list-inline-item">
-                    <a href="#!" className="icon-shape icon-sm social-links">
+                    <a href="https://www.instagram.com/teracandle02/" className="icon-shape icon-sm social-links">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"

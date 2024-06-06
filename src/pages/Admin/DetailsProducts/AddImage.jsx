@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import useHook from "./hooks/useHook";
+import { useTranslation } from "react-i18next";
 
 const AddImage = () => {
+  const { t } = useTranslation();
   const [img, setImage] = useState("");
   const { addImage, loading } = useHook();
   const submit = (e) => {
@@ -46,7 +48,7 @@ const AddImage = () => {
               className="btn btn-secondary"
               data-bs-dismiss="modal"
             >
-              Close
+              {t("Close")} {/* Translate Close button */}
             </button>
             {loading ? (
               <button className="btn btn-primary" type="button" disabled>
@@ -55,7 +57,7 @@ const AddImage = () => {
                   role="status"
                   aria-hidden="true"
                 ></span>
-                Loading...
+                {t("Loading...")} {/* Translate Loading text */}
               </button>
             ) : (
               <button
@@ -63,7 +65,7 @@ const AddImage = () => {
                 className="btn btn-primary"
                 onClick={submit}
               >
-                Add Image
+                {t("Add Image")} {/* Translate Add Image button */}
               </button>
             )}
           </div>

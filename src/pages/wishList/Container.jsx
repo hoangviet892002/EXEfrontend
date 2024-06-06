@@ -1,6 +1,9 @@
 import { ItemWish } from "../../components";
 import useHook from "./hooks/useHook";
+import { useTranslation } from "react-i18next";
+
 const WishContainer = () => {
+  const { t } = useTranslation();
   const { wishList, clearWish } = useHook();
   return (
     <>
@@ -9,8 +12,10 @@ const WishContainer = () => {
           <div className="row">
             <div className="offset-lg-1 col-lg-10">
               <div className="mb-8">
-                <h1 className="mb-1">My Wishlist</h1>
-                <p>There are {wishList.length} products in this wishlist.</p>
+                <h1 className="mb-1">{t("My Wishlist")}</h1>
+                <p>
+                  {t("There are")} {wishList.length} {t("products in this wishlist.")}
+                </p>
                 <button
                   className="btn btn-primary"
                   onClick={(e) => {
@@ -18,7 +23,7 @@ const WishContainer = () => {
                     clearWish();
                   }}
                 >
-                  Clear
+                  {t("Clear")}
                 </button>
               </div>
               <div>
@@ -27,10 +32,10 @@ const WishContainer = () => {
                     <thead className="table-light">
                       <tr>
                         <th></th>
-                        <th>Product</th>
-                        <th>Amount</th>
-                        <th>Actions</th>
-                        <th>Remove</th>
+                        <th>{t("Product")}</th> 
+                        <th>{t("Amount")}</th>
+                        <th>{t("Actions")}</th> 
+                        <th>{t("Remove")}</th> 
                       </tr>
                     </thead>
                     <tbody>

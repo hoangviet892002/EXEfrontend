@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 const Item = () => {
+  const { t } = useTranslation();
   return (
     <li className="list-group-item py-3 py-lg-0 px-0 ">
       <div className="row align-items-center">
@@ -36,7 +39,7 @@ const Item = () => {
                   <line x1="14" y1="11" x2="14" y2="17"></line>
                 </svg>
               </span>
-              <span className="text-muted">Remove</span>
+              <span className="text-muted">{t("Remove")}</span>
             </a>
           </div>
         </div>

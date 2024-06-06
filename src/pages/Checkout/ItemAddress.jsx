@@ -1,4 +1,6 @@
+import { useTranslation } from "react-i18next";
 const ItemAddress = () => {
+  const { t } = useTranslation();
   return (
     <div className="col-lg-6 col-12 mb-4">
       <div className="border p-6 rounded-3">
@@ -11,18 +13,17 @@ const ItemAddress = () => {
             checked
           />
           <label className="form-check-label text-dark" for="homeRadio">
-            Home
+            {t("Home")}
           </label>
         </div>
 
         <address>
           <strong>Jitu Chauhan</strong> <br />
           4450 North Avenue Oakland, <br />
-          Nebraska, United States,
-          <br />
+          Nebraska, United States, <br />
           <abbr title="Phone">P: 402-776-1106</abbr>
         </address>
-        <span className="text-danger">Default address </span>
+        <span className="text-danger">{t("Default address")}</span>
       </div>
     </div>
   );

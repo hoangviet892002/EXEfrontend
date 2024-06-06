@@ -4,8 +4,10 @@ import Categories from "./Categories";
 import useHook from "./hooks/useHook";
 import { useDispatch } from "react-redux";
 import { pickType } from "../../redux/actions/megaMenuAction";
+import { useTranslation } from "react-i18next";
 
 const Container = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const {
     megaMenu,
@@ -32,7 +34,7 @@ const Container = () => {
         <div className="row gx-10">
           <div className="col-lg-3 col-md-4 mb-6 mb-md-0">
             <div className="py-4">
-              <h5 className="mb-3">Categories</h5>
+              <h5 className="mb-3">{t("Categories")}</h5> {/* Sử dụng hook useTranslation ở đây */}
               <button
                 type="button"
                 className="btn btn-primary mb-2"
@@ -41,7 +43,7 @@ const Container = () => {
                   dispatch(pickType(""));
                 }}
               >
-                All
+                {t("All")} {/* Sử dụng hook useTranslation ở đây */}
               </button>
               <ul className="nav nav-category" id="categoryCollapseMenu">
                 {megaMenu.map((category, index) => (
@@ -53,8 +55,8 @@ const Container = () => {
                 ))}
               </ul>
             </div>
-
-            {/* <div className="py-4">
+			
+			{/* <div className="py-4">
               <h5 className="mb-3">Stores</h5>
               <div className="my-4">
                 <input
@@ -164,7 +166,7 @@ const Container = () => {
               </div>
             </div> */}
             <div className="py-4">
-              <h5 className="mb-3">Price</h5>
+              <h5 className="mb-3">{t("Price")}</h5> {/* Sử dụng hook useTranslation ở đây */}
               <MultiRangeSlider
                 min={0}
                 max={10000}
@@ -176,10 +178,10 @@ const Container = () => {
                 <input
                   type="text"
                   className="form-control border-end-0"
-                  placeholder="Search for products.."
+                  placeholder={t("Search for products..")} 
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  aria-label="Search for products.."
+                  aria-label={t("Search for products..")} 
                   aria-describedby="basic-addon2"
                 />
                 <span
@@ -204,8 +206,8 @@ const Container = () => {
                 </span>
               </div>
             </div>
-
-            {/* <div className="py-4">
+			
+			{/* <div className="py-4">
               <h5 className="mb-3">Rating</h5>
               <div>
                 <div className="form-check mb-2">
@@ -292,10 +294,11 @@ const Container = () => {
             </div> */}
             <div className="py-4">
               <div className="position-absolute p-5 py-8">
-                <h3 className="mb-0">Fresh Fruits</h3>
-                <p>Get Upto 25% Off</p>
+                <h3 className="mb-0">{t("Fresh Fruits")}</h3> {/* Sử dụng hook useTranslation ở đây */}
+                <p>{t("Get Upto 25% Off")}</p> {/* Sử dụng hook useTranslation ở đây */}
                 <a href="#" className="btn btn-dark">
-                  Shop Now<i className="feather-icon icon-arrow-right ms-1"></i>
+                  {t("Shop Now")}
+                  <i className="feather-icon icon-arrow-right ms-1"></i>
                 </a>
               </div>
 

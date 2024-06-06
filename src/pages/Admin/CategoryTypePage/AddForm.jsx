@@ -1,8 +1,10 @@
 import { useState } from "react";
 import useHook from "./hooks/useHook";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const AddForm = () => {
+  const { t } = useTranslation();
   const { id } = useParams();
   const [categoryName, setCategoryName] = useState("");
   const { loading, submit } = useHook();
@@ -25,7 +27,7 @@ const AddForm = () => {
             <div className="d-flex justify-content-between mb-5">
               <div>
                 <h5 className="h6 mb-1" id="addAddressModalLabel">
-                  New Categories
+                  {t("New Categories")}
                 </h5>
               </div>
               <div>
@@ -43,7 +45,7 @@ const AddForm = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Category type name"
+                  placeholder={t("Category type name")}
                   aria-label="First name"
                   required
                   value={categoryName}
@@ -57,7 +59,7 @@ const AddForm = () => {
                   className="btn btn-outline-primary"
                   data-bs-dismiss="modal"
                 >
-                  Cancel
+                  {t("Cancel")}
                 </button>
                 {loading ? (
                   <button className="btn btn-primary" type="button" disabled>
@@ -66,11 +68,11 @@ const AddForm = () => {
                       role="status"
                       aria-hidden="true"
                     ></span>
-                    Loading...
+                    {t("Loading...")}
                   </button>
                 ) : (
                   <button className="btn btn-primary" type="submit">
-                    Save Type
+                    {t("Save Type")}
                   </button>
                 )}
               </div>

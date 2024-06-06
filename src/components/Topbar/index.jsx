@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const TopBar = () => {
+  const {t} = useTranslation()
   return (
     <div className="navbar-custom">
       <ul className="list-unstyled topbar-menu float-end mb-0">
@@ -106,10 +108,10 @@ const TopBar = () => {
               <h5 className="m-0">
                 <span className="float-end">
                   <a href="javascript: void(0);" className="text-dark">
-                    <small>Clear All</small>
+                    <small>{t("Clear All")}</small>
                   </a>{" "}
                 </span>
-                Notification
+                {t("Notification")}
               </h5>
             </div>
 
@@ -167,7 +169,7 @@ const TopBar = () => {
                         </small>
                       </h5>
                       <small className="noti-item-subtitle text-muted">
-                        New user registered
+                        {t("New user registered")}
                       </small>
                     </div>
                   </div>
@@ -276,7 +278,7 @@ const TopBar = () => {
               href="javascript:void(0);"
               className="dropdown-item text-center text-primary notify-item border-top border-light py-2"
             >
-              View All
+              {t("View All")}
             </a>
           </div>
         </li>
@@ -379,27 +381,27 @@ const TopBar = () => {
 
             <a href="javascript:void(0);" className="dropdown-item notify-item">
               <i className="mdi mdi-account-circle me-1"></i>
-              <span>My Account</span>
+              <span>{t("My Account")}</span>
             </a>
 
             <a href="javascript:void(0);" className="dropdown-item notify-item">
               <i className="mdi mdi-account-edit me-1"></i>
-              <span>Settings</span>
+              <span>{t("Settings")}</span>
             </a>
 
             <a href="javascript:void(0);" className="dropdown-item notify-item">
               <i className="mdi mdi-lifebuoy me-1"></i>
-              <span>Support</span>
+              <span>{t("Support")}</span>
             </a>
 
             <a href="javascript:void(0);" className="dropdown-item notify-item">
               <i className="mdi mdi-lock-outline me-1"></i>
-              <span>Lock Screen</span>
+              <span>{t("Lock Screen")}</span>
             </a>
 
             <a href="javascript:void(0);" className="dropdown-item notify-item">
               <i className="mdi mdi-logout me-1"></i>
-              <span>Logout</span>
+              <span>{t("Logout")}</span>
             </a>
           </div>
         </li>
@@ -418,7 +420,7 @@ const TopBar = () => {
             />
             <span className="mdi mdi-magnify search-icon"></span>
             <button className="input-group-text btn-primary" type="submit">
-              Search
+              {t("Search")}
             </button>
           </div>
         </form>
@@ -429,23 +431,23 @@ const TopBar = () => {
         >
           <div className="dropdown-header noti-title">
             <h5 className="text-overflow mb-2">
-              Found <span className="text-danger">17</span> results
+              {t("Found")} <span className="text-danger">17</span> {t("results")}
             </h5>
           </div>
 
           <a href="javascript:void(0);" className="dropdown-item notify-item">
             <i className="uil-notes font-16 me-1"></i>
-            <span>Analytics Report</span>
+            <span>{t("Analytics Report")}</span>
           </a>
 
           <a href="javascript:void(0);" className="dropdown-item notify-item">
             <i className="uil-life-ring font-16 me-1"></i>
-            <span>How can I help you?</span>
+            <span>{t("How can I help you?")}</span>
           </a>
 
           <a href="javascript:void(0);" className="dropdown-item notify-item">
             <i className="uil-cog font-16 me-1"></i>
-            <span>User profile settings</span>
+            <span>{t("User profile settings")}</span>
           </a>
 
           <div className="dropdown-header noti-title">

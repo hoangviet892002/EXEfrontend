@@ -1,4 +1,6 @@
+import { useTranslation } from 'react-i18next';
 const ModelDelete = () => {
+  const { t } = useTranslation();
   return (
     <div
       className="modal fade"
@@ -11,7 +13,7 @@ const ModelDelete = () => {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id="deleteModalLabel">
-              Delete address
+              {t('Delete address')}
             </h5>
             <button
               type="button"
@@ -22,7 +24,7 @@ const ModelDelete = () => {
           </div>
 
           <div className="modal-body">
-            <h6>Are you sure you want to delete this address?</h6>
+            <h6>{t('Are you sure you want to delete this address?')}</h6>
             <p className="mb-6">
               Jitu Chauhan
               <br />
@@ -39,10 +41,10 @@ const ModelDelete = () => {
               className="btn btn-outline-gray-400"
               data-bs-dismiss="modal"
             >
-              Cancel
+              {t('Cancel')}
             </button>
             <button type="button" className="btn btn-danger">
-              Delete
+              {t('Delete')}
             </button>
           </div>
         </div>

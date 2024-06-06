@@ -2,8 +2,11 @@ import React from "react";
 import imageproduct from "../../../../assets/images/products/product-img-6.jpg";
 import { Link } from "react-router-dom";
 import useHook from "./hooks/useHook";
+import { useTranslation } from "react-i18next";
+
 const Item = ({ product }) => {
   const { deleteProduct } = useHook();
+  const { t } = useTranslation();
   return (
     <tr>
       <td>
@@ -26,9 +29,9 @@ const Item = ({ product }) => {
 
       <td>
         {product.status ? (
-          <span className="badge bg-success">Active</span>
+          <span className="badge bg-success">{t("Active")}</span>
         ) : (
-          <span className="badge bg-danger">Deactive</span>
+          <span className="badge bg-danger">{t("Deactive")}</span>
         )}
       </td>
 

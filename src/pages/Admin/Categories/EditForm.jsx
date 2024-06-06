@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useHookUploadImage from "../../../hook/useHookUploadImage";
 import useHook from "./hooks/useHook";
 import { useSelector } from "react-redux";
+import { useTranslation } from 'react-i18next';
 
 const EditForm = () => {
   const category = useSelector((state) => state.category.category);
@@ -10,6 +11,7 @@ const EditForm = () => {
   });
   const [img, setImage] = useState("");
   const { loading } = useHook();
+  const { t } = useTranslation();
   useEffect(() => {
     if (category !== null) setInputs(category);
   }, [category]);
@@ -30,8 +32,8 @@ const EditForm = () => {
           <div className="modal-body p-6">
             <div className="d-flex justify-content-between mb-5">
               <div>
-                <h5 className="h6 mb-1" id="addAddressModalLabel">
-                  New Categories
+                <h5 className="h6 mb-1" id="editCategoryModalLabel">
+                  {t('Edit Category')}
                 </h5>
               </div>
               <div>
@@ -49,8 +51,8 @@ const EditForm = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Category name"
-                  aria-label="First name"
+                  placeholder={t('Category name')}
+                  aria-label="Category name"
                   required
                   value={inputs.name}
                   onChange={(e) =>
@@ -59,13 +61,13 @@ const EditForm = () => {
                 />
               </div>
 
-              <div className="col-12 ">
+              <div className="col-12 text-end">
                 <button
                   type="button"
                   className="btn btn-outline-primary"
                   data-bs-dismiss="modal"
                 >
-                  Cancel
+                  {t('Cancel')}
                 </button>
                 {loading ? (
                   <button className="btn btn-primary" type="button" disabled>
@@ -74,10 +76,12 @@ const EditForm = () => {
                       role="status"
                       aria-hidden="true"
                     ></span>
-                    Loading...
+                    {t('Loading...')}
                   </button>
                 ) : (
-                  <button className="btn btn-primary">Save Category</button>
+                  <button className="btn btn-primary" type="submit">
+                    {t('Save Category')}
+                  </button>
                 )}
               </div>
               <form className="col-12">
@@ -99,11 +103,11 @@ const EditForm = () => {
                       role="status"
                       aria-hidden="true"
                     ></span>
-                    Loading...
+                    {t('Loading...')}
                   </button>
                 ) : (
                   <button className="btn btn-primary" type="submit">
-                    Save Image
+                    {t('Save Image')}
                   </button>
                 )}
               </form>

@@ -1,7 +1,9 @@
 import ModelDelete from "./ModelDelete";
 import ModelEdit from "./ModelEdit";
+import { useTranslation } from 'react-i18next';
 
 const Item = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="col-lg-5 col-xxl-4 col-12 mb-4">
@@ -9,9 +11,9 @@ const Item = () => {
           <div className="form-check mb-4">
             <label
               className="form-check-label text-dark fw-semi-bold"
-              for="homeRadio"
+              htmlFor="homeRadio"
             >
-              Home
+              {t('Home')}
             </label>
           </div>
 
@@ -25,7 +27,7 @@ const Item = () => {
           </p>
 
           <a href="#" className="btn btn-info btn-sm">
-            Default address
+            {t('Default address')}
           </a>
           <div className="mt-4">
             <a
@@ -34,7 +36,7 @@ const Item = () => {
               data-bs-toggle="modal"
               data-bs-target="#editModal"
             >
-              Edit
+              {t('Edit')}
             </a>
             <a
               href="#"
@@ -42,7 +44,7 @@ const Item = () => {
               data-bs-toggle="modal"
               data-bs-target="#deleteModal"
             >
-              Delete
+              {t('Delete')}
             </a>
           </div>
         </div>

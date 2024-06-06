@@ -3,8 +3,10 @@ import { SideBar } from "../../../components";
 import Container from "./Container";
 import AddForm from "./AddForm";
 import EditForm from "./EditForm";
+import { useTranslation } from "react-i18next";
 
 const CategoryType = () => {
+  const { t } = useTranslation();
   return (
     <>
       <SideBar />

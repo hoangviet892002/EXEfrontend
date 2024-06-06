@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 const AddForm = () => {
+  const {t} = useTranslation()
   return (
     <div
       className="modal fade"
@@ -13,10 +16,10 @@ const AddForm = () => {
             <div className="d-flex justify-content-between mb-5">
               <div>
                 <h5 className="h6 mb-1" id="addAddressModalLabel">
-                  New Shipping Address
+                  {t("New Shipping Address")}
                 </h5>
                 <p className="small mb-0">
-                  Add new shipping address for your order delivery.
+                  {t("Add new shipping address for your order delivery.")}
                 </p>
               </div>
               <div>
@@ -120,7 +123,7 @@ const AddForm = () => {
                     id="flexCheckDefault"
                   />
                   <label className="form-check-label" for="flexCheckDefault">
-                    Set as Default
+                    {t("Set as Default")}
                   </label>
                 </div>
               </div>
@@ -131,10 +134,10 @@ const AddForm = () => {
                   className="btn btn-outline-primary"
                   data-bs-dismiss="modal"
                 >
-                  Cancel
+                  {t("Cancel")}
                 </button>
                 <button className="btn btn-primary" type="button">
-                  Save Address
+                  {t("Save Address")}
                 </button>
               </div>
             </div>

@@ -1,7 +1,9 @@
 import React from "react";
 import Category from "./Category";
+import { useTranslation } from "react-i18next";
 
 const Categories = ({ index, category }) => {
+  const { t } = useTranslation();
   return (
     <li
       className="nav-item border-bottom w-100 collapsed"

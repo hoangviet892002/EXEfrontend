@@ -3,10 +3,13 @@ import Item from "./Item";
 import { Link } from "react-router-dom";
 import { Pagination } from "../../../components";
 import useHook from "./hooks/useHook";
+import { useTranslation } from 'react-i18next';
 
 const Container = () => {
   const [selectedPage, setSelectedPage] = useState(1);
   const { categories } = useHook();
+  const { t } = useTranslation();
+
   const handlePageChange = (page) => {
     setSelectedPage(page);
   };
@@ -15,7 +18,7 @@ const Container = () => {
       <div className="row">
         <div className="col-12">
           <div className="page-title-box">
-            <h4 className="page-title">Categories</h4>
+            <h4 className="page-title">{t('Categories')}</h4>
           </div>
         </div>
       </div>
@@ -32,7 +35,7 @@ const Container = () => {
                     data-bs-toggle="modal"
                     data-bs-target="#addCategoryModal"
                   >
-                    Add new a categories
+                    {t('Add new a category')}
                   </a>
                 </div>
                 <div className="col-sm-7">
@@ -46,14 +49,13 @@ const Container = () => {
                 <table className="table table-centered table-nowrap mb-0">
                   <thead className="table-light">
                     <tr>
-                      <th className="all">Category</th>
-
-                      <th>Action</th>
+                      <th className="all">{t('Category')}</th>
+                      <th>{t('Action')}</th>
                     </tr>
                   </thead>
                   <tbody>
                     {categories.map((category) => (
-                      <Item category={category} />
+                      <Item key={category.id} category={category} />
                     ))}
                   </tbody>
                 </table>

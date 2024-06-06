@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import useHook from "./hooks/useHook";
 import ReactSelect from "react-select";
+import { useTranslation } from "react-i18next";
 
 const Container = () => {
+  const { t } = useTranslation();
   const { product, setProduct, loading, categoryTypes, submit } = useHook();
   const [selectType, setSelectType] = useState([]);
   const handleChangeOptions = (selectOption) => {
@@ -31,7 +33,7 @@ const Container = () => {
       <div className="row">
         <div className="col-12">
           <div className="page-title-box">
-            <h4 className="page-title">Edit Product</h4>
+            <h4 className="page-title">{t("Edit Product")}</h4>
           </div>
         </div>
       </div>
@@ -42,8 +44,8 @@ const Container = () => {
               <div className="row">
                 <form className="col-xl-6" onSubmit={handleUpdate}>
                   <div className="mb-3">
-                    <label for="projectname" className="form-label">
-                      Name
+                    <label htmlFor="projectname" className="form-label">
+                      {t("Name")}
                     </label>
                     <input
                       type="text"
@@ -53,14 +55,14 @@ const Container = () => {
                         setProduct({ ...product, productName: e.target.value })
                       }
                       className="form-control"
-                      placeholder="Enter project name"
+                      placeholder={t("Enter project name")}
                       required
                     />
                   </div>
 
                   <div className="mb-3">
-                    <label for="project-overview" className="form-label">
-                      Overview
+                    <label htmlFor="project-overview" className="form-label">
+                      {t("Overview")}
                     </label>
                     <textarea
                       value={product.product_detail}
@@ -73,13 +75,13 @@ const Container = () => {
                       className="form-control"
                       id="project-overview"
                       rows="5"
-                      placeholder="Enter some brief about project.."
+                      placeholder={t("Enter some brief about project..")}
                       required
                     ></textarea>
                   </div>
 
                   <div className="mb-3 position-relative">
-                    <label className="form-label">Dimension</label>
+                    <label className="form-label">{t("Dimension")}</label>
                     <input
                       type="text"
                       className="form-control"
@@ -95,8 +97,8 @@ const Container = () => {
                   </div>
 
                   <div className="mb-3">
-                    <label for="project-budget" className="form-label">
-                      Cost
+                    <label htmlFor="project-budget" className="form-label">
+                      {t("Cost")}
                     </label>
                     <input
                       type="number"
@@ -109,12 +111,12 @@ const Container = () => {
                         })
                       }
                       className="form-control"
-                      placeholder="Enter cost"
+                      placeholder={t("Enter cost")}
                     />
                   </div>
                   <div className="mb-3">
-                    <label for="project-budget" className="form-label">
-                      Discount
+                    <label htmlFor="project-budget" className="form-label">
+                      {t("Discount")}
                     </label>
                     <input
                       type="number"
@@ -127,12 +129,12 @@ const Container = () => {
                         })
                       }
                       className="form-control"
-                      placeholder="Enter cost"
+                      placeholder={t("Enter cost")}
                     />
                   </div>
                   <div className="mb-3">
-                    <label for="project-overview" className="form-label">
-                      Categories
+                    <label htmlFor="project-overview" className="form-label">
+                      {t("Categories")}
                     </label>
                     <ReactSelect
                       options={options}
@@ -148,22 +150,22 @@ const Container = () => {
                         role="status"
                         aria-hidden="true"
                       ></span>
-                      Loading...
+                      {t("Loading...")}
                     </button>
                   ) : (
                     <button type="submit" className="btn btn-primary mt-3">
-                      Upload
+                      {t("Upload")}
                     </button>
                   )}
                 </form>
 
                 <div className="col-xl-6">
                   <div className="mb-3 mt-3 mt-xl-0">
-                    <label for="projectname" className="mb-0">
-                      Avatar
+                    <label htmlFor="projectname" className="mb-0">
+                      {t("Avatar")}
                     </label>
                     <p className="text-muted font-14">
-                      Recommended thumbnail size 800x400 (px).
+                      {t("Recommended thumbnail size 800x400 (px).")}
                     </p>
 
                     <form
@@ -181,7 +183,7 @@ const Container = () => {
 
                       <div className="dz-message needsclick">
                         <i className="h3 text-muted dripicons-cloud-upload"></i>
-                        <h4>Drop files here or click to upload.</h4>
+                        <h4>{t("Drop files here or click to upload.")}</h4>
                       </div>
                     </form>
 
@@ -226,7 +228,7 @@ const Container = () => {
                   </div>
 
                   <div className="mb-3 position-relative" id="datepicker2">
-                    <label className="form-label">Due Date</label>
+                    <label className="form-label">{t("Due Date")}</label>
                     <input
                       type="text"
                       className="form-control"

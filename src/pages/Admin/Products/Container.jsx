@@ -3,8 +3,10 @@ import Item from "./Item";
 import { Link } from "react-router-dom";
 import { Pagination } from "../../../components";
 import useHook from "./hooks/useHook";
+import { useTranslation } from "react-i18next";
 
 const Container = () => {
+  const { t } = useTranslation();
   const { products, totalPage, currentPage, setCurrentPage, query, setQuery } =
     useHook();
 
@@ -16,7 +18,7 @@ const Container = () => {
       <div className="row">
         <div className="col-12">
           <div className="page-title-box">
-            <h4 className="page-title">Products</h4>
+            <h4 className="page-title">{t("Products")}</h4>
           </div>
         </div>
       </div>
@@ -28,15 +30,15 @@ const Container = () => {
               <div className="row mb-2">
                 <div className="col-xl-5">
                   <Link to="add" className="btn btn-danger mb-2">
-                    <i className="mdi mdi-plus-circle me-2"></i> Add Products
+                    <i className="mdi mdi-plus-circle me-2"></i> {t("Add Products")}
                   </Link>
                 </div>
                 <div className="col-sm-7">
                   <div className="text-sm-end">
                     <form className="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
                       <div className="col-auto">
-                        <label for="inputPassword2" className="visually-hidden">
-                          Search
+                        <label htmlFor="inputPassword2" className="visually-hidden">
+                          {t("Search")}
                         </label>
                         <input
                           type="search"
@@ -44,7 +46,7 @@ const Container = () => {
                           value={query}
                           onChange={(e) => setQuery(e.target.value)}
                           id="inputPassword2"
-                          placeholder="Search..."
+                          placeholder={`${t("Search")}...`}
                         />
                       </div>
                     </form>
@@ -56,16 +58,16 @@ const Container = () => {
                 <table className="table table-centered table-nowrap mb-0">
                   <thead className="table-light">
                     <tr>
-                      <th className="all">Product</th>
-                      <th>Added Date</th>
-                      <th>Price</th>
-                      <th>Status</th>
-                      <th style={{ width: "85px" }}>Action</th>
+                      <th className="all">{t("Product")}</th>
+                      <th>{t("Added Date")}</th>
+                      <th>{t("Price")}</th>
+                      <th>{t("Status")}</th>
+                      <th style={{ width: "85px" }}>{t("Action")}</th>
                     </tr>
                   </thead>
                   <tbody>
                     {products.map((product) => (
-                      <Item product={product} />
+                      <Item key={product.id} product={product} />
                     ))}
                   </tbody>
                 </table>

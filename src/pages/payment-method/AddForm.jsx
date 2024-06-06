@@ -1,4 +1,6 @@
+import { useTranslation } from "react-i18next";
 const AddForm = () => {
+  const { t } = useTranslation();
   return (
     <div
       className="modal fade"
@@ -15,7 +17,7 @@ const AddForm = () => {
         <div className="modal-content">
           <div className="modal-header align-items-center d-flex">
             <h5 className="modal-title" id="paymentModalLabel">
-              Add New Payment Method
+              {t("Add New Payment Method")}
             </h5>
 
             <button
@@ -30,7 +32,7 @@ const AddForm = () => {
             <div>
               <form className="row mb-4">
                 <div className="mb-3 col-12 col-md-12 mb-4">
-                  <h5 className="mb-3">Credit / Debit card</h5>
+                  <h5 className="mb-3">{t("Credit / Debit card")}</h5>
 
                   <div className="d-inline-flex">
                     <div className="form-check me-2">
@@ -82,41 +84,41 @@ const AddForm = () => {
 
                 <div className="mb-3 col-12 col-md-4">
                   <label for="nameoncard" className="form-label">
-                    Name on card
+                    {t("Name on card")}
                   </label>
                   <input
                     id="nameoncard"
                     type="text"
                     className="form-control"
                     name="nameoncard"
-                    placeholder="Name"
+                    placeholder={t("Name")}
                     required
                   />
                 </div>
 
                 <div className="mb-3 col-12 col-md-4">
-                  <label className="form-label">Month</label>
+                  <label className="form-label">{t("Month")}</label>
                   <select className="form-select">
-                    <option value="">Month</option>
-                    <option value="Jan">Jan</option>
-                    <option value="Feb">Feb</option>
-                    <option value="Mar">Mar</option>
-                    <option value="Apr">Apr</option>
-                    <option value="May">May</option>
-                    <option value="June">June</option>
-                    <option value="July">July</option>
-                    <option value="Aug">Aug</option>
-                    <option value="Sep">Sep</option>
-                    <option value="Oct">Oct</option>
-                    <option value="Nov">Nov</option>
-                    <option value="Dec">Dec</option>
+                    <option value="">{t("Month")}</option>
+                    <option value="Jan">{t("Jan")}</option>
+                    <option value="Feb">{t("Feb")}</option>
+                    <option value="Mar">{t("Mar")}</option>
+                    <option value="Apr">{t("Apr")}</option>
+                    <option value="May">{t("May")}</option>
+                    <option value="June">{t("June")}</option>
+                    <option value="July">{t("July")}</option>
+                    <option value="Aug">{t("Aug")}</option>
+                    <option value="Sep">{t("Sep")}</option>
+                    <option value="Oct">{t("Oct")}</option>
+                    <option value="Nov">{t("Nov")}</option>
+                    <option value="Dec">{t("Dec")}</option>
                   </select>
                 </div>
 
                 <div className="mb-3 col-12 col-md-4">
-                  <label className="form-label">Year</label>
+                  <label className="form-label">{t("Year")}</label>
                   <select className="form-select">
-                    <option value="">Year</option>
+                    <option value="">{t("Year")}</option>
                     <option value="June">2022</option>
                     <option value="July">2023</option>
                     <option value="August">2024</option>
@@ -127,7 +129,7 @@ const AddForm = () => {
 
                 <div className="mb-3 col-md-8 col-12">
                   <label for="cc-mask" className="form-label">
-                    Card Number
+                    {t("Card Number")}
                   </label>
                   <input
                     type="text"
@@ -141,12 +143,14 @@ const AddForm = () => {
                 <div className="mb-3 col-md-4 col-12">
                   <div className="mb-3">
                     <label for="cvv" className="form-label">
-                      CVV Code
+                      {t("CVV Code")}
                       <i
                         className="feather-icon icon-help-circle ms-1"
                         data-bs-toggle="tooltip"
                         data-placement="top"
-                        title="A 3 - digit number, typically printed on the back of a card."
+                        title={t(
+                          "A 3-digit number, typically printed on the back of a card."
+                        )}
                       ></i>
                     </label>
                     <input
@@ -161,20 +165,22 @@ const AddForm = () => {
 
                 <div className="col-md-6 col-12">
                   <button className="btn btn-primary" type="submit">
-                    Add New Card
+                    {t("Add New Card")}
                   </button>
                   <button
                     className="btn btn-outline-gray-400 text-muted"
                     type="button"
                     data-bs-dismiss="modal"
                   >
-                    Close
+                    {t("Close")}
                   </button>
                 </div>
               </form>
               <span>
-                <strong>Note:</strong> that you can later remove your card at
-                the account setting page.
+                <strong>{t("Note")}: </strong>{" "}
+                {t(
+                  "that you can later remove your card at the account setting page."
+                )}
               </span>
             </div>
           </div>
