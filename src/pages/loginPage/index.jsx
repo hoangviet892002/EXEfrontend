@@ -1,18 +1,15 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Footer, Navbar, ShopCart } from "../../components";
 import { useLogin } from "../../hook";
 import { useTranslation } from "react-i18next";
+import useHook from "./hook/useHook";
 
 const LoginPage = () => {
   const { t } = useTranslation();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const { login } = useLogin();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    await login(username, password);
-  };
+  const { input, setInput, handleSubmit, loading } = useHook();
+
   return (
     <>
       <Navbar />
@@ -30,7 +27,11 @@ const LoginPage = () => {
             <div className="col-12 col-md-6 offset-lg-1 col-lg-4 order-lg-2 order-1">
               <div className="mb-lg-9 mb-5">
                 <h1 className="mb-1 h2 fw-bold">{t("Sign in to FreshCart")}</h1>
-                <p>{t("Welcome back to FreshCart! Enter your email to get started.")}</p>
+                <p>
+                  {t(
+                    "Welcome back to FreshCart! Enter your email to get started."
+                  )}
+                </p>
               </div>
 
               <form onSubmit={handleSubmit}>
@@ -39,9 +40,11 @@ const LoginPage = () => {
                     <input
                       type="text"
                       className="form-control"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                      placeholder={t("User Name")}
+                      value={input.email}
+                      onChange={(e) =>
+                        setInput({ ...input, email: e.target.value })
+                      }
+                      placeholder="User Name"
                       required
                     />
                   </div>
@@ -49,9 +52,11 @@ const LoginPage = () => {
                     <input
                       type="password"
                       className="form-control"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      placeholder={t("Password")}
+                      value={input.password}
+                      onChange={(e) =>
+                        setInput({ ...input, password: e.target.value })
+                      }
+                      placeholder="Password"
                       required
                     />
                   </div>
@@ -77,13 +82,17 @@ const LoginPage = () => {
                   </div>
 
                   <div className="col-12 d-grid">
-                    <button type="submit" className="btn btn-primary">
-                      {t("Sign In")}
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      disabled={loading}
+                    >
+                      {loading ? "Loading..." : "Sign In"}
                     </button>
                   </div>
 
                   <div>
-                    {t("Don’t have an account?")} <a href="signup.html">{t("Sign Up")}</a>
+                    Don’t have an account? <Link to="/register"> Sign Up</Link>
                   </div>
                 </div>
               </form>

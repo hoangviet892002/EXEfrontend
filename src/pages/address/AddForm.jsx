@@ -1,7 +1,16 @@
 import { useTranslation } from "react-i18next";
-
+import useHook from "./hooks/useHook";
 const AddForm = () => {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
+  const {
+    input,
+    loading,
+    optionDistrict,
+    optionProvice,
+    optionWard,
+    setInput,
+    submitAddForm,
+  } = useHook();
   return (
     <div
       className="modal fade"
@@ -32,13 +41,23 @@ const AddForm = () => {
               </div>
             </div>
 
-            <div className="row g-3">
+            <form
+              className="row g-3"
+              onSubmit={(e) => {
+                e.preventDefault();
+                submitAddForm();
+              }}
+            >
               <div className="col-12">
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="First name"
+                  placeholder={t("First name")}
                   aria-label="First name"
+                  value={input.firstName}
+                  onChange={(e) => {
+                    setInput({ ...input, firstName: e.target.value });
+                  }}
                   required=""
                 />
               </div>
@@ -47,42 +66,57 @@ const AddForm = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Last name"
+                  placeholder={t("Last name")}
                   aria-label="Last name"
+                  value={input.lastName}
+                  onChange={(e) => {
+                    setInput({ ...input, lastName: e.target.value });
+                  }}
                   required=""
                 />
               </div>
-
               <div className="col-12">
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Address Line 1"
+                  placeholder={t("Phone number")}
+                  value={input.phoneNumber}
+                  onChange={(e) => {
+                    setInput({ ...input, phoneNumber: e.target.value });
+                  }}
+                  required=""
                 />
               </div>
-
               <div className="col-12">
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Address Line 2"
+                  placeholder={t("Address Line 1")}
+                  value={input.stressAddress}
+                  onChange={(e) => {
+                    setInput({ ...input, stressAddress: e.target.value });
+                  }}
                 />
               </div>
 
               <div className="col-12">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="City"
-                />
-              </div>
-
-              <div className="col-12">
-                <select className="form-select">
-                  <option selected="">India</option>
-                  <option value="1">UK</option>
-                  <option value="2">USA</option>
-                  <option value="3">UAE</option>
+                <select
+                  className="form-select"
+                  value={input.provinceID}
+                  onChange={(e) => {
+                    setInput({
+                      ...input,
+                      provinceID: e.target.value,
+                      provinceName:
+                        e.target.options[e.target.selectedIndex].text,
+                    });
+                  }}
+                >
+                  {optionProvice.map((province, index) => (
+                    <option key={index} value={province.ProvinceID}>
+                      {province.ProvinceName}
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -90,57 +124,81 @@ const AddForm = () => {
                 <select
                   className="form-select"
                   aria-label="Default select example"
+                  value={input.districtID}
+                  onChange={(e) => {
+                    setInput({
+                      ...input,
+                      districtID: e.target.value,
+                      districtName:
+                        e.target.options[e.target.selectedIndex].text,
+                    });
+                  }}
                 >
-                  <option selected="">Gujarat</option>
-                  <option value="1">Northern Ireland</option>
-                  <option value="2">Alaska</option>
-                  <option value="3">Abu Dhabi</option>
+                  {optionDistrict.map((district, index) => (
+                    <option key={index} value={district.DistrictID}>
+                      {district.DistrictName}
+                    </option>
+                  ))}
                 </select>
               </div>
-
+              <div className="col-12">
+                <select
+                  className="form-select"
+                  aria-label="Default select example"
+                  value={input.wardID}
+                  onChange={(e) => {
+                    setInput({
+                      ...input,
+                      wardID: e.target.value,
+                      wardName: e.target.options[e.target.selectedIndex].text,
+                    });
+                  }}
+                >
+                  {optionWard.map((ward, index) => (
+                    <option key={index} value={ward.WardCode}>
+                      {ward.WardName}
+                    </option>
+                  ))}
+                </select>
+              </div>
               <div className="col-12">
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Zip Code"
+                  placeholder={t("Address Line 1")}
+                  value={input.stressAddress}
+                  onChange={(e) => {
+                    setInput({ ...input, stressAddress: e.target.value });
+                  }}
                 />
-              </div>
-
-              <div className="col-12">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Business Name"
-                />
-              </div>
-
-              <div className="col-12">
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label className="form-check-label" for="flexCheckDefault">
-                    {t("Set as Default")}
-                  </label>
-                </div>
               </div>
 
               <div className="col-12 text-end">
-                <button
-                  type="button"
-                  className="btn btn-outline-primary"
-                  data-bs-dismiss="modal"
-                >
-                  {t("Cancel")}
-                </button>
-                <button className="btn btn-primary" type="button">
-                  {t("Save Address")}
-                </button>
+                {loading ? (
+                  <div className="spinner-border text-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                ) : (
+                  <>
+                    <button
+                      type="button"
+                      className="btn btn-outline-primary"
+                      data-bs-dismiss="modal"
+                    >
+                      {t("Cancel")}
+                    </button>
+
+                    <button
+                      className="btn btn-primary"
+                      type="submit"
+                      data-bs-dismiss="modal"
+                    >
+                      {t("Save")}
+                    </button>
+                  </>
+                )}
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>

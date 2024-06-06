@@ -1,8 +1,11 @@
 import { SideBarCus } from "../../components";
 import { useTranslation } from "react-i18next";
+import useHook from "./hooks/useHook";
 
 const Container = () => {
   const { t } = useTranslation();
+
+  const { input, setInput } = useHook();
   return (
     <section>
       <div className="container">
@@ -40,6 +43,10 @@ const Container = () => {
                           type="text"
                           className="form-control"
                           placeholder={t("Name")}
+                          value={input.fullName}
+                          onChange={(e) =>
+                            setInput({ ...input, fullName: e.target.value })
+                          }
                         />
                       </div>
 
@@ -49,6 +56,10 @@ const Container = () => {
                           type="email"
                           className="form-control"
                           placeholder="example@gmail.com"
+                          value={input.email}
+                          onChange={(e) =>
+                            setInput({ ...input, email: e.target.value })
+                          }
                         />
                       </div>
 
@@ -58,6 +69,10 @@ const Container = () => {
                           type="text"
                           className="form-control"
                           placeholder={t("Phone number")}
+                          value={input.phone}
+                          onChange={(e) =>
+                            setInput({ ...input, phone: e.target.value })
+                          }
                         />
                       </div>
 

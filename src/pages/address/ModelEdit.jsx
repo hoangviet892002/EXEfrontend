@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 const ModelEdit = () => {
   const { t } = useTranslation();
   return (
@@ -15,10 +15,10 @@ const ModelEdit = () => {
             <div className="d-flex justify-content-between mb-5">
               <div>
                 <h5 className="h6 mb-1" id="addAddressModalLabel">
-                  {t('Edit Shipping Address')}
+                  {t("Edit Shipping Address")}
                 </h5>
                 <p className="small mb-0">
-                  {t('Edit shipping address for your order delivery.')}
+                  {t("Edit shipping address for your order delivery.")}
                 </p>
               </div>
               <div>
@@ -36,8 +36,8 @@ const ModelEdit = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder={t('First name')}
-                  aria-label={t('First name')}
+                  placeholder={t("First name")}
+                  aria-label={t("First name")}
                   required=""
                 />
               </div>
@@ -46,8 +46,8 @@ const ModelEdit = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder={t('Last name')}
-                  aria-label={t('Last name')}
+                  placeholder={t("Last name")}
+                  aria-label={t("Last name")}
                   required=""
                 />
               </div>
@@ -56,7 +56,7 @@ const ModelEdit = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder={t('Address Line 1')}
+                  placeholder={t("Address Line 1")}
                 />
               </div>
 
@@ -64,7 +64,7 @@ const ModelEdit = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder={t('Address Line 2')}
+                  placeholder={t("Address Line 2")}
                 />
               </div>
 
@@ -72,28 +72,28 @@ const ModelEdit = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder={t('City')}
+                  placeholder={t("City")}
                 />
               </div>
 
               <div className="col-12">
                 <select className="form-select">
-                  <option selected="">{t('India')}</option>
-                  <option value="1">{t('UK')}</option>
-                  <option value="2">{t('USA')}</option>
-                  <option value="3">{t('UAE')}</option>
+                  <option selected="">{t("India")}</option>
+                  <option value="1">{t("UK")}</option>
+                  <option value="2">{t("USA")}</option>
+                  <option value="3">{t("UAE")}</option>
                 </select>
               </div>
 
               <div className="col-12">
                 <select
                   className="form-select"
-                  aria-label={t('Default select example')}
+                  aria-label={t("Default select example")}
                 >
-                  <option selected="">{t('Gujarat')}</option>
-                  <option value="1">{t('Northern Ireland')}</option>
-                  <option value="2">{t('Alaska')}</option>
-                  <option value="3">{t('Abu Dhabi')}</option>
+                  <option selected="">{t("Gujarat")}</option>
+                  <option value="1">{t("Northern Ireland")}</option>
+                  <option value="2">{t("Alaska")}</option>
+                  <option value="3">{t("Abu Dhabi")}</option>
                 </select>
               </div>
 
@@ -101,7 +101,7 @@ const ModelEdit = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder={t('Zip Code')}
+                  placeholder={t("Zip Code")}
                 />
               </div>
 
@@ -109,7 +109,7 @@ const ModelEdit = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder={t('Business Name')}
+                  placeholder={t("Business Name")}
                 />
               </div>
 
@@ -119,10 +119,10 @@ const ModelEdit = () => {
                   className="btn btn-outline-primary"
                   data-bs-dismiss="modal"
                 >
-                  {t('Cancel')}
+                  {t("Cancel")}
                 </button>
                 <button className="btn btn-primary" type="button">
-                  {t('Save Address')}
+                  {t("Save Address")}
                 </button>
               </div>
             </div>

@@ -72,7 +72,8 @@ const Navbar = () => {
                 data-bs-toggle="modal"
                 data-bs-target="#locationModal"
               >
-                <i className="feather-icon icon-map-pin me-2"></i>{t("Location")}
+                <i className="feather-icon icon-map-pin me-2"></i>
+                {t("Location")}
               </button>
             </div>
             <div className="col-md-2 col-xxl-1 text-end d-none d-lg-block">
@@ -136,11 +137,7 @@ const Navbar = () => {
                     <div className="list-inline-item">
                       <a
                         className="text-muted position-relative "
-                        data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasRight"
-                        href="#offcanvasExample"
                         role="button"
-                        aria-controls="offcanvasRight"
                         onClick={handleLogout}
                       >
                         <svg
@@ -386,7 +383,8 @@ const Navbar = () => {
                 data-bs-toggle="modal"
                 data-bs-target="#locationModal"
               >
-                <i className="feather-icon icon-map-pin me-2"></i>{t("Pick Location")}
+                <i className="feather-icon icon-map-pin me-2"></i>
+                {t("Pick Location")}
               </button>
             </div>
             <div className="d-none d-lg-block">
@@ -672,7 +670,9 @@ const Navbar = () => {
                             to="/orders"
                             className="dropdown-item no-underline"
                           >
-                            <a style={{ textDecoration: "none" }}>{t("Orders")}</a>
+                            <a style={{ textDecoration: "none" }}>
+                              {t("Orders")}
+                            </a>
                           </Link>
                         </li>
                         <li>
@@ -680,7 +680,9 @@ const Navbar = () => {
                             to="/setting"
                             className="dropdown-item no-underline"
                           >
-                            <a style={{ textDecoration: "none" }}>{t("Settings")}</a>
+                            <a style={{ textDecoration: "none" }}>
+                              {t("Settings")}
+                            </a>
                           </Link>
                         </li>
                         <li>
@@ -688,7 +690,9 @@ const Navbar = () => {
                             to="/address"
                             className="dropdown-item no-underline"
                           >
-                            <a style={{ textDecoration: "none" }}>{t("Address")}</a>
+                            <a style={{ textDecoration: "none" }}>
+                              {t("Address")}
+                            </a>
                           </Link>
                         </li>
                         <li>

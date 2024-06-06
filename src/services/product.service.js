@@ -5,6 +5,9 @@ import { toast } from "react-toastify";
 const api_url = api + "/products";
 class ProductService {
   static async CreateProduct(productImages, type, input) {
+    axios.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${localStorage.getItem("token")}`;
     type = type.map((type) => type.value);
 
     const data = {
@@ -41,6 +44,9 @@ class ProductService {
     }
   }
   static async deleteProduct(id) {
+    axios.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${localStorage.getItem("token")}`;
     try {
       const response = await axios.delete(`${api_url}/${id}`);
       if (response.data.statusCode === 202) {
@@ -65,6 +71,9 @@ class ProductService {
     }
   }
   static async updateProduct(product, type) {
+    axios.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${localStorage.getItem("token")}`;
     type = type.map((type) => type.value);
     const data = {
       discount: product.discount,
@@ -87,6 +96,9 @@ class ProductService {
     }
   }
   static async deleteImage(id) {
+    axios.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${localStorage.getItem("token")}`;
     try {
       const response = await axios.delete(`${api_url}/product_image/${id}`);
       if (response.data.statusCode === 202) {
@@ -100,6 +112,9 @@ class ProductService {
     }
   }
   static async addImage(id, url_image) {
+    axios.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${localStorage.getItem("token")}`;
     const data = [
       {
         product_id: id,

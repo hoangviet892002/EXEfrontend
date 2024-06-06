@@ -1,6 +1,12 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
+import useHook from "./hooks/useHook";
+import { useSelector } from "react-redux";
 const ModelDelete = () => {
   const { t } = useTranslation();
+
+  const address = useSelector((state) => state.address.address);
+  const { deleteAddress, loading } = useHook();
   return (
     <div
       className="modal fade"
@@ -13,7 +19,7 @@ const ModelDelete = () => {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id="deleteModalLabel">
-              {t('Delete address')}
+              {t("Delete address")}
             </h5>
             <button
               type="button"
@@ -24,32 +30,47 @@ const ModelDelete = () => {
           </div>
 
           <div className="modal-body">
-            <h6>{t('Are you sure you want to delete this address?')}</h6>
+            <h6>{t("Are you sure you want to delete this address?")}</h6>
             <p className="mb-6">
-              Jitu Chauhan
+              {address.firstName} {address.lastName}
               <br />
-              4450 North Avenue Oakland, <br />
-              Nebraska, United States,
+              {address.wardName} <br />
+              {address.districtName}, {address.provinceName},
               <br />
-              402-776-1106
+              {address.phoneNumber}
             </p>
           </div>
 
           <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-outline-gray-400"
-              data-bs-dismiss="modal"
-            >
-              {t('Cancel')}
-            </button>
-            <button type="button" className="btn btn-danger">
-              {t('Delete')}
-            </button>
+            {loading ? (
+              <>
+                <button type="button" className="btn btn-danger" disabled>
+                  Deleting...
+                </button>
+              </>
+            ) : (
+              <>
+                <button type="button" className="btn btn-outline-gray-400">
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  data-bs-dismiss="modal"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    deleteAddress(address.id);
+                  }}
+                >
+                  Delete
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>
     </div>
   );
 };
+
 export default ModelDelete;
