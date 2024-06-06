@@ -1,16 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Footer, Navbar, ShopCart } from "../../components";
 import { useLogin } from "../../hook";
+import useHook from "./hook/useHook";
 
 const LoginPage = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const { login } = useLogin();
+  const { input, setInput, handleSubmit, loading } = useHook();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    await login(username, password);
-  };
   return (
     <>
       <Navbar />
@@ -39,8 +35,10 @@ const LoginPage = () => {
                     <input
                       type="text"
                       className="form-control"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
+                      value={input.email}
+                      onChange={(e) =>
+                        setInput({ ...input, email: e.target.value })
+                      }
                       placeholder="User Name"
                       required
                     />
@@ -49,8 +47,10 @@ const LoginPage = () => {
                     <input
                       type="password"
                       className="form-control"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      value={input.password}
+                      onChange={(e) =>
+                        setInput({ ...input, password: e.target.value })
+                      }
                       placeholder="Password"
                       required
                     />
@@ -78,13 +78,17 @@ const LoginPage = () => {
                   </div>
 
                   <div className="col-12 d-grid">
-                    <button type="submit" className="btn btn-primary">
-                      Sign In
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      disabled={loading}
+                    >
+                      {loading ? "Loading..." : "Sign In"}
                     </button>
                   </div>
 
                   <div>
-                    Don’t have an account? <a href="signup.html"> Sign Up</a>
+                    Don’t have an account? <Link to="/register"> Sign Up</Link>
                   </div>
                 </div>
               </form>

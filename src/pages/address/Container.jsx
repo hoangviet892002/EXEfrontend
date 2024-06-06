@@ -1,8 +1,14 @@
+import { useSelector } from "react-redux";
 import { SideBarCus } from "../../components";
 import AddForm from "./AddForm";
 import Item from "./Item";
+import ModelDelete from "./ModelDelete";
+
+import useHook from "./hooks/useHook";
 
 const Container = () => {
+  const address = useSelector((state) => state.address.addresses);
+
   return (
     <section>
       <div className="container">
@@ -38,17 +44,16 @@ const Container = () => {
                 </a>
               </div>
               <div className="row">
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
+                {address.map((item, index) => (
+                  <Item address={item} key={index} />
+                ))}
               </div>
             </div>
           </div>
         </div>
       </div>
       <AddForm />
+      <ModelDelete />
     </section>
   );
 };

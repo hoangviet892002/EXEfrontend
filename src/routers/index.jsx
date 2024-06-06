@@ -22,6 +22,7 @@ import {
   CategoriesPages,
   ShopV2,
   CategoryType,
+  RegisterPage,
 } from "../pages";
 
 const Router = () => {
@@ -37,6 +38,10 @@ const Router = () => {
         <Route
           path="/login"
           element={!isLoggedIn ? <LoginPage /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/register"
+          element={!isLoggedIn ? <RegisterPage /> : <Navigate to="/" />}
         />
         <Route path="/wishlist" element={<WishPage />} />
         <Route path="/shop-cart" element={<CartPage />} />

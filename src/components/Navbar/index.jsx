@@ -136,11 +136,7 @@ const Navbar = () => {
                     <div className="list-inline-item">
                       <a
                         className="text-muted position-relative "
-                        data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasRight"
-                        href="#offcanvasExample"
                         role="button"
-                        aria-controls="offcanvasRight"
                         onClick={handleLogout}
                       >
                         <svg

@@ -6,6 +6,8 @@ import megaMenuReducer from "./megaMenuReducer";
 import wishReducer from "./wishReducer";
 import cartReducer from "./cartReducer";
 import languagesReducer from "./languagesReducer";
+import addressReducer from "./addressReducer";
+import checkoutReducer from "./checkoutReducer";
 
 export default combineReducers({
   user: userReducer,
@@ -15,4 +17,6 @@ export default combineReducers({
   wish: wishReducer,
   cart: cartReducer,
   languages: languagesReducer,
+  address: addressReducer,
+  checkout: checkoutReducer,
 });
