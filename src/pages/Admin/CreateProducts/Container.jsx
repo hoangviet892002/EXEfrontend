@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import imageproduct from "../../../../assets/images/products/product-img-6.jpg";
 import useHook from "./hooks/useHook";
 import Select from "react-select";
+import { useTranslation } from "react-i18next";
 
 const Container = () => {
+  const { t } = useTranslation();
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [selectType, setSelectType] = useState([]);
   const handleChangeOptions = (selectOption) => {
@@ -43,7 +45,7 @@ const Container = () => {
       <div className="row">
         <div className="col-12">
           <div className="page-title-box">
-            <h4 className="page-title">Create Product</h4>
+            <h4 className="page-title">{t("Create Product")}</h4>
           </div>
         </div>
       </div>
@@ -55,7 +57,7 @@ const Container = () => {
                 <div className="col-xl-6">
                   <div className="mb-3">
                     <label for="projectname" className="form-label">
-                      Name
+                      {t("Name")}
                     </label>
                     <input
                       type="text"
@@ -65,14 +67,14 @@ const Container = () => {
                       onChange={(e) =>
                         setInput({ ...input, name: e.target.value })
                       }
-                      placeholder="Enter project name"
+                      placeholder={t("Enter project name")}
                       required
                     />
                   </div>
 
                   <div className="mb-3">
                     <label for="project-overview" className="form-label">
-                      Overview
+                      {t("Overview")}
                     </label>
                     <textarea
                       className="form-control"
@@ -82,13 +84,13 @@ const Container = () => {
                         setInput({ ...input, detail: e.target.value })
                       }
                       rows="5"
-                      placeholder="Enter some brief about product..."
+                      placeholder={t("Enter some brief about product...")}
                       required
                     ></textarea>
                   </div>
                   <div className="mb-3">
                     <label for="project-overview" className="form-label">
-                      Dimension
+                      {t("Dimension")}
                     </label>
                     <input
                       className="form-control"
@@ -98,13 +100,13 @@ const Container = () => {
                         setInput({ ...input, dimensions: e.target.value })
                       }
                       rows="5"
-                      placeholder="Enter dimensions"
+                      placeholder={t("Enter dimensions")}
                       required
                     ></input>
                   </div>
 
                   <div className="mb-3">
-                    <label className="form-label">Cost</label>
+                    <label className="form-label">{t("Cost")}</label>
                     <input
                       type="number"
                       value={input.cost}
@@ -112,14 +114,14 @@ const Container = () => {
                         setInput({ ...input, cost: e.target.value })
                       }
                       className="form-control"
-                      placeholder="Enter cost"
+                      placeholder={t("Enter cost")}
                       required
                     />
                   </div>
 
                   <div className="mb-0">
                     <label for="project-overview" className="form-label">
-                      Categories
+                      {t("Categories")}
                     </label>
                     <Select
                       options={options}
@@ -133,10 +135,10 @@ const Container = () => {
                 <div className="col-xl-6">
                   <div className="mb-3 mt-3 mt-xl-0">
                     <label for="projectname" className="mb-0">
-                      Avatar
+                      {t("Avatar")}
                     </label>
                     <p className="text-muted font-14">
-                      Recommended thumbnail size 800x400 (px).
+                      {t("Recommended thumbnail size 800x400 (px).")}
                     </p>
 
                     <form>
@@ -145,7 +147,7 @@ const Container = () => {
                           className="upload-label d-block border border-primary rounded p-4"
                           htmlFor="fileInput"
                         >
-                          Drop files here or click to upload.
+                          {t("Drop files here or click to upload.")}
                         </label>
                         <input
                           type="file"
@@ -177,7 +179,7 @@ const Container = () => {
                               className="btn btn-danger"
                               onClick={() => handleRemoveFile(index)}
                             >
-                              Remove
+                              {t("Remove")}
                             </button>
                           </div>
                         ))}
@@ -230,11 +232,11 @@ const Container = () => {
                         role="status"
                         aria-hidden="true"
                       ></span>
-                      Loading...
+                      {t("Loading...")}
                     </button>
                   ) : (
                     <button type="submit" className="btn btn-primary mt-3">
-                      Upload
+                      {t("Upload")}
                     </button>
                   )}
                 </div>

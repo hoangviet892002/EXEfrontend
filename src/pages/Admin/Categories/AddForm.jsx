@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import useHookUploadImage from "../../../hook/useHookUploadImage";
 import useHook from "./hooks/useHook";
+import { useTranslation } from 'react-i18next';
 
 const AddForm = () => {
   const [categoryName, setCategoryName] = useState("");
   const [img, setImage] = useState("");
   const { loading, submit } = useHook();
+  const { t } = useTranslation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +27,7 @@ const AddForm = () => {
             <div className="d-flex justify-content-between mb-5">
               <div>
                 <h5 className="h6 mb-1" id="addAddressModalLabel">
-                  New Categories
+                  {t('New Categories')}
                 </h5>
               </div>
               <div>
@@ -43,8 +45,8 @@ const AddForm = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Category name"
-                  aria-label="First name"
+                  placeholder={t('Category name')}
+                  aria-label={t('Category name')}
                   required
                   value={categoryName}
                   onChange={(e) => setCategoryName(e.target.value)}
@@ -58,7 +60,7 @@ const AddForm = () => {
                     className="form-control"
                     id="inputGroupFile04"
                     aria-describedby="inputGroupFileAddon04"
-                    aria-label="Upload"
+                    aria-label={t('Upload')}
                     required
                   />
                 </div>
@@ -70,7 +72,7 @@ const AddForm = () => {
                   className="btn btn-outline-primary"
                   data-bs-dismiss="modal"
                 >
-                  Cancel
+                  {t('Cancel')}
                 </button>
                 {loading ? (
                   <button className="btn btn-primary" type="button" disabled>
@@ -79,11 +81,11 @@ const AddForm = () => {
                       role="status"
                       aria-hidden="true"
                     ></span>
-                    Loading...
+                    {t('Loading...')}
                   </button>
                 ) : (
                   <button className="btn btn-primary" type="submit">
-                    Save Category
+                    {t('Save Category')}
                   </button>
                 )}
               </div>

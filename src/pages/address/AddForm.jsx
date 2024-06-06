@@ -1,6 +1,7 @@
+import { useTranslation } from "react-i18next";
 import useHook from "./hooks/useHook";
-
 const AddForm = () => {
+  const { t } = useTranslation();
   const {
     input,
     loading,
@@ -24,10 +25,10 @@ const AddForm = () => {
             <div className="d-flex justify-content-between mb-5">
               <div>
                 <h5 className="h6 mb-1" id="addAddressModalLabel">
-                  New Shipping Address
+                  {t("New Shipping Address")}
                 </h5>
                 <p className="small mb-0">
-                  Add new shipping address for your order delivery.
+                  {t("Add new shipping address for your order delivery.")}
                 </p>
               </div>
               <div>
@@ -51,7 +52,7 @@ const AddForm = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="First name"
+                  placeholder={t("First name")}
                   aria-label="First name"
                   value={input.firstName}
                   onChange={(e) => {
@@ -65,7 +66,7 @@ const AddForm = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Last name"
+                  placeholder={t("Last name")}
                   aria-label="Last name"
                   value={input.lastName}
                   onChange={(e) => {
@@ -78,7 +79,7 @@ const AddForm = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Phone Number"
+                  placeholder={t("Phone number")}
                   value={input.phoneNumber}
                   onChange={(e) => {
                     setInput({ ...input, phoneNumber: e.target.value });
@@ -90,7 +91,7 @@ const AddForm = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Address Line "
+                  placeholder={t("Address Line 1")}
                   value={input.stressAddress}
                   onChange={(e) => {
                     setInput({ ...input, stressAddress: e.target.value });
@@ -160,6 +161,17 @@ const AddForm = () => {
                   ))}
                 </select>
               </div>
+              <div className="col-12">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder={t("Address Line 1")}
+                  value={input.stressAddress}
+                  onChange={(e) => {
+                    setInput({ ...input, stressAddress: e.target.value });
+                  }}
+                />
+              </div>
 
               <div className="col-12 text-end">
                 {loading ? (
@@ -173,7 +185,7 @@ const AddForm = () => {
                       className="btn btn-outline-primary"
                       data-bs-dismiss="modal"
                     >
-                      Cancel
+                      {t("Cancel")}
                     </button>
 
                     <button
@@ -181,7 +193,7 @@ const AddForm = () => {
                       type="submit"
                       data-bs-dismiss="modal"
                     >
-                      Save Address
+                      {t("Save")}
                     </button>
                   </>
                 )}

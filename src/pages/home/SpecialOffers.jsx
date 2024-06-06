@@ -1,11 +1,13 @@
 import { CardProductV2 } from "../../components";
+import { useTranslation } from "react-i18next";
 const SpecialOffers = () => {
+  const { t } = useTranslation();
   return (
     <section>
       <div className="container mb-9">
         <div className="row">
           <div className="col-md-12 mb-6">
-            <h3 className="mb-0">Daily Best Sells</h3>
+            <h3 className="mb-0">{t("Daily Best Sells")}</h3>
           </div>
         </div>
 
@@ -22,11 +24,11 @@ const SpecialOffers = () => {
             >
               <div>
                 <h3 className="fw-bold text-white">
-                  100% Organic Coffee Beans.
+                  {t("100% Organic Coffee Beans.")}
                 </h3>
-                <p className="text-white">Get the best deal before close.</p>
+                <p className="text-white">{t("Get the best deal before close.")}</p>
                 <a href="#!" className="btn btn-primary">
-                  Shop Now{" "}
+                  {t("Shop Now")}{" "}
                   <i className="feather-icon icon-arrow-right ms-1"></i>
                 </a>
               </div>

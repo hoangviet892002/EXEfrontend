@@ -1,5 +1,8 @@
 import Item from "./Item";
+import { useTranslation } from "react-i18next";
+
 const Container = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="row">
@@ -17,29 +20,36 @@ const Container = () => {
                 <div className="col-xl-8">
                   <form className="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
                     <div className="col-auto">
-                      <label for="inputPassword2" className="visually-hidden">
-                        Search
+                      <label htmlFor="inputPassword2" className="visually-hidden">
+                        {t("Search")}
                       </label>
                       <input
                         type="search"
                         className="form-control"
+                        value={searchQuery}
+                        onChange={handleSearchChange}
                         id="inputPassword2"
-                        placeholder="Search..."
+                        placeholder={t("Search")}
                       />
                     </div>
                     <div className="col-auto">
                       <div className="d-flex align-items-center">
-                        <label for="status-select" className="me-2">
-                          Status
+                        <label htmlFor="status-select" className="me-2">
+                          {t("Status")}
                         </label>
-                        <select className="form-select" id="status-select">
-                          <option selected>Choose...</option>
-                          <option value="1">Paid</option>
-                          <option value="2">Awaiting Authorization</option>
-                          <option value="3">Payment failed</option>
-                          <option value="4">Cash On Delivery</option>
-                          <option value="5">Fulfilled</option>
-                          <option value="6">Unfulfilled</option>
+                        <select
+                          className="form-select"
+                          id="status-select"
+                          value={selectedStatus}
+                          onChange={handleStatusChange}
+                        >
+                          <option value="">{t("Choose")}</option>
+                          <option value="1">{t("Paid")}</option>
+                          <option value="2">{t("Awaiting Authorization")}</option>
+                          <option value="3">{t("Payment failed")}</option>
+                          <option value="4">{t("Cash On Delivery")}</option>
+                          <option value="5">{t("Fulfilled")}</option>
+                          <option value="6">{t("Unfulfilled")}</option>
                         </select>
                       </div>
                     </div>
@@ -51,13 +61,13 @@ const Container = () => {
                 <table className="table table-centered table-nowrap mb-0">
                   <thead className="table-light">
                     <tr>
-                      <th>Order ID</th>
-                      <th>Date</th>
-                      <th>Payment Status</th>
-                      <th>Total</th>
-                      <th>Payment Method</th>
-                      <th>Order Status</th>
-                      <th style={{ width: "125px" }}>Action</th>
+                      <th>{t("Order ID")}</th>
+                      <th>{t("Date")}</th>
+                      <th>{t("Payment Status")}</th>
+                      <th>{t("Total")}</th>
+                      <th>{t("Payment Method")}</th>
+                      <th>{t("Order Status")}</th>
+                      <th style={{ width: "125px" }}>{t("Action")}</th>
                     </tr>
                   </thead>
                   <tbody>

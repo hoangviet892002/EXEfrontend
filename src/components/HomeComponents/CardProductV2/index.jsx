@@ -1,4 +1,6 @@
+import { useTranslation } from "react-i18next";
 const CardProductV2 = () => {
+  const { t } = useTranslation();
   return (
     <div className="col">
       <div className="card card-product">
@@ -91,7 +93,7 @@ const CardProductV2 = () => {
                 <line x1="12" y1="5" x2="12" y2="19"></line>
                 <line x1="5" y1="12" x2="19" y2="12"></line>
               </svg>{" "}
-              Add to cart{" "}
+              {t("Add to cart")}{" "}
             </a>
           </div>
           <div className="d-flex justify-content-start text-center mt-3">

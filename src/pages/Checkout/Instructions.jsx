@@ -1,4 +1,6 @@
+import { useTranslation } from "react-i18next";
 const Instructions = () => {
+  const { t } = useTranslation();
   return (
     <div className="accordion-item py-4">
       <a
@@ -10,7 +12,7 @@ const Instructions = () => {
         aria-controls="flush-collapseThree"
       >
         <i className="feather-icon icon-shopping-bag me-2 text-muted"></i>
-        Delivery instructions
+        {t("Delivery instructions")}
       </a>
       <div
         id="flush-collapseThree"
@@ -19,17 +21,18 @@ const Instructions = () => {
       >
         <div className="mt-5">
           <label for="DeliveryInstructions" className="form-label sr-only">
-            Delivery instructions
+            {t("Delivery instructions")}
           </label>
           <textarea
             className="form-control"
             id="DeliveryInstructions"
             rows="3"
-            placeholder="Write delivery instructions "
+            placeholder={t("Write delivery instructions")}
           ></textarea>
           <p className="form-text">
-            Add instructions for how you want your order shopped and/or
-            delivered
+            {t(
+              "Add instructions for how you want your order shopped and/or delivered"
+            )}
           </p>
           <div className="mt-5 d-flex justify-content-end">
             <a
@@ -40,7 +43,7 @@ const Instructions = () => {
               aria-expanded="false"
               aria-controls="flush-collapseOne"
             >
-              Prev
+              {t("Prev")}
             </a>
             <a
               href="#"
@@ -50,7 +53,7 @@ const Instructions = () => {
               aria-expanded="false"
               aria-controls="flush-collapseFour"
             >
-              Next
+              {t("Next")}
             </a>
           </div>
         </div>

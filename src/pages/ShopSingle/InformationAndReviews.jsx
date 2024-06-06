@@ -1,6 +1,9 @@
 import { Reviews } from "../../components";
 import useHook from "./hooks/useHook";
+import { useTranslation } from "react-i18next";
+
 const InforScreens = () => {
+  const { t } = useTranslation();
   const { product } = useHook();
   return (
     <>
@@ -24,7 +27,7 @@ const InforScreens = () => {
                     aria-controls="product-tab-pane"
                     aria-selected="true"
                   >
-                    Product Details
+                    {t("Product Details")}
                   </button>
                 </li>
 
@@ -54,7 +57,7 @@ const InforScreens = () => {
                     aria-controls="reviews-tab-pane"
                     aria-selected="false"
                   >
-                    Reviews
+                    {t("Reviews")}
                   </button>
                 </li>
               </ul>
@@ -162,7 +165,7 @@ const InforScreens = () => {
                       <div className="col-md-4">
                         <div className="me-lg-12 mb-6 mb-md-0">
                           <div className="mb-5">
-                            <h4 className="mb-3">Customer reviews</h4>
+                            <h4 className="mb-3">{t("Customer reviews")}</h4>
                             <span>
                               <small className="text-warning">
                                 <i className="bi bi-star-fill"></i>
@@ -171,7 +174,7 @@ const InforScreens = () => {
                                 <i className="bi bi-star-fill"></i>
                                 <i className="bi bi-star-half"></i>
                               </small>
-                              <span className="ms-3">4.1 out of 5</span>
+                              <span className="ms-3">4.1 {t("out of")} 5</span>
                               <small className="ms-3">
                                 11,130 global ratings
                               </small>
@@ -324,15 +327,15 @@ const InforScreens = () => {
                             </div>
                           </div>
                           <div className="d-grid">
-                            <h4>Review this product</h4>
+                            <h4>{t("Review this product")}</h4>
                             <p className="mb-0">
-                              Share your thoughts with other customers.
+                              {t("Share your thoughts with other customers.")}
                             </p>
                             <a
                               href="#"
                               className="btn btn-outline-gray-400 mt-4 text-muted"
                             >
-                              Write the Review
+                              {t("Write the Review")}
                             </a>
                           </div>
                         </div>
@@ -342,7 +345,7 @@ const InforScreens = () => {
                         <div className="mb-10">
                           <div className="d-flex justify-content-between align-items-center mb-8">
                             <div>
-                              <h4>Reviews</h4>
+                              <h4>{t("Reviews")}</h4>
                             </div>
                           </div>
                           <Reviews />
@@ -354,45 +357,46 @@ const InforScreens = () => {
                               href="#"
                               className="btn btn-outline-gray-400 text-muted"
                             >
-                              Read More Reviews
+                              {t("Read More Reviews")}
                             </a>
                           </div>
                         </div>
                         <div>
-                          <h3 className="mb-5">Create Review</h3>
+                          <h3 className="mb-5">{t("Create Review")}</h3>
                           <div className="border-bottom py-4 mb-4">
-                            <h4 className="mb-3">Overall rating</h4>
+                            <h4 className="mb-3">{t("Overall rating")}</h4>
                             <div id="rater"></div>
                           </div>
                           <div className="border-bottom py-4 mb-4">
-                            <h4 className="mb-0">Rate Features</h4>
+                            <h4 className="mb-0">{t("Rate Features")}</h4>
                             <div className="my-5">
-                              <h5>Flavor</h5>
+                              <h5>{t("Flavor")}</h5>
                               <div id="rate-2"></div>
                             </div>
                             <div className="my-5">
-                              <h5>Value for money</h5>
+                              <h5>{t("Value for money")}</h5>
                               <div id="rate-3"></div>
                             </div>
                             <div className="my-5">
-                              <h5>Scent</h5>
+                              <h5>{t("Scent")}</h5>
                               <div id="rate-4"></div>
                             </div>
                           </div>
 
                           <div className="border-bottom py-4 mb-4">
-                            <h5>Add a headline</h5>
+                            <h5>{t("Add a headline")}</h5>
                             <input
                               type="text"
                               className="form-control"
-                              placeholder="What’s most important to know"
+                              placeholder={t("What’s most important to know")}
                             />
                           </div>
                           <div className="border-bottom py-4 mb-4">
-                            <h5>Add a photo or video</h5>
+                            <h5>{t("Add a photo or video")}</h5>
                             <p>
-                              Shoppers find images and videos more helpful than
-                              text alone.
+                              {t(
+                                "Shoppers find images and videos more helpful than text alone."
+                              )}
                             </p>
 
                             <form
@@ -405,17 +409,19 @@ const InforScreens = () => {
                             </form>
                           </div>
                           <div className="py-4 mb-4">
-                            <h5>Add a written review</h5>
+                            <h5>{t("Add a written review")}</h5>
                             <textarea
                               className="form-control"
                               rows="3"
-                              placeholder="What did you like or dislike? What did you use this product for?"
+                              placeholder={t(
+                                "What did you like or dislike? What did you use this product for?"
+                              )}
                             ></textarea>
                           </div>
 
                           <div className="d-flex justify-content-end">
                             <a href="#" className="btn btn-primary">
-                              Submit Review
+                              {t("Submit Review")}
                             </a>
                           </div>
                         </div>
@@ -426,9 +432,9 @@ const InforScreens = () => {
 
                 <div
                   className="tab-pane fade"
-                  id="sellerInfo-tab-pane"
+                  id="details-tab-pane"
                   role="tabpanel"
-                  aria-labelledby="sellerInfo-tab"
+                  aria-labelledby="details-tab"
                   tabIndex="0"
                 >
                   ...

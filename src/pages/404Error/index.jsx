@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const ErrorPage = () => {
+  const {t} = useTranslation()
   return (
     <section>
       <div className="container d-flex flex-column">
@@ -15,15 +17,15 @@ const ErrorPage = () => {
             <div className="row justify-content-center align-items-center">
               <div className="col-md-6">
                 <div className=" mb-6 mb-lg-0">
-                  <h1>Something’s wrong here...</h1>
+                  <h1>{t("Something’s wrong here...")}</h1>
                   <p className="mb-8">
-                    We can’t find the page you’re looking for.
+              {t("We can’t find the page you’re looking for.")}
                     <br />
-                    Check out our help center or head back to home.
+                    {t("Check out our help center or head back to home.")}
                   </p>
 
                   <Link to="/" className="btn btn-primary ms-2">
-                    Back to home
+                    {t("Back to home")}
                   </Link>
                 </div>
               </div>

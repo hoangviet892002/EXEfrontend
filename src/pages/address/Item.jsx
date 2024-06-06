@@ -1,11 +1,14 @@
 import { useState } from "react";
 import ModelDelete from "./ModelDelete";
+import ModelEdit from "./ModelEdit";
+import { useTranslation } from "react-i18next";
 
 import useHook from "./hooks/useHook";
 import { useDispatch, useSelector } from "react-redux";
 import { pickAddress } from "../../redux/actions/addressAction";
-
 const Item = ({ address }) => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const { setDefaultAddress } = useHook();
   return (
@@ -17,7 +20,7 @@ const Item = ({ address }) => {
               className="form-check-label text-dark fw-semi-bold"
               htmlFor="homeRadio"
             >
-              Home
+              {t("Home")}
             </label>
           </div>
 
@@ -55,7 +58,7 @@ const Item = ({ address }) => {
               data-bs-toggle="modal"
               data-bs-target="#deleteModal"
             >
-              Delete
+              {t("Delete")}
             </a>
           </div>
         </div>

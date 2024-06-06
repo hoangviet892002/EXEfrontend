@@ -1,4 +1,6 @@
+import { useTranslation } from "react-i18next";
 const Payment = () => {
+  const { t } = useTranslation();
   return (
     <div className="accordion-item py-4">
       <a
@@ -10,7 +12,7 @@ const Payment = () => {
         aria-controls="flush-collapseFour"
       >
         <i className="feather-icon icon-credit-card me-2 text-muted"></i>
-        Payment Method
+        {t("Payment Method")}
       </a>
       <div
         id="flush-collapseFour"
@@ -35,10 +37,11 @@ const Payment = () => {
                     ></label>
                   </div>
                   <div>
-                    <h5 className="mb-1 h6">Payment with Paypal</h5>
+                    <h5 className="mb-1 h6">{t("Payment with Paypal")}</h5>
                     <p className="mb-0 small">
-                      You will be redirected to PayPal website to complete your
-                      purchase securely.
+                      {t(
+                        "You will be redirected to PayPal website to complete your purchase securely."
+                      )}
                     </p>
                   </div>
                 </div>
@@ -61,17 +64,18 @@ const Payment = () => {
                     ></label>
                   </div>
                   <div>
-                    <h5 className="mb-1 h6">Credit / Debit Card</h5>
+                    <h5 className="mb-1 h6">{t("Credit / Debit Card")}</h5>
                     <p className="mb-0 small">
-                      Safe money transfer using your bank accou k account. We
-                      support Mastercard tercard, Visa, Discover and Stripe.
+                      {t(
+                        "Safe money transfer using your bank account. We support Mastercard, Visa, Discover and Stripe."
+                      )}
                     </p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-12">
                     <div className="mb-3">
-                      <label className="form-label">Card Number</label>
+                      <label className="form-label">{t("Card Number")}</label>
                       <input
                         type="text"
                         className="form-control"
@@ -81,7 +85,7 @@ const Payment = () => {
                   </div>
                   <div className="col-md-6 col-12">
                     <div className="mb-3 mb-lg-0">
-                      <label className="form-label">Name on card</label>
+                      <label className="form-label">{t("Name on card")}</label>
                       <input
                         type="text"
                         className="form-control"
@@ -91,7 +95,7 @@ const Payment = () => {
                   </div>
                   <div className="col-md-3 col-12">
                     <div className="mb-3 mb-lg-0 position-relative">
-                      <label className="form-label">Expiry date </label>
+                      <label className="form-label">{t("Expiry date")}</label>
                       <input
                         className="form-control flatpickr"
                         type="text"
@@ -104,7 +108,7 @@ const Payment = () => {
                   </div>
                   <div className="col-md-3 col-12">
                     <div className="mb-3 mb-lg-0">
-                      <label className="form-label">CVV code </label>
+                      <label className="form-label">{t("CVV code")}</label>
                       <input
                         type="text"
                         className="form-control"
@@ -132,10 +136,11 @@ const Payment = () => {
                     ></label>
                   </div>
                   <div>
-                    <h5 className="mb-1 h6">Pay with Payoneer</h5>
+                    <h5 className="mb-1 h6">{t("Pay with Payoneer")}</h5>
                     <p className="mb-0 small">
-                      You will be redirected to Payoneer website to complete
-                      your purchase securely.
+                      {t(
+                        "You will be redirected to Payoneer website to complete your purchase securely."
+                      )}
                     </p>
                   </div>
                 </div>
@@ -158,9 +163,9 @@ const Payment = () => {
                     ></label>
                   </div>
                   <div>
-                    <h5 className="mb-1 h6">Cash on Delivery</h5>
+                    <h5 className="mb-1 h6">{t("Cash on Delivery")}</h5>
                     <p className="mb-0 small">
-                      Pay with cash when your order is delivered.
+                      {t("Pay with cash when your order is delivered.")}
                     </p>
                   </div>
                 </div>
@@ -176,10 +181,10 @@ const Payment = () => {
                 aria-expanded="false"
                 aria-controls="flush-collapseThree"
               >
-                Prev
+                {t("Prev")}
               </a>
               <a href="#" className="btn btn-primary ms-2">
-                Place Order
+                {t("Place Order")}
               </a>
             </div>
           </div>

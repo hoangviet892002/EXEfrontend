@@ -1,11 +1,14 @@
 import { CardProductV1 } from "../../components";
+import { useTranslation } from "react-i18next";
+
 const RelationItem = () => {
+  const { t } = useTranslation();
   return (
     <section className="my-lg-14 my-14">
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <h3>Related Items</h3>
+            <h3>{t("Related Items")}</h3>
           </div>
         </div>
 

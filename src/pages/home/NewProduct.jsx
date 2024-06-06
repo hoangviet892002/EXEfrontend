@@ -1,7 +1,10 @@
 import { CardProductV1 } from "../../components";
 import useHook from "./hooks/useHook";
+import { useTranslation } from "react-i18next";
+
 const NewProduct = () => {
   const { newProduct } = useHook();
+  const { t } = useTranslation();
   const categories = [
     {
       id: "fruitsandveg",
@@ -38,8 +41,8 @@ const NewProduct = () => {
           <div className="col-12">
             <div className="mb-6 d-xl-flex justify-content-between align-items-center">
               <div className="mb-5 mb-xl-0">
-                <h3 className="mb-0">New Products</h3>
-                <p className="mb-0">New products with updated stocks</p>
+                <h3 className="mb-0">{t("New Products")}</h3>
+                <p className="mb-0">{t("New products with updated stocks")}</p>
               </div>
             </div>
           </div>

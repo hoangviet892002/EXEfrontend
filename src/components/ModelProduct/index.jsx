@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import useHook from "./hooks/useHook";
+import { useTranslation } from "react-i18next";
+
 const ModelProduct = () => {
+  const { t } = useTranslation();
   const handleAdd = (e) => {
     e.preventDefault();
     setQuantity(quantity + 1);
@@ -120,7 +123,7 @@ const ModelProduct = () => {
                       <i className="bi bi-star-half"></i>
                     </small>
                     <a href="#" className="ms-2">
-                      (30 reviews)
+                      (30 {t("Reviews")})
                     </a>
                   </div>
                   <div className="fs-4">
@@ -159,7 +162,7 @@ const ModelProduct = () => {
                           step="1"
                           max="10"
                           defaultValue={quantity}
-                          name="quantity"
+                          name={t("quantity")}
                           className="quantity-field form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
                         />
                         <input
@@ -181,7 +184,7 @@ const ModelProduct = () => {
                         }}
                       >
                         <i className="feather-icon icon-shopping-bag me-2"></i>
-                        Add to cart
+                        {t("Add to cart")}
                       </button>
                     </div>
                   </div>
@@ -190,12 +193,12 @@ const ModelProduct = () => {
                     <table className="table table-borderless">
                       <tbody>
                         <tr>
-                          <td>Product Code:</td>
+                          <td>{t("Product Code")}:</td>
                           <td>{product.id}</td>
                         </tr>
                         <tr>
-                          <td>Availability:</td>
-                          <td>In Stock</td>
+                          <td>{t("Availability")}:</td>
+                          <td>{t("In Stock")}</td>
                         </tr>
                       </tbody>
                     </table>

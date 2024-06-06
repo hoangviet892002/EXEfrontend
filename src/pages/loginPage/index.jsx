@@ -2,9 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Footer, Navbar, ShopCart } from "../../components";
 import { useLogin } from "../../hook";
+import { useTranslation } from "react-i18next";
 import useHook from "./hook/useHook";
 
 const LoginPage = () => {
+  const { t } = useTranslation();
+
   const { input, setInput, handleSubmit, loading } = useHook();
 
   return (
@@ -23,9 +26,11 @@ const LoginPage = () => {
 
             <div className="col-12 col-md-6 offset-lg-1 col-lg-4 order-lg-2 order-1">
               <div className="mb-lg-9 mb-5">
-                <h1 className="mb-1 h2 fw-bold">Sign in to FreshCart</h1>
+                <h1 className="mb-1 h2 fw-bold">{t("Sign in to FreshCart")}</h1>
                 <p>
-                  Welcome back to FreshCart! Enter your email to get started.
+                  {t(
+                    "Welcome back to FreshCart! Enter your email to get started."
+                  )}
                 </p>
               </div>
 
@@ -63,17 +68,16 @@ const LoginPage = () => {
                         value=""
                         id="flexCheckDefault"
                       />
-
                       <label
                         className="form-check-label"
                         htmlFor="flexCheckDefault"
                       >
-                        Remember me
+                        {t("Remember me")}
                       </label>
                     </div>
                     <div>
-                      Forgot password?
-                      <a href="forgot-password.html">Reset It</a>
+                      {t("Forgot password?")}
+                      <a href="forgot-password.html">{t("Reset It")}</a>
                     </div>
                   </div>
 

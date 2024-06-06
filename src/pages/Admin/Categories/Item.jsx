@@ -2,9 +2,13 @@ import React from "react";
 import imageproduct from "../../../../assets/images/products/product-img-6.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import useHook from "./hooks/useHook";
+import { useTranslation } from "react-i18next";
+
 const Item = ({ category }) => {
   const { deleteCategory, selectCategory } = useHook();
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
   const actionDelete = (e) => {
     e.preventDefault();
     deleteCategory(category.id);

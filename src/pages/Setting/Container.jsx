@@ -1,7 +1,10 @@
 import { SideBarCus } from "../../components";
+import { useTranslation } from "react-i18next";
 import useHook from "./hooks/useHook";
 
 const Container = () => {
+  const { t } = useTranslation();
+
   const { input, setInput } = useHook();
   return (
     <section>
@@ -9,7 +12,7 @@ const Container = () => {
         <div className="row">
           <div className="col-12">
             <div className="p-6 d-flex justify-content-between align-items-center d-md-none">
-              <h3 className="fs-5 mb-0">Account Setting</h3>
+              <h3 className="fs-5 mb-0">{t("Account Setting")}</h3>
 
               <button
                 className="btn btn-outline-gray-400 text-muted d-md-none"
@@ -27,19 +30,19 @@ const Container = () => {
           <div className="col-lg-9 col-md-8 col-12">
             <div className="p-6 p-lg-10">
               <div className="mb-6">
-                <h2 className="mb-0">Account Setting</h2>
+                <h2 className="mb-0">{t("Account Setting")}</h2>
               </div>
               <div>
-                <h5 className="mb-4">Account details</h5>
+                <h5 className="mb-4">{t("Account details")}</h5>
                 <div className="row">
                   <div className="col-lg-5">
                     <form>
                       <div className="mb-3">
-                        <label className="form-label">Name</label>
+                        <label className="form-label">{t("Name")}</label>
                         <input
                           type="text"
                           className="form-control"
-                          placeholder="Name"
+                          placeholder={t("Name")}
                           value={input.fullName}
                           onChange={(e) =>
                             setInput({ ...input, fullName: e.target.value })
@@ -48,7 +51,7 @@ const Container = () => {
                       </div>
 
                       <div className="mb-3">
-                        <label className="form-label">Email</label>
+                        <label className="form-label">{t("Email")}</label>
                         <input
                           type="email"
                           className="form-control"
@@ -61,11 +64,11 @@ const Container = () => {
                       </div>
 
                       <div className="mb-5">
-                        <label className="form-label">Phone</label>
+                        <label className="form-label">{t("Phone")}</label>
                         <input
                           type="text"
                           className="form-control"
-                          placeholder="Phone number"
+                          placeholder={t("Phone number")}
                           value={input.phone}
                           onChange={(e) =>
                             setInput({ ...input, phone: e.target.value })
@@ -75,7 +78,7 @@ const Container = () => {
 
                       <div className="mb-3">
                         <button className="btn btn-primary">
-                          Save Details
+                          {t("Save Details")}
                         </button>
                       </div>
                     </form>
@@ -84,10 +87,10 @@ const Container = () => {
               </div>
               <hr className="my-10" />
               <div className="pe-lg-14">
-                <h5 className="mb-4">Password</h5>
+                <h5 className="mb-4">{t("Password")}</h5>
                 <form className="row row-cols-1 row-cols-lg-2">
                   <div className="mb-3 col">
-                    <label className="form-label">New Password</label>
+                    <label className="form-label">{t("New Password")}</label>
                     <input
                       type="password"
                       className="form-control"
@@ -96,7 +99,9 @@ const Container = () => {
                   </div>
 
                   <div className="mb-3 col">
-                    <label className="form-label">Current Password</label>
+                    <label className="form-label">
+                      {t("Current Password")}
+                    </label>
                     <input
                       type="password"
                       className="form-control"

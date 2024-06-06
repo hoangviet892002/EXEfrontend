@@ -1,8 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import useHook from "./hooks/useHook";
 import { useSelector } from "react-redux";
-
 const ModelDelete = () => {
+  const { t } = useTranslation();
+
   const address = useSelector((state) => state.address.address);
   const { deleteAddress, loading } = useHook();
   return (
@@ -17,7 +19,7 @@ const ModelDelete = () => {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id="deleteModalLabel">
-              Delete address
+              {t("Delete address")}
             </h5>
             <button
               type="button"
@@ -28,7 +30,7 @@ const ModelDelete = () => {
           </div>
 
           <div className="modal-body">
-            <h6>Are you sure you want to delete this address?</h6>
+            <h6>{t("Are you sure you want to delete this address?")}</h6>
             <p className="mb-6">
               {address.firstName} {address.lastName}
               <br />

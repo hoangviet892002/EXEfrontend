@@ -1,8 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { pickAddress } from "../../redux/actions/checkoutAction";
 
 const ItemAddress = ({ address }) => {
-  console.log(address);
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const isDefault = address.defaultAddress;
   const pickAddres = useSelector((state) => state.checkout.address);

@@ -1,12 +1,10 @@
 import React from "react";
 import logo from "../../../assets/images/logo/freshcart-logo.svg";
 import { Link, NavLink } from "react-router-dom";
-import { changeLanguage } from "../../redux/actions/languagesAction";
-import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+
 const SideBar = () => {
-  const options = ["en", "vi"];
-  const language = useSelector((state) => state.languages.languages);
-  const dispatch = useDispatch();
+  const { t } = useTranslation();
   return (
     <>
       <div className="leftside-menu">
@@ -32,7 +30,7 @@ const SideBar = () => {
                 >
                   <a className="side-nav-link">
                     <i className="feather-icon icon-home"></i>
-                    <span> Home </span>
+                    <span>{t('Homepage')}</span>
                   </a>
                 </div>
               )}
@@ -48,7 +46,7 @@ const SideBar = () => {
                 >
                   <a className="side-nav-link">
                     <i className="feather-icon icon-home"></i>
-                    <span> Products </span>
+                    <span>{t('Products')}</span>
                   </a>
                 </div>
               )}
@@ -65,25 +63,27 @@ const SideBar = () => {
                 >
                   <a className="side-nav-link">
                     <i className="feather-icon icon-home"></i>
-                    <span> Category </span>
+                    <span>{t('Category')}</span>
                   </a>
                 </div>
               )}
             </NavLink>
-            <div className="side-nav-item items-center">
-              <button
-                type="button"
-                class="  btn btn-primary mb-2"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const newLanguage =
-                    language === options[0] ? options[1] : options[0];
-                  dispatch(changeLanguage(newLanguage));
-                }}
-              >
-                {language}
-              </button>
-            </div>
+            <NavLink className="side-nav-item" to="/admin/orders">
+              {({ isActive }) => (
+                <div
+                  style={{
+                    background: isActive ? "#336699" : "transparent",
+                    borderRadius: "10px",
+                    margin: "10px",
+                  }}
+                >
+                  <a className="side-nav-link">
+                    <i className="feather-icon icon-home"></i>
+                    <span>{t('Orders')}</span> 
+                  </a>
+                </div>
+              )}
+            </NavLink>
           </ul>
 
           <div className="help-box text-white text-center">
@@ -98,12 +98,12 @@ const SideBar = () => {
               height="90"
               alt="Helper Icon Image"
             />
-            <h5 className="mt-3">Unlimited Access</h5>
+            <h5 className="mt-3">{t('Unlimited Access')}</h5>
             <p className="mb-3">
-              Upgrade to plan to get access to unlimited reports
+              {t('Upgrade to plan to get access to unlimited reports')} 
             </p>
             <a href="javascript: void(0);" className="btn btn-secondary btn-sm">
-              Upgrade
+              {t('Upgrade')}
             </a>
           </div>
 

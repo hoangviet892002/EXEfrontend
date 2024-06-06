@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 const Item = () => {
+  const { t } = useTranslation();
   return (
     <li className="list-group-item px-0 py-5">
       <div className="d-flex justify-content-between">
@@ -10,12 +13,12 @@ const Item = () => {
           />
           <div>
             <h5 className="mb-0 h6">Mastercard ending in 1234</h5>
-            <p className="mb-0 small">Expires in 03/2026</p>
+            <p className="mb-0 small">"Expires in 03/2026</p>
           </div>
         </div>
         <div>
           <a href="#" className="btn btn-outline-gray-400 text-muted btn-sm">
-            Remove
+            {t("Remove")}
           </a>
         </div>
       </div>

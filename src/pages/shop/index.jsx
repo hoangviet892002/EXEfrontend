@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Footer,
   Navbar,
@@ -10,6 +11,7 @@ import {
 } from "../../components";
 
 const ShopPage = () => {
+  const { t } = useTranslation();
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(100);
   const handleRangeChange = (minVal, maxVal) => {
@@ -55,7 +57,7 @@ const ShopPage = () => {
                 >
                   <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
                 </svg>{" "}
-                Filters
+                {t("Filters")}
               </a>
 
               <div className="collapse mt-6 show" id="collapseFilter">
@@ -63,7 +65,7 @@ const ShopPage = () => {
                   <div className="col">
                     <div className="card mb-4 mb-lg-0">
                       <div className="card-body p-6">
-                        <h5 className="mb-3">Categories</h5>
+                        <h5 className="mb-3">{t("Categories")}</h5>
 
                         <ul className="nav nav-category">
                           {categories.map((item) => {
@@ -95,7 +97,7 @@ const ShopPage = () => {
                     <div className="card mb-4 mb-lg-0">
                       <div className="card-body p-6">
                         <div>
-                          <h5 className="mb-3">Rating</h5>
+                          <h5 className="mb-3">{t("Rating")}</h5>
                           <div>
                             <div className="form-check mb-2">
                               <input
@@ -206,7 +208,7 @@ const ShopPage = () => {
                 <div>
                   <p className="mb-3 mb-md-0">
                     {" "}
-                    <span className="text-dark">24 </span> Products found{" "}
+                    <span className="text-dark">24 </span> {t("Products found")}{" "}
                   </p>
                 </div>
 
@@ -216,11 +218,11 @@ const ShopPage = () => {
                       className="form-select"
                       aria-label="Default select example"
                     >
-                      <option selected>Sort by: Featured</option>
-                      <option value="Low to High">Price: Low to High</option>
-                      <option value="High to Low"> Price: High to Low</option>
-                      <option value="Release Date"> Release Date</option>
-                      <option value="Avg. Rating"> Avg. Rating</option>
+                      <option selected>{t("Sort by: Featured")}</option>
+                      <option value="Low to High">{t("Price: Low to High")}</option>
+                      <option value="High to Low">{t("Price: High to Low")}</option>
+                      <option value="Release Date">{t("Release Date")}</option>
+                      <option value="Avg. Rating"> {t("Avg. Rating")}</option>
                     </select>
                   </div>
                 </div>

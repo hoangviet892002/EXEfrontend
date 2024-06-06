@@ -5,8 +5,10 @@ import { addWish, removeWish } from "../../../redux/actions/wishAction";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { addToCart } from "../../../redux/actions/cartAction";
+import { useTranslation } from "react-i18next";
 
 const CardProduct = ({ product }) => {
+  const { t } = useTranslation();
   const wishList = useSelector((state) => state.wish.wishlist);
   const isWish = wishList.some((item) => item.id === product.id);
 
@@ -110,7 +112,7 @@ const CardProduct = ({ product }) => {
                   dispatch(addToCart(product, 1));
                 }}
               >
-                Add to Cart
+                {t("Add to Cart")}
               </a>
             </div>
           </div>

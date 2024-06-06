@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import useHookUploadImage from "../../../hook/useHookUploadImage";
 import useHook from "./hooks/useHook";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const EditForm = () => {
+  const { t } = useTranslation();
   const type = useSelector((state) => state.category.categoryType);
   const [inputs, setInputs] = useState({
     name: "",
@@ -30,7 +32,7 @@ const EditForm = () => {
             <div className="d-flex justify-content-between mb-5">
               <div>
                 <h5 className="h6 mb-1" id="addAddressModalLabel">
-                  New Categories
+                  {t("New Categories")}
                 </h5>
               </div>
               <div>
@@ -48,7 +50,7 @@ const EditForm = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Category name"
+                  placeholder={t("Category name")}
                   aria-label="First name"
                   required
                   value={inputs.name}
@@ -64,7 +66,7 @@ const EditForm = () => {
                   className="btn btn-outline-primary"
                   data-bs-dismiss="modal"
                 >
-                  Cancel
+                  {t("Cancel")} 
                 </button>
                 {loading ? (
                   <button className="btn btn-primary" type="button" disabled>
@@ -73,11 +75,11 @@ const EditForm = () => {
                       role="status"
                       aria-hidden="true"
                     ></span>
-                    Loading...
+                    {t("Loading...")}
                   </button>
                 ) : (
                   <button className="btn btn-primary" type="submit">
-                    Save Type
+                    {t("Save Type")}
                   </button>
                 )}
               </div>

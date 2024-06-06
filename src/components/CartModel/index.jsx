@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import Item from "./Item";
 import useHook from "./hooks/useHook";
+import { useTranslation } from "react-i18next";
 
 const ShopCart = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { listCart, handleClearCart, totalAmount } = useHook();
   return (
@@ -15,7 +17,7 @@ const ShopCart = () => {
       >
         <div className="offcanvas-header border-bottom">
           <div className="text-start">
-            <h5 className="mb-0 fs-4">Shop Cart</h5>
+            <h5 className="mb-0 fs-4">{t("Shop Cart")}</h5>
           </div>
           <button
             type="button"
@@ -26,7 +28,7 @@ const ShopCart = () => {
         </div>
         <div className="offcanvas-body">
           <div className="alert alert-danger" role="alert">
-            You’ve got FREE delivery. Start checkout now!
+            {t("You’ve got FREE delivery. Start checkout now!")}
           </div>
           <button
             type="button"
@@ -36,7 +38,7 @@ const ShopCart = () => {
               handleClearCart();
             }}
           >
-            Clear
+            {t("Clear")}
           </button>
 
           <div>
@@ -56,7 +58,8 @@ const ShopCart = () => {
                 }}
                 data-bs-dismiss="offcanvas"
               >
-                Go to Checkout <span className="fw-bold">${totalAmount}</span>
+                {t("Go to Checkout")}{" "}
+                <span className="fw-bold">${totalAmount}</span>
               </button>
             </div>
           </div>

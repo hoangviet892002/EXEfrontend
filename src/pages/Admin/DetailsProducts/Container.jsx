@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 import useHook from "./hooks/useHook";
 import "./style.css";
 import AddImage from "./AddImage";
+import { useTranslation } from "react-i18next";
+
 const Container = () => {
+  const { t } = useTranslation();
   const { product, loading, deleteImage } = useHook();
   const [selectPicture, setSelectPicture] = useState();
   const handleDeleteImage = (e) => {
@@ -17,7 +20,7 @@ const Container = () => {
       <div className="row">
         <div className="col-12">
           <div className="page-title-box">
-            <h4 className="page-title">Product Details</h4>
+            <h4 className="page-title">{t("Product Details")}</h4>
           </div>
         </div>
       </div>
@@ -47,7 +50,7 @@ const Container = () => {
                           setSelectPicture(product.productImages[0].id);
                         }}
                       >
-                        Delete
+                        {t("Delete")}
                       </div>
                     </div>
                   </a>
@@ -74,7 +77,7 @@ const Container = () => {
                               setSelectPicture(image.id);
                             }}
                           >
-                            Delete
+                            {t("Delete")}
                           </div>
                         </div>
                       </a>
@@ -87,7 +90,7 @@ const Container = () => {
                       data-bs-toggle="modal"
                       data-bs-target="#addImage"
                     >
-                      AddImage
+                      {t("Add Image")}
                     </button>
                   </div>
                 </div>
@@ -100,7 +103,7 @@ const Container = () => {
                         <i className="feather-icon icon-edit"></i>
                       </Link>
                     </h3>
-                    <p className="mb-1">Added Date: {product.createdAt}</p>
+                    <p className="mb-1">{t("Added Date:")}{product.createdAt}</p>
                     <p className="font-16">
                       <span className="text-warning mdi mdi-star"></span>
                       <span className="text-warning mdi mdi-star"></span>
@@ -112,27 +115,27 @@ const Container = () => {
                     <div className="mt-3">
                       <h4>
                         <span className="badge badge-success-lighten">
-                          Instock
+                          {t("Instock")}
                         </span>
                       </h4>
                     </div>
 
                     <div className="mt-4">
-                      <h6 className="font-14">Retail Price:</h6>
+                      <h6 className="font-14">{t("Retail Price:")}</h6>
                       <h3>${product.cost}</h3>
                     </div>
 
                     <div className="mt-4">
-                      <h6 className="font-14 ">Description:</h6>
+                      <h6 className="font-14 ">{t("Description:")}</h6>
                       <p>{product.product_detail}</p>
                     </div>
                     <div className="mt-4">
-                      <h6 className="font-14 ">Dimensions:</h6>
+                      <h6 className="font-14 ">{t("Dimensions:")}</h6>
                       <p>{product.product_dimensions}</p>
                     </div>
                     {product.discount && (
                       <div className="mt-4">
-                        <h6 className="font-14 ">Discount:</h6>
+                        <h6 className="font-14 ">{t("Discount:")}</h6>
                         <p>{product.discount}</p>
                       </div>
                     )}
@@ -140,26 +143,23 @@ const Container = () => {
                       <table className="table table-striped table-centered mb-0">
                         <thead>
                           <tr>
-                            <th>Type</th>
-                            <th>Action</th>
+                            <th>{t("Type")}</th>
+                            <th>{t("Action")}</th>
                           </tr>
                         </thead>
                         <tbody>
                           {product.category_type_id.map((type) => (
-                            <>
-                              {" "}
-                              <tr>
-                                <td>{type.name}</td>
-                                <td className="table-action">
-                                  <a
-                                    href="javascript: void(0);"
-                                    className="action-icon"
-                                  >
-                                    <i className="feather-icon icon-trash-2"></i>
-                                  </a>
-                                </td>
-                              </tr>
-                            </>
+                            <tr key={type.id}>
+                              <td>{type.name}</td>
+                              <td className="table-action">
+                                <a
+                                  href="javascript: void(0);"
+                                  className="action-icon"
+                                >
+                                  <i className="feather-icon icon-trash-2"></i>
+                                </a>
+                              </td>
+                            </tr>
                           ))}
                         </tbody>
                       </table>
@@ -168,15 +168,15 @@ const Container = () => {
                     <div className="mt-4">
                       <div className="row">
                         <div className="col-md-4">
-                          <h6 className="font-14">Available Stock:</h6>
+                          <h6 className="font-14">{t("Available Stock:")}</h6>
                           <p className="text-sm lh-150">1784</p>
                         </div>
                         <div className="col-md-4">
-                          <h6 className="font-14">Number of Orders:</h6>
+                          <h6 className="font-14">{t("Number of Orders:")}</h6>
                           <p className="text-sm lh-150">5,458</p>
                         </div>
                         <div className="col-md-4">
-                          <h6 className="font-14">Revenue:</h6>
+                          <h6 className="font-14">{t("Revenue:")}</h6>
                           <p className="text-sm lh-150">$8,57,014</p>
                         </div>
                       </div>
@@ -189,10 +189,10 @@ const Container = () => {
                 <table className="table table-bordered table-centered mb-0">
                   <thead className="table-light">
                     <tr>
-                      <th>Outlets</th>
-                      <th>Price</th>
-                      <th>Stock</th>
-                      <th>Revenue</th>
+                      <th>{t("Outlets")}</th>
+                      <th>{t("Price")}</th>
+                      <th>{t("Stock")}</th>
+                      <th>{t("Revenue")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -296,7 +296,7 @@ const Container = () => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalCenterTitle">
-                Delete Image
+                {t("Delete Image")}
               </h5>
               <button
                 type="button"
@@ -308,7 +308,7 @@ const Container = () => {
               </button>
             </div>
             <div className="modal-body">
-              Are you sure delete this image? {selectPicture}
+              {t("Are you sure delete this image?")} {selectPicture}
             </div>
             <div className="modal-footer">
               <button
@@ -316,7 +316,7 @@ const Container = () => {
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
-                Close
+                {t("Close")}
               </button>
               <button
                 onClick={handleDeleteImage}
@@ -324,7 +324,7 @@ const Container = () => {
                 className="btn btn-danger"
                 data-bs-dismiss="modal"
               >
-                Delete
+                {t("Delete")}
               </button>
             </div>
           </div>

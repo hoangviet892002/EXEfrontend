@@ -2,10 +2,12 @@ import React from "react";
 import Item from "./Item";
 import { useSelector } from "react-redux";
 import useHook from "./hooks/useHook";
+import { useTranslation } from "react-i18next";
 
 const Container = () => {
   const category = useSelector((state) => state.category.category);
   const { categoryTypes } = useHook();
+  const { t } = useTranslation();
   return (
     <>
       <div className="row">
@@ -28,7 +30,7 @@ const Container = () => {
                     data-bs-toggle="modal"
                     data-bs-target="#addCategoryModal"
                   >
-                    Add new a category type
+                    {t("Add new a category type")}
                   </a>
                 </div>
                 <div className="col-sm-7">
@@ -42,14 +44,13 @@ const Container = () => {
                 <table className="table table-centered table-nowrap mb-0">
                   <thead className="table-light">
                     <tr>
-                      <th className="all">Category Type</th>
-
-                      <th>Action</th>
+                      <th className="all">{t("Category Type")}</th> 
+                      <th>{t("Action")}</th>
                     </tr>
                   </thead>
                   <tbody>
                     {categoryTypes.map((type) => (
-                      <Item type={type} />
+                      <Item type={type} key={type.id} /> 
                     ))}
                   </tbody>
                 </table>

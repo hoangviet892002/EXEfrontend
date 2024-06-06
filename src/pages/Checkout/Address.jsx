@@ -1,8 +1,10 @@
 import { useSelector } from "react-redux";
 import AddForm from "../address/AddForm";
 import ItemAddress from "./ItemAddress";
+import { useTranslation } from "react-i18next";
 
 const Address = () => {
+  const { t } = useTranslation();
   const address = useSelector((state) => state.address.addresses);
   const pickAddres = useSelector((state) => state.checkout.address);
   return (
@@ -17,7 +19,7 @@ const Address = () => {
           aria-controls="flush-collapseOne"
         >
           <i className="feather-icon icon-map-pin me-2 text-muted"></i>
-          Add delivery address
+          {t("Add delivery address")}
         </a>
 
         <a
@@ -26,7 +28,7 @@ const Address = () => {
           data-bs-toggle="modal"
           data-bs-target="#addAddressModal"
         >
-          Add a new address
+          {t("Add a new address")}
         </a>
       </div>
       <div

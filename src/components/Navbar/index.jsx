@@ -72,7 +72,8 @@ const Navbar = () => {
                 data-bs-toggle="modal"
                 data-bs-target="#locationModal"
               >
-                <i className="feather-icon icon-map-pin me-2"></i>Location
+                <i className="feather-icon icon-map-pin me-2"></i>
+                {t("Location")}
               </button>
             </div>
             <div className="col-md-2 col-xxl-1 text-end d-none d-lg-block">
@@ -329,7 +330,7 @@ const Navbar = () => {
                     <rect x="3" y="14" width="7" height="7"></rect>
                   </svg>
                 </span>{" "}
-                Alls Departments
+                {t("All Departments")}
               </a>
               <div className="collapse mt-2" id="collapseExample">
                 <div className="card card-body">
@@ -382,7 +383,8 @@ const Navbar = () => {
                 data-bs-toggle="modal"
                 data-bs-target="#locationModal"
               >
-                <i className="feather-icon icon-map-pin me-2"></i>Pick Location
+                <i className="feather-icon icon-map-pin me-2"></i>
+                {t("Pick Location")}
               </button>
             </div>
             <div className="d-none d-lg-block">
@@ -395,7 +397,7 @@ const Navbar = () => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    {t("Home")}
+                    {t("Homepage")}
                   </a>
                   <ul className="dropdown-menu">
                     <li>
@@ -486,7 +488,7 @@ const Navbar = () => {
                         className="dropdown-item"
                         href="pages/shop-checkout.html"
                       >
-                        Shop Checkout
+                        {t("Shop Checkout")}
                       </a>
                     </li>
                   </ul>
@@ -566,11 +568,10 @@ const Navbar = () => {
                           />
                           <div className="position-absolute ps-6 mt-8">
                             <h5 className=" mb-0 ">
-                              Dont miss this <br />
-                              offer today.
+                              {t("Dont miss this offer today.")}
                             </h5>
                             <a href="#" className="btn btn-primary btn-sm mt-3">
-                              Shop Now
+                              {t("Shop Now")}
                             </a>
                           </div>
                         </div>
@@ -599,7 +600,7 @@ const Navbar = () => {
                         className="dropdown-item"
                         href="pages/blog-single.html"
                       >
-                        Blog Single
+                        {t("Blog Single")}
                       </a>
                     </li>
                     <li>
@@ -607,22 +608,22 @@ const Navbar = () => {
                         className="dropdown-item"
                         href="pages/blog-category.html"
                       >
-                        Blog Category
+                        {t("Blog Category")}
                       </a>
                     </li>
                     <li>
                       <a className="dropdown-item" href="pages/about.html">
-                        About us
+                        {t("About us")}
                       </a>
                     </li>
                     <li>
                       <a className="dropdown-item" href="pages/404error.html">
-                        404 Error
+                        {t("404 Error")}
                       </a>
                     </li>
                     <li>
                       <a className="dropdown-item" href="pages/contact.html">
-                        Contact
+                        {t("Contact")}
                       </a>
                     </li>
                   </ul>
@@ -645,7 +646,7 @@ const Navbar = () => {
                             to="/login"
                             className="dropdown-item no-underline"
                           >
-                            Sign in
+                            {t("Sign In")}
                           </Link>
                         </li>
                         <li>
@@ -653,12 +654,12 @@ const Navbar = () => {
                             to="/register"
                             className="dropdown-item no-underline"
                           >
-                            Signup
+                            {t("Signup")}
                           </Link>
                         </li>
                         <li>
                           <a className="dropdown-item no-underline">
-                            Forgot Password
+                            {t("Forgot Password")}
                           </a>
                         </li>
                       </>
@@ -669,7 +670,9 @@ const Navbar = () => {
                             to="/orders"
                             className="dropdown-item no-underline"
                           >
-                            <a style={{ textDecoration: "none" }}>Orders</a>
+                            <a style={{ textDecoration: "none" }}>
+                              {t("Orders")}
+                            </a>
                           </Link>
                         </li>
                         <li>
@@ -677,7 +680,9 @@ const Navbar = () => {
                             to="/setting"
                             className="dropdown-item no-underline"
                           >
-                            <a style={{ textDecoration: "none" }}>Settings</a>
+                            <a style={{ textDecoration: "none" }}>
+                              {t("Settings")}
+                            </a>
                           </Link>
                         </li>
                         <li>
@@ -685,7 +690,9 @@ const Navbar = () => {
                             to="/address"
                             className="dropdown-item no-underline"
                           >
-                            <a style={{ textDecoration: "none" }}>Address</a>
+                            <a style={{ textDecoration: "none" }}>
+                              {t("Address")}
+                            </a>
                           </Link>
                         </li>
                         <li>
@@ -694,7 +701,7 @@ const Navbar = () => {
                             className="dropdown-item no-underline"
                           >
                             <a style={{ textDecoration: "none" }}>
-                              Payment Methods
+                              {t("Payment Methods")}
                             </a>
                           </Link>
                         </li>
@@ -704,7 +711,7 @@ const Navbar = () => {
                             className="dropdown-item no-underline"
                           >
                             <a style={{ textDecoration: "none" }}>
-                              Notification
+                              {t("Notification")}
                             </a>
                           </Link>
                         </li>
@@ -714,7 +721,7 @@ const Navbar = () => {
                 </li>
                 <li className="nav-item ">
                   <a className="nav-link" href="docs/index.html">
-                    Docs
+                    {t("Docs")}
                   </a>
                 </li>
               </ul>

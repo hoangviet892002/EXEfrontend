@@ -1,6 +1,9 @@
 import { useState } from "react";
 import useHook from "./hooks/useHook";
+import { useTranslation } from "react-i18next";
+
 const HeadDetail = () => {
+  const { t } = useTranslation();
   const handleAdd = (e) => {
     e.preventDefault();
     setQuantity(quantity + 1);
@@ -53,7 +56,7 @@ const HeadDetail = () => {
                     className="carousel-control-prev-icon"
                     aria-hidden="true"
                   ></span>
-                  <span className="visually-hidden">Previous</span>
+                  <span className="visually-hidden">{t("Previous")}</span>
                 </button>
                 <button
                   className="carousel-control-next"
@@ -65,7 +68,7 @@ const HeadDetail = () => {
                     className="carousel-control-next-icon"
                     aria-hidden="true"
                   ></span>
-                  <span className="visually-hidden">Next</span>
+                  <span className="visually-hidden">{t("Next")}</span>
                 </button>
               </div>
 
@@ -150,7 +153,7 @@ const HeadDetail = () => {
                       />
                     </div>
                   </div>
-                  <div className="ms-2 col-lg-4 col-5 d-grid">
+                 <div className="ms-2 col-lg-4 col-5 d-grid">
                     <button
                       type="button"
                       className="btn btn-primary"
@@ -159,8 +162,8 @@ const HeadDetail = () => {
                         handleAddtoCart();
                       }}
                     >
-                      <i className="feather-icon icon-shopping-bag me-2"></i>Add
-                      to cart
+                      <i className="feather-icon icon-shopping-bag me-2"></i>
+                      {t("Add to cart")}
                     </button>
                   </div>
                   <div className="ms-2 col-4">
@@ -168,7 +171,7 @@ const HeadDetail = () => {
                       className="btn btn-light"
                       data-bs-toggle="tooltip"
                       data-bs-html="true"
-                      title="Wishlist"
+                      title={t("Wishlist")}
                       onClick={(e) => {
                         e.preventDefault();
                         updateWish();
@@ -188,12 +191,12 @@ const HeadDetail = () => {
                   <table className="table table-borderless">
                     <tbody>
                       <tr>
-                        <td>Product Code:</td>
+                        <td>{t("Product Code")}:</td>
                         <td>{product.id}</td>
                       </tr>
                       <tr>
-                        <td>Availability:</td>
-                        <td>In Stock</td>
+                        <td>{t("Availability")}:</td>
+                        <td>{t("In Stock")}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -201,7 +204,7 @@ const HeadDetail = () => {
                   <table className="table table-striped table-centered mb-0">
                     <thead>
                       <tr>
-                        <th>Type</th>
+                        <th>{t("Type")}</th>
                       </tr>
                     </thead>
                     <tbody>
