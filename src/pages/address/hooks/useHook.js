@@ -38,7 +38,7 @@ const useHook = () => {
   }, []);
   const fetchProvice = async () => {
     const responseProvice = await OnlineGatewayService.getProvince();
-    console.log(responseProvice);
+
     if (responseProvice) {
       setOptionProvice(responseProvice.data.data);
       setInput({
@@ -91,7 +91,6 @@ const useHook = () => {
   }, [input.districtID]);
   const submitAddForm = async () => {
     setLoading(true);
-    console.log(input);
 
     const response = await AddressService.addAddress(input);
 
@@ -124,7 +123,6 @@ const useHook = () => {
     setLoading(true);
     const response = await AddressService.setDefaultAddress(id);
     if (response) {
-      console.log("set default address success");
       fetchAddress();
     }
     setLoading(false);

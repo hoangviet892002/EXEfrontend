@@ -15,5 +15,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const storage = getStorage(app);
-const api = "http://localhost:8080/api/v1";
+const api = "https://ecandle-backend.azurewebsites.net/api/v1";
 export { api, storage };

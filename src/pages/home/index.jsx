@@ -12,7 +12,7 @@ const HomePage = () => {
       <HomeBanner />
       <Categories />
       <NewProduct />
-      <SpecialOffers />
+      {/* <SpecialOffers /> */}
       <ModelProduct />
       <ShopCart />
       <Footer />

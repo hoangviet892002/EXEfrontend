@@ -52,9 +52,10 @@ const NewProduct = () => {
           <div className="col-12">
             <div className="tab-content" id="nav-tabContent">
               <div className="row row-cols-2 row-cols-xl-5 row-cols-md-3 g-4">
-                {newProduct.map((product, index) => (
-                  <CardProductV1 product={product} key={index} />
-                ))}
+                {newProduct &&
+                  newProduct.map((product, index) => (
+                    <CardProductV1 product={product} key={index} />
+                  ))}
               </div>
             </div>
           </div>

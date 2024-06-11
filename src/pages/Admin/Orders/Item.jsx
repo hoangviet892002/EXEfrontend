@@ -12,7 +12,8 @@ const Item = ({ order }) => {
         >
           #{order.id}
         </a>
-      </td>
+      </td>{" "}
+      <td>{order.fullName}</td>
       <td>
         {order.createdAt}
         <small className="text-muted">{order.timeOrder}</small>

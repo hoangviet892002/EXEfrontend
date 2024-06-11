@@ -1,16 +1,11 @@
 import { useTranslation } from "react-i18next";
+import useHook from "./hooks/useHook";
 const Instructions = () => {
   const { t } = useTranslation();
+  const { instructions, setInstructions } = useHook();
   return (
     <div className="accordion-item py-4">
-      <a
-        href="#"
-        className="text-inherit h5"
-        data-bs-toggle="collapse"
-        data-bs-target="#flush-collapseThree"
-        aria-expanded="false"
-        aria-controls="flush-collapseThree"
-      >
+      <a href="#" className="text-inherit h5">
         <i className="feather-icon icon-shopping-bag me-2 text-muted"></i>
         {t("Delivery instructions")}
       </a>
@@ -26,6 +21,8 @@ const Instructions = () => {
           <textarea
             className="form-control"
             id="DeliveryInstructions"
+            value={instructions}
+            onChange={(e) => setInstructions(e.target.value)}
             rows="3"
             placeholder={t("Write delivery instructions")}
           ></textarea>

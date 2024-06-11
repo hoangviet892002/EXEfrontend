@@ -23,11 +23,15 @@ import {
   ShopV2,
   CategoryType,
   RegisterPage,
+  OrdersAdminPage,
+  OrderDetailAdminPage,
 } from "../pages";
 
 const Router = () => {
   scrollPage();
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+  const user = useSelector((state) => state.user.data?.user);
+  console.log(user);
   return (
     <div>
       <Routes>
@@ -45,19 +49,114 @@ const Router = () => {
         />
         <Route path="/wishlist" element={<WishPage />} />
         <Route path="/shop-cart" element={<CartPage />} />
-        <Route path="/orders" element={<OrdersPage />} />
-        <Route path="/orders/:id" element={<OrderDetail />} />
-        <Route path="/setting" element={<Setting />} />
-        <Route path="/address" element={<Address />} />
-        <Route path="/payment-method" element={<PaymentMethodPage />} />
-        <Route path="/check-out" element={<Checkout />} />
+        <Route
+          path="/orders"
+          element={isLoggedIn ? <OrdersPage /> : <Navigate to="/login" />}
+        />
 
-        <Route path="/admin/products" element={<Products />} />
-        <Route path="/admin/products/add" element={<CreateProducts />} />
-        <Route path="/admin/products/:id" element={<DetailsProducts />} />
-        <Route path="/admin/products/:id/edit" element={<EditProducts />} />
-        <Route path="/admin/categories" element={<CategoriesPages />} />
-        <Route path="/admin/categories/:id" element={<CategoryType />} />
+        <Route
+          path="/orders/:id"
+          element={isLoggedIn ? <OrderDetail /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/setting"
+          element={isLoggedIn ? <Setting /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/address"
+          element={isLoggedIn ? <Address /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/payment-method"
+          element={
+            isLoggedIn ? <PaymentMethodPage /> : <Navigate to="/login" />
+          }
+        />
+        <Route
+          path="/check-out"
+          element={isLoggedIn ? <Checkout /> : <Navigate to="/login" />}
+        />
+
+        <Route
+          path="/admin/products"
+          element={
+            isLoggedIn && user?.role === "ADMIN" ? (
+              <Products />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/admin/products/add"
+          element={
+            isLoggedIn && user?.role === "ADMIN" ? (
+              <CreateProducts />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/admin/products/:id"
+          element={
+            isLoggedIn && user?.role === "ADMIN" ? (
+              <DetailsProducts />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/admin/products/:id/edit"
+          element={
+            isLoggedIn && user?.role === "ADMIN" ? (
+              <EditProducts />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/admin/categories"
+          element={
+            isLoggedIn && user?.role === "ADMIN" ? (
+              <CategoriesPages />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/admin/categories/:id"
+          element={
+            isLoggedIn && user?.role === "ADMIN" ? (
+              <CategoryType />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/admin/orders"
+          element={
+            isLoggedIn && user?.role === "ADMIN" ? (
+              <OrdersAdminPage />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/admin/orders/:id"
+          element={
+            isLoggedIn && user?.role === "ADMIN" ? (
+              <OrderDetailAdminPage />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
       </Routes>
     </div>
   );

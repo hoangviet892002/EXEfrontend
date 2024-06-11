@@ -11,8 +11,7 @@ const useHook = () => {
   const dispatch = useDispatch();
   const fetchMegaMenu = async () => {
     const response = await CategoryService.getMegaMenu();
-
-    dispatch(storeMenu(response));
+    if (response) dispatch(storeMenu(response));
   };
   useEffect(() => {
     fetchMegaMenu();

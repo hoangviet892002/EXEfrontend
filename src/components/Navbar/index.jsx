@@ -16,6 +16,8 @@ const Navbar = () => {
   const language = useSelector((state) => state.languages.languages);
   const handleLogout = (event) => {
     event.preventDefault();
+    localStorage.removeItem("token");
+    navigate("/login");
     dispatch(logout());
   };
   const options = ["en", "vi"];
@@ -194,6 +196,10 @@ const Navbar = () => {
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
               aria-expanded="false"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/shop");
+              }}
             >
               <span className="me-1">
                 <svg
@@ -216,44 +222,6 @@ const Navbar = () => {
               </span>{" "}
               {t("All Departments")}
             </button>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li>
-                <a className="dropdown-item" href="pages/shop-grid.html">
-                  Dairy, Bread & Eggs
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="pages/shop-grid.html">
-                  Snacks & Munchies
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="pages/shop-grid.html">
-                  Fruits & Vegetables
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="pages/shop-grid.html">
-                  Cold Drinks & Juices
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="pages/shop-grid.html">
-                  Breakfast & Instant Food
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="pages/shop-grid.html">
-                  Bakery & Biscuits
-                </a>
-              </li>
-
-              <li>
-                <a className="dropdown-item" href="pages/shop-grid.html">
-                  Chicken, Meat & Fish
-                </a>
-              </li>
-            </ul>
           </div>
 
           <div className="dropdown">
@@ -389,142 +357,6 @@ const Navbar = () => {
             </div>
             <div className="d-none d-lg-block">
               <ul className="navbar-nav ">
-                <li className="nav-item dropdown">
-                  <a
-                    className="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    {t("Homepage")}
-                  </a>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a className="dropdown-item" href="index.html">
-                        Home 1
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="pages/index-2.html">
-                        Home 2
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="pages/index-3.html">
-                        Home 3
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="nav-item dropdown">
-                  <a
-                    className="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    {t("Shop")}
-                  </a>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a className="dropdown-item" href="pages/shop-grid.html">
-                        Shop Grid - Filter
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="pages/shop-grid-3-column.html"
-                      >
-                        Shop Grid - 3 column
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="pages/shop-list.html">
-                        Shop List - Filter
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="pages/shop-filter.html"
-                      >
-                        Shop - Filter
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="pages/shop-fullwidth.html"
-                      >
-                        Shop Wide
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="pages/shop-single.html"
-                      >
-                        Shop Single
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="pages/shop-wishlist.html"
-                      >
-                        Shop Wishlist
-                      </a>
-                    </li>
-                    <li>
-                      <Link className="dropdown-item" to="/shop-cart">
-                        Shop Cart
-                      </Link>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="pages/shop-checkout.html"
-                      >
-                        {t("Shop Checkout")}
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="nav-item dropdown">
-                  <a
-                    className="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    {t("Stores")}
-                  </a>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a className="dropdown-item" href="pages/store-list.html">
-                        Store List
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="pages/store-grid.html">
-                        Store Grid
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="pages/store-single.html"
-                      >
-                        Store Single
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-
                 <li className="nav-item dropdown dropdown-fullwidth">
                   <a
                     className="nav-link dropdown-toggle"
@@ -537,27 +369,30 @@ const Navbar = () => {
                   </a>
                   <div className=" dropdown-menu pb-0">
                     <div className="row p-2 p-lg-4">
-                      {megaMenu.map((category, index) => (
-                        <div
-                          className="col-lg-3 col-6 mb-4 mb-lg-0"
-                          key={index}
-                        >
-                          <h6 className="text-primary ps-3">{category.name}</h6>
-                          {category.categoryTypes.map((type, index) => (
-                            <div
-                              key={index}
-                              onClick={(e) => {
-                                e.preventDefault();
-                                dispatch(pickType(type.id));
-                              }}
-                            >
-                              <Link to="/shop" className="dropdown-item">
-                                {type.name}
-                              </Link>
-                            </div>
-                          ))}
-                        </div>
-                      ))}
+                      {megaMenu &&
+                        megaMenu.map((category, index) => (
+                          <div
+                            className="col-lg-3 col-6 mb-4 mb-lg-0"
+                            key={index}
+                          >
+                            <h6 className="text-primary ps-3">
+                              {category.name}
+                            </h6>
+                            {category.categoryTypes.map((type, index) => (
+                              <div
+                                key={index}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  dispatch(pickType(type.id));
+                                }}
+                              >
+                                <Link to="/shop" className="dropdown-item">
+                                  {type.name}
+                                </Link>
+                              </div>
+                            ))}
+                          </div>
+                        ))}
 
                       <div className="col-lg-3 col-12 mb-4 mb-lg-0">
                         <div className="card border-0">
@@ -579,55 +414,7 @@ const Navbar = () => {
                     </div>
                   </div>
                 </li>
-                <li className="nav-item dropdown">
-                  <a
-                    className="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    {t("Pages")}
-                  </a>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a className="dropdown-item" href="pages/blog.html">
-                        Blog
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="pages/blog-single.html"
-                      >
-                        {t("Blog Single")}
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="dropdown-item"
-                        href="pages/blog-category.html"
-                      >
-                        {t("Blog Category")}
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="pages/about.html">
-                        {t("About us")}
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="pages/404error.html">
-                        {t("404 Error")}
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="pages/contact.html">
-                        {t("Contact")}
-                      </a>
-                    </li>
-                  </ul>
-                </li>
+
                 <li className="nav-item dropdown">
                   <a
                     className="nav-link dropdown-toggle"
@@ -718,11 +505,6 @@ const Navbar = () => {
                       </>
                     )}
                   </ul>
-                </li>
-                <li className="nav-item ">
-                  <a className="nav-link" href="docs/index.html">
-                    {t("Docs")}
-                  </a>
                 </li>
               </ul>
             </div>

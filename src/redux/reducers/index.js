@@ -8,6 +8,7 @@ import cartReducer from "./cartReducer";
 import languagesReducer from "./languagesReducer";
 import addressReducer from "./addressReducer";
 import checkoutReducer from "./checkoutReducer";
+import orderReducer from "./orderReducers";
 
 export default combineReducers({
   user: userReducer,
@@ -19,4 +20,5 @@ export default combineReducers({
   languages: languagesReducer,
   address: addressReducer,
   checkout: checkoutReducer,
+  order: orderReducer,
 });

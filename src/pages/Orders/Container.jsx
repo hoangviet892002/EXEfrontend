@@ -1,8 +1,14 @@
 import Item from "./Item";
 import { useTranslation } from "react-i18next";
+import useHook from "./hooks/useHook";
+import { Pagination } from "../../components";
 
 const Container = () => {
   const { t } = useTranslation();
+  const { current, orders, setCurrent, setTotal, total } = useHook();
+  const handlePageChange = (page) => {
+    setCurrent(page);
+  };
   return (
     <>
       <div className="row">
@@ -18,16 +24,19 @@ const Container = () => {
             <div className="card-body">
               <div className="row mb-2">
                 <div className="col-xl-8">
-                  <form className="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
+                  {/* <form className="row gy-2 gx-2 align-items-center justify-content-xl-start justify-content-between">
                     <div className="col-auto">
-                      <label htmlFor="inputPassword2" className="visually-hidden">
+                      <label
+                        htmlFor="inputPassword2"
+                        className="visually-hidden"
+                      >
                         {t("Search")}
                       </label>
                       <input
                         type="search"
                         className="form-control"
-                        value={searchQuery}
-                        onChange={handleSearchChange}
+                        // value={searchQuery}
+                        // onChange={handleSearchChange}
                         id="inputPassword2"
                         placeholder={t("Search")}
                       />
@@ -40,12 +49,14 @@ const Container = () => {
                         <select
                           className="form-select"
                           id="status-select"
-                          value={selectedStatus}
-                          onChange={handleStatusChange}
+                          // value={selectedStatus}
+                          // onChange={handleStatusChange}
                         >
                           <option value="">{t("Choose")}</option>
                           <option value="1">{t("Paid")}</option>
-                          <option value="2">{t("Awaiting Authorization")}</option>
+                          <option value="2">
+                            {t("Awaiting Authorization")}
+                          </option>
                           <option value="3">{t("Payment failed")}</option>
                           <option value="4">{t("Cash On Delivery")}</option>
                           <option value="5">{t("Fulfilled")}</option>
@@ -53,7 +64,7 @@ const Container = () => {
                         </select>
                       </div>
                     </div>
-                  </form>
+                  </form> */}
                 </div>
               </div>
 
@@ -71,16 +82,20 @@ const Container = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <Item />
-                    <Item />
-                    <Item />
-                    <Item />
+                    {orders.map((item, index) => (
+                      <Item key={index} order={item} />
+                    ))}
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
         </div>
+        <Pagination
+          total={total}
+          selected={current}
+          onChange={handlePageChange}
+        />
       </div>
     </>
   );
