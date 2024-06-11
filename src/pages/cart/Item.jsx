@@ -1,25 +1,27 @@
 import { useTranslation } from "react-i18next";
+import useHook from "../../components/CartModel/hooks/useHook";
 
-const Item = () => {
+const Item = ({ item }) => {
+  const { handleRemoveItem, UpdateQuantity } = useHook();
   const { t } = useTranslation();
   return (
     <li className="list-group-item py-3 py-lg-0 px-0 ">
       <div className="row align-items-center">
         <div className="col-3 col-md-2">
-          <img
-            src="../assets/images/products/product-img-1.jpg"
-            alt="Ecommerce"
-            className="img-fluid"
-          />
+          <img src={item.thumbnail} alt="Ecommerce" className="img-fluid" />
         </div>
         <div className="col-4 col-md-6">
-          <h6 className="mb-0">Haldiram's Sev Bhujia</h6>
-          <span>
-            <small className="text-muted">.98 / lb</small>
-          </span>
+          <h6 className="mb-0">{item.productName}</h6>
 
           <div className="mt-2 small">
-            <a href="#!" className="text-decoration-none text-inherit">
+            <a
+              onClick={(e) => {
+                e.preventDefault();
+                handleRemoveItem(item.id);
+              }}
+              role="button"
+              className="text-decoration-none text-inherit"
+            >
               <span className="me-1 align-text-bottom">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -51,12 +53,15 @@ const Item = () => {
               value="-"
               className="button-minus form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
               data-field="quantity"
+              onClick={(e) => {
+                e.preventDefault();
+                if (item.number > 1) UpdateQuantity(item, -1);
+              }}
             />
             <input
               type="number"
               step="1"
-              max="10"
-              value="1"
+              value={item.number}
               name="quantity"
               className="quantity-field form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
             />
@@ -65,6 +70,10 @@ const Item = () => {
               value="+"
               className="button-plus form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
               data-field="quantity"
+              onClick={(e) => {
+                e.preventDefault();
+                UpdateQuantity(item, 1);
+              }}
             />
           </div>
         </div>

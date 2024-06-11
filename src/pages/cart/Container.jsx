@@ -1,8 +1,12 @@
 import Item from "./Item";
 import { useTranslation } from "react-i18next";
+import useHook from "./hook/useHook";
+import { useNavigate } from "react-router-dom";
 
 const Container = () => {
   const { t } = useTranslation();
+  const { listCart, totalAmount } = useHook();
+  const navigate = useNavigate();
   return (
     <section className="mb-lg-14 mb-8 mt-8">
       <div className="container">
@@ -27,19 +31,20 @@ const Container = () => {
                 </a>
               </div>
               <ul className="list-group list-group-flush">
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
+                {listCart.map((item, index) => (
+                  <Item item={item} key={index} />
+                ))}
               </ul>
 
               <div className="d-flex justify-content-between mt-4">
-                <a href="#!" className="btn btn-primary">
+                <a
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate("/shop");
+                  }}
+                  className="btn btn-primary"
+                >
                   {t("Continue Shopping")}
-                </a>
-                <a href="#!" className="btn btn-dark">
-                  {t("Update Cart")}
                 </a>
               </div>
             </div>
@@ -55,21 +60,7 @@ const Container = () => {
                       <div className="me-auto">
                         <div>{t("Item Subtotal")}</div>
                       </div>
-                      <span>$70.00</span>
-                    </li>
-
-                    <li className="list-group-item d-flex justify-content-between align-items-start">
-                      <div className="me-auto">
-                        <div>{t("Service Fee")}</div>
-                      </div>
-                      <span>$3.00</span>
-                    </li>
-
-                    <li className="list-group-item d-flex justify-content-between align-items-start">
-                      <div className="me-auto">
-                        <div className="fw-bold">{t("Subtotal")}</div>
-                      </div>
-                      <span className="fw-bold">$67.00</span>
+                      <span>{totalAmount}</span>
                     </li>
                   </ul>
                 </div>
@@ -77,8 +68,13 @@ const Container = () => {
                   <button
                     className="btn btn-primary btn-lg d-flex justify-content-between align-items-center"
                     type="submit"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate("/check-out");
+                    }}
                   >
-                    {t("Go to Checkout")} <span className="fw-bold">$67.00</span>
+                    {t("Go to Checkout")}{" "}
+                    <span className="fw-bold">{totalAmount}</span>
                   </button>
                 </div>
 
@@ -92,7 +88,7 @@ const Container = () => {
                   </small>
                 </p>
 
-                <div className="mt-8">
+                {/* <div className="mt-8">
                   <h2 className="h5 mb-3">{t("Add Promo or Gift Card")}</h2>
                   <form>
                     <div className="mb-2">
@@ -119,7 +115,7 @@ const Container = () => {
                       <small>{t("Terms & Conditions apply")}</small>
                     </p>
                   </form>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

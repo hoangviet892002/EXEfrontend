@@ -85,10 +85,12 @@ const Navbar = () => {
                   <a
                     className="text-muted position-relative "
                     data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasRight"
-                    href="#offcanvasExample"
                     role="button"
                     aria-controls="offcanvasRight"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate("/shop-cart");
+                    }}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
