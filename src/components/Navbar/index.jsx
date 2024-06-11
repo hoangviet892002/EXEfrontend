@@ -86,7 +86,7 @@ const Navbar = () => {
                     className="text-muted position-relative "
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight"
-                    // href="#offcanvasExample"
+                    href="#offcanvasExample"
                     role="button"
                     aria-controls="offcanvasRight"
                   >
@@ -196,10 +196,6 @@ const Navbar = () => {
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              onClick={(e) => {
-                e.preventDefault();
-                navigate("/shop");
-              }}
             >
               <span className="me-1">
                 <svg
@@ -222,6 +218,44 @@ const Navbar = () => {
               </span>{" "}
               {t("All Departments")}
             </button>
+            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li>
+                <a className="dropdown-item" href="pages/shop-grid.html">
+                  Dairy, Bread & Eggs
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="pages/shop-grid.html">
+                  Snacks & Munchies
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="pages/shop-grid.html">
+                  Fruits & Vegetables
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="pages/shop-grid.html">
+                  Cold Drinks & Juices
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="pages/shop-grid.html">
+                  Breakfast & Instant Food
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="pages/shop-grid.html">
+                  Bakery & Biscuits
+                </a>
+              </li>
+
+              <li>
+                <a className="dropdown-item" href="pages/shop-grid.html">
+                  Chicken, Meat & Fish
+                </a>
+              </li>
+            </ul>
           </div>
 
           <div className="dropdown">
