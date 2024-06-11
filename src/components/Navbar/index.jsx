@@ -86,7 +86,7 @@ const Navbar = () => {
                     className="text-muted position-relative "
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight"
-                    href="#offcanvasExample"
+                    // href="#offcanvasExample"
                     role="button"
                     aria-controls="offcanvasRight"
                   >
