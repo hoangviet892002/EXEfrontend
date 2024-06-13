@@ -140,7 +140,7 @@ const HeadDetail = () => {
                         type="number"
                         step="1"
                         max="10"
-                        defaultValue={quantity}
+                        value={quantity}
                         name="quantity"
                         className="quantity-field form-control text-center flex-xl-none w-xl-30 w-xxl-10 px-0"
                       />
@@ -153,7 +153,7 @@ const HeadDetail = () => {
                       />
                     </div>
                   </div>
-                 <div className="ms-2 col-lg-4 col-5 d-grid">
+                  <div className="ms-2 col-lg-4 col-5 d-grid">
                     <button
                       type="button"
                       className="btn btn-primary"
