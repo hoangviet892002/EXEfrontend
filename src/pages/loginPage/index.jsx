@@ -18,7 +18,7 @@ const LoginPage = () => {
           <div className="row justify-content-center align-items-center">
             <div className="col-12 col-md-6 col-lg-4 order-lg-1 order-2">
               <img
-                src="../assets/images/svg-graphics/signin-g.svg"
+                src="https://firebasestorage.googleapis.com/v0/b/bannerexe-639ce.appspot.com/o/signin-g.svg?alt=media&token=06b21841-8a7c-4efb-bec7-e893a7a5f9a6"
                 alt=""
                 className="img-fluid"
               />

@@ -19,7 +19,7 @@ const useHook = () => {
   const [instructions, setInstructions] = useState("");
   const [selectPayment, setSelectPayment] = useState("");
 
-  const [totalWeight, setTotalWeight] = useState(0);
+  const [totalWeight, setTotalWeight] = useState(1);
   useEffect(() => {
     let total = 0;
     let weight = 0;
@@ -100,6 +100,10 @@ const useHook = () => {
           }),
         });
         if (res) {
+          console.log(res);
+          if (selectPayment === "PAYMENT_QR") {
+            window.open(res.body.data.checkoutUrl, "_blank");
+          }
           dispatch(clearCart());
           navigation("/orders");
         }

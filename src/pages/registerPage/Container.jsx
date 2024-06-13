@@ -9,7 +9,7 @@ const Container = () => {
         <div class="row justify-content-center align-items-center">
           <div class="col-12 col-md-6 col-lg-4 order-lg-1 order-2">
             <img
-              src="../assets/images/svg-graphics/signup-g.svg"
+              src="https://firebasestorage.googleapis.com/v0/b/bannerexe-639ce.appspot.com/o/signup-g.svg?alt=media&token=9edf7b15-5a62-42ef-bebc-6e2a11132592"
               alt=""
               class="img-fluid"
             />

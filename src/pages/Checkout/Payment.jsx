@@ -25,8 +25,8 @@ const Payment = () => {
                       type="radio"
                       name="flexRadioDefault"
                       id="paypal"
-                      value={"PAYMENT_WITH_VNPAY"}
-                      checked={selectPayment === "PAYMENT_WITH_VNPAY"}
+                      value={"PAYMENT_QR"}
+                      checked={selectPayment === "PAYMENT_QR"}
                       onChange={(e) => setSelectPayment(e.target.value)}
                     />
 

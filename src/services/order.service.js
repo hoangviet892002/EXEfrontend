@@ -4,15 +4,17 @@ import { api } from "../configs";
 const api_url = api + "/order";
 class OrderService {
   static async checkOut(data) {
-    console.log(data);
     axios.defaults.headers.common[
       "Authorization"
     ] = `Bearer ${localStorage.getItem("token")}`;
+    data.returnUrl = "http://localhost:5173/orders";
+    data.cancelUrl = "http://localhost:5173/orders";
     try {
       const response = await axios.post(`${api_url}`, data);
+
       if (response.data.statusCode === 200) {
         toast.success(response.data.message);
-        console.log(response.data.data);
+        console.log(response.data.data.body);
         return response.data.data;
       } else {
         toast.error(response.data.message);
