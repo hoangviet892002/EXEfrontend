@@ -2,225 +2,11 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 const Footer = () => {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   return (
     <>
       <div className="footer">
         <div className="container">
-          <footer className="row g-4 py-4">
-            <div className="col-12 col-md-12 col-lg-4">
-              <h6 className="mb-4">{t("Categories")}</h6>
-              <div className="row">
-                <div className="col-6">
-                  <ul className="nav flex-column">
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Vegetables & Fruits
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Breakfast & instant food
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Bakery & Biscuits
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Atta, rice & dal
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Sauces & spreads
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Organic & gourmet
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Baby care
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Cleaning essentials
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Personal care
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="col-6">
-                  <ul className="nav flex-column">
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Dairy, bread & eggs
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Cold drinks & juices
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Tea, coffee & drinks
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Masala, oil & more
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Chicken, meat & fish
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Paan corner
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Pharma & wellness
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Home & office
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/shop-grid.html" className="nav-link">
-                        Pet care
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-md-12 col-lg-8">
-              <div className="row g-4">
-                <div className="col-6 col-sm-6 col-md-3">
-                  <h6 className="mb-4">{t("Get to know us")}</h6>
-                  <ul className="nav flex-column">
-                    <li className="nav-item mb-2">
-                      <a href="pages/about.html" className="nav-link">
-                        {t("Company")}
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/about.html" className="nav-link">
-                        {t("About us")}
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="pages/blog.html" className="nav-link">
-                        Blog
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="#!" className="nav-link">
-                        {t("Help Center")}
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="#!" className="nav-link">
-                        {t("Our Value")}
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="col-6 col-sm-6 col-md-3">
-                  <h6 className="mb-4">{t("For Consumers")}</h6>
-                  <ul className="nav flex-column">
-                    <li className="nav-item mb-2">
-                      <a href="#!" className="nav-link">
-                        {t("Payments")}
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="#!" className="nav-link">
-                        {t("Shipping")}
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="#!" className="nav-link">
-                        {t("Product Returns")}
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="#!" className="nav-link">
-                        FAQ
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a
-                        href="pages/shop-shop-checkout.html"
-                        className="nav-link"
-                      >
-                        {t("Shop Checkout")}
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* <div className="col-6 col-sm-6 col-md-3">
-                  <h6 className="mb-4">Become a Shopper</h6>
-                  <ul className="nav flex-column">
-                    <li className="nav-item mb-2">
-                      <a href="#!" className="nav-link">
-                        Shopper Opportunities
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="#!" className="nav-link">
-                        Become a Shopper
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="#!" className="nav-link">
-                        Earnings
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="#!" className="nav-link">
-                        Ideas & Guides
-                      </a>
-                    </li>
-                    <li className="nav-item mb-2">
-                      <a href="#!" className="nav-link">
-                        New Retailers
-                      </a>
-                    </li>
-                  </ul>
-                </div> */}
-                <div className="col-6 col-sm-6 col-md-3">
-                  <h6 className="mb-4">{t("Programs")}</h6>
-                  <ul className="nav flex-column">
-                    <li className="nav-item mb-2">
-                      <a href="#!" className="nav-link">
-                        {t("Promos")}
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </footer>
           <div className="border-top py-4">
             <div className="row align-items-center">
               <div className="col-lg-5 text-lg-start text-center mb-2 mb-lg-0">
@@ -295,9 +81,14 @@ const Footer = () => {
               </div> */}
               <div className="col-md-6">
                 <ul className="list-inline text-md-end mb-0 small mt-3 mt-md-0">
-                  <li className="list-inline-item text-muted">{t("Follow us on")}</li>
+                  <li className="list-inline-item text-muted">
+                    {t("Follow us on")}
+                  </li>
                   <li className="list-inline-item me-1">
-                    <a href="https://www.facebook.com/profile.php?id=61559804273177" className="icon-shape icon-sm social-links">
+                    <a
+                      href="https://www.facebook.com/profile.php?id=61559804273177"
+                      className="icon-shape icon-sm social-links"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
@@ -325,7 +116,10 @@ const Footer = () => {
                     </a>
                   </li> */}
                   <li className="list-inline-item">
-                    <a href="https://www.instagram.com/teracandle02/" className="icon-shape icon-sm social-links">
+                    <a
+                      href="https://www.instagram.com/teracandle02/"
+                      className="icon-shape icon-sm social-links"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"

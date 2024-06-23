@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../../assets/images/logo/freshcart-logo.svg";
+import logo from "../../assets/logo.png";
 import { pickType } from "../../redux/actions/megaMenuAction";
 import { logout } from "../../redux/actions/userAction";
 import useHook from "./hooks/useHook";
@@ -31,7 +31,11 @@ const Navbar = () => {
           <div className="row w-100 align-items-center g-3">
             <div className="col-xxl-2 col-lg-3">
               <Link className="navbar-brand d-none d-lg-block" to="/">
-                <img src={logo} alt="eCommerce HTML Template" />
+                <img
+                  src={logo}
+                  style={{ width: "150px" }}
+                  alt="eCommerce HTML Template"
+                />
               </Link>
             </div>
             <div className="col-xxl-6 col-lg-5 d-none d-lg-block">
