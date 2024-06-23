@@ -437,7 +437,7 @@ const Navbar = () => {
                       <div className="col-lg-3 col-12 mb-4 mb-lg-0">
                         <div className="card border-0">
                           <img
-                            src="assets/images/banner/menu-banner.jpg"
+                            src="https://firebasestorage.googleapis.com/v0/b/bannerexe-639ce.appspot.com/o/5.png?alt=media&token=fac90084-982f-471b-9859-f6fc616ccca1"
                             alt="eCommerce HTML Template"
                             className="img-fluid rounded-3"
                           />
@@ -445,9 +445,12 @@ const Navbar = () => {
                             <h5 className=" mb-0 ">
                               {t("Dont miss this offer today.")}
                             </h5>
-                            <a href="#" className="btn btn-primary btn-sm mt-3">
+                            <Link
+                              to="/shop"
+                              className="btn btn-primary btn-sm mt-3"
+                            >
                               {t("Shop Now")}
-                            </a>
+                            </Link>
                           </div>
                         </div>
                       </div>
