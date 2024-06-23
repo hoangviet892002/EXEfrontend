@@ -196,7 +196,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg navbar-light navbar-default pt-0 pb-0">
         <div className="container px-0 px-md-3">
           <div className="dropdown me-3 d-none d-lg-block">
-            <button
+            {/* <button
               className="btn btn-primary px-6 "
               type="button"
               id="dropdownMenuButton1"
@@ -223,7 +223,7 @@ const Navbar = () => {
                 </svg>
               </span>{" "}
               {t("All Departments")}
-            </button>
+            </button> */}
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li>
                 <a className="dropdown-item" href="pages/shop-grid.html">
