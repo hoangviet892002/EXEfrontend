@@ -6,11 +6,13 @@ import { useTranslation } from "react-i18next";
 import ModelDelete from "./ModelDelete";
 
 import useHook from "./hooks/useHook";
+import { useState } from "react";
 
 const Container = () => {
   const { t } = useTranslation();
 
   const address = useSelector((state) => state.address.addresses);
+  const [addForm, setAddForm] = useState(false);
 
   return (
     <section>
@@ -39,8 +41,10 @@ const Container = () => {
                 <a
                   href="#"
                   className="btn btn-outline-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#addAddressModal"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setAddForm(true);
+                  }}
                 >
                   {t("Add a new address")}
                 </a>
@@ -54,7 +58,7 @@ const Container = () => {
           </div>
         </div>
       </div>
-      <AddForm />
+      <AddForm isActive={addForm} setIsActive={setAddForm} />
       <ModelDelete />
     </section>
   );

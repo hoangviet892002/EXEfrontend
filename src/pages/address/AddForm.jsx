@@ -1,6 +1,8 @@
 import { useTranslation } from "react-i18next";
 import useHook from "./hooks/useHook";
-const AddForm = () => {
+import "./style.css";
+import { useEffect, useState } from "react";
+const AddForm = ({ isActive, setIsActive }) => {
   const { t } = useTranslation();
   const {
     input,
@@ -11,15 +13,24 @@ const AddForm = () => {
     setInput,
     submitAddForm,
   } = useHook();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  useEffect(() => {
+    if (isActive) {
+      setIsModalVisible(true);
+    } else {
+      setIsModalVisible(false);
+    }
+  }, [isActive]);
   return (
     <div
-      className="modal fade"
+      className={`modal-form-background ${isModalVisible ? "active" : ""}`}
       id="addAddressModal"
       tabIndex="-1"
       aria-labelledby="addAddressModalLabel"
-      aria-hidden="true"
+      aria-hidden={!isModalVisible}
+      style={{ display: isModalVisible ? "block" : "none" }}
     >
-      <div className="modal-dialog">
+      <div className="modal-form-address">
         <div className="modal-content">
           <div className="modal-body p-6">
             <div className="d-flex justify-content-between mb-5">
@@ -37,6 +48,9 @@ const AddForm = () => {
                   className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
+                  onClick={() => {
+                    setIsActive(false);
+                  }}
                 ></button>
               </div>
             </div>
@@ -184,6 +198,9 @@ const AddForm = () => {
                       type="button"
                       className="btn btn-outline-primary"
                       data-bs-dismiss="modal"
+                      onClick={() => {
+                        setIsActive(false);
+                      }}
                     >
                       {t("Cancel")}
                     </button>
@@ -192,6 +209,9 @@ const AddForm = () => {
                       className="btn btn-primary"
                       type="submit"
                       data-bs-dismiss="modal"
+                      onClick={() => {
+                        setIsActive(false);
+                      }}
                     >
                       {t("Save")}
                     </button>

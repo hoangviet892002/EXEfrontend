@@ -3,12 +3,14 @@ import AddForm from "../address/AddForm";
 import ItemAddress from "./ItemAddress";
 import { useTranslation } from "react-i18next";
 import useHook from "./hooks/useHook";
+import { useState } from "react";
 
 const Address = () => {
   const { t } = useTranslation();
   const address = useSelector((state) => state.address.addresses);
   const pickAddres = useSelector((state) => state.checkout.address);
   const { isVaild } = useHook();
+  const [addForm, setAddForm] = useState(false);
   return (
     <div className="accordion-item py-4">
       <div className="d-flex justify-content-between align-items-center">
@@ -20,8 +22,10 @@ const Address = () => {
         <a
           href="#"
           className="btn btn-outline-primary btn-sm"
-          data-bs-toggle="modal"
-          data-bs-target="#addAddressModal"
+          onClick={(e) => {
+            e.preventDefault();
+            setAddForm(true);
+          }}
         >
           {t("Add a new address")}
         </a>
@@ -60,7 +64,7 @@ const Address = () => {
           </div>
         )}
       </div>
-      <AddForm />
+      <AddForm isActive={addForm} setIsActive={setAddForm} />
     </div>
   );
 };
