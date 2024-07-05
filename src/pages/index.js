@@ -21,6 +21,7 @@ import CategoryType from "./Admin/CategoryTypePage";
 import RegisterPage from "./registerPage";
 import OrdersAdminPage from "./Admin/Orders";
 import OrderDetailAdminPage from "./Admin/OrderDetail";
+import Dashboard from "./Admin/Dashboard";
 export {
   HomePage,
   ShopPage,
@@ -45,4 +46,5 @@ export {
   RegisterPage,
   OrdersAdminPage,
   OrderDetailAdminPage,
+  Dashboard,
 };

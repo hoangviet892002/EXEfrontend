@@ -14,6 +14,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const language = useSelector((state) => state.languages.languages);
+
   const handleLogout = (event) => {
     event.preventDefault();
     localStorage.removeItem("token");
@@ -71,17 +72,21 @@ const Navbar = () => {
                 </div>
               </form>
             </div>
-            <div className="col-md-2 col-xxl-3 d-none d-lg-block">
-              <button
-                type="button"
-                className="btn  btn-outline-gray-400 text-muted"
-                data-bs-toggle="modal"
-                data-bs-target="#locationModal"
-              >
-                <i className="feather-icon icon-map-pin me-2"></i>
-                {t("Location")}
-              </button>
-            </div>
+            {user &&
+              user.data &&
+              user.data.user &&
+              user.data.user.role === "ADMIN" && (
+                <div className="col-md-2 col-xxl-3 d-none d-lg-block">
+                  <Link
+                    to="/admin/dashboard"
+                    type="button"
+                    className="btn  btn-outline-gray-400 text-muted"
+                  >
+                    {t("Admin Panel")}
+                  </Link>
+                </div>
+              )}
+
             <div className="col-md-2 col-xxl-1 text-end d-none d-lg-block">
               <div className="list-inline">
                 <div className="list-inline-item"></div>

@@ -4,6 +4,7 @@ import CategoryTypeService from "./categoryType.service";
 import ProductService from "./product.service";
 import OnlineGatewayService from "./online-gateway.service";
 import OrderService from "./order.service";
+import DashboardService from "./dashboard.service";
 export {
   AuthService,
   CategoryService,
@@ -11,4 +12,5 @@ export {
   ProductService,
   OnlineGatewayService,
   OrderService,
+  DashboardService,
 };

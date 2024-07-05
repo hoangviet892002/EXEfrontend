@@ -19,7 +19,7 @@ const SideBar = () => {
 
         <div className="h-100" id="leftside-menu-container" data-simplebar>
           <ul className="side-nav">
-            <NavLink className="side-nav-item" to="/admin/" end>
+            <NavLink className="side-nav-item" to="/admin/dashboard" end>
               {({ isActive }) => (
                 <div
                   style={{
@@ -30,7 +30,7 @@ const SideBar = () => {
                 >
                   <a className="side-nav-link">
                     <i className="feather-icon icon-home"></i>
-                    <span>{t('Homepage')}</span>
+                    <span>{t("Dashboard")}</span>
                   </a>
                 </div>
               )}
@@ -46,7 +46,7 @@ const SideBar = () => {
                 >
                   <a className="side-nav-link">
                     <i className="feather-icon icon-home"></i>
-                    <span>{t('Products')}</span>
+                    <span>{t("Products")}</span>
                   </a>
                 </div>
               )}
@@ -63,7 +63,7 @@ const SideBar = () => {
                 >
                   <a className="side-nav-link">
                     <i className="feather-icon icon-home"></i>
-                    <span>{t('Category')}</span>
+                    <span>{t("Category")}</span>
                   </a>
                 </div>
               )}
@@ -79,7 +79,7 @@ const SideBar = () => {
                 >
                   <a className="side-nav-link">
                     <i className="feather-icon icon-home"></i>
-                    <span>{t('Orders')}</span> 
+                    <span>{t("Orders")}</span>
                   </a>
                 </div>
               )}
@@ -98,12 +98,12 @@ const SideBar = () => {
               height="90"
               alt="Helper Icon Image"
             />
-            <h5 className="mt-3">{t('Unlimited Access')}</h5>
+            <h5 className="mt-3">{t("Unlimited Access")}</h5>
             <p className="mb-3">
-              {t('Upgrade to plan to get access to unlimited reports')} 
+              {t("Upgrade to plan to get access to unlimited reports")}
             </p>
             <a href="javascript: void(0);" className="btn btn-secondary btn-sm">
-              {t('Upgrade')}
+              {t("Upgrade")}
             </a>
           </div>
 

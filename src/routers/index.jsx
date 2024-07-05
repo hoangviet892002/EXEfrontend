@@ -25,13 +25,14 @@ import {
   RegisterPage,
   OrdersAdminPage,
   OrderDetailAdminPage,
+  Dashboard,
 } from "../pages";
 
 const Router = () => {
   scrollPage();
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const user = useSelector((state) => state.user.data?.user);
-  console.log(user);
+
   return (
     <div>
       <Routes>
@@ -77,6 +78,16 @@ const Router = () => {
           element={isLoggedIn ? <Checkout /> : <Navigate to="/login" />}
         />
 
+        <Route
+          path="/admin/dashboard"
+          element={
+            isLoggedIn && user?.role === "ADMIN" ? (
+              <Dashboard />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
         <Route
           path="/admin/products"
           element={
