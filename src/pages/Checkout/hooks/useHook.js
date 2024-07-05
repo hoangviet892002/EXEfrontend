@@ -100,9 +100,8 @@ const useHook = () => {
           }),
         });
         if (res) {
-          console.log(res);
-          if (selectPayment === "PAYMENT_QR") {
-            window.open(res.body.data.checkoutUrl, "_blank");
+          if (res.body.qrCodeLink) {
+            window.open(res.body.qrCodeLink, "_blank");
           }
           dispatch(clearCart());
           navigation("/orders");
